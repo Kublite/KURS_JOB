@@ -1,1 +1,61 @@
-/*# sourceMappingURL=styles.css.map */
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter24pt-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter24pt-Bold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --color-light: #FAFCFF;
+  --color-dark: #1A3856;
+  --color-accent: #C21631;
+  --color-gray-alt: #4F6A84;
+  --border: 1px solid var(--color-gray-alt);
+  --border-radus:10px;
+  --font-family-base: "Inter", sans-serif;
+  --container-width: 1280px;
+  --container-padding-x: 20px;
+  --section-padding-y: 70px
+  --input-height: 52px
+  --button-height: 52px
+  --transition-duration: 0.2s;
+}
+
+.container {
+  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  -webkit-clip-path: inset(100%) !important;
+          clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+
+@media (max-width: 767px) {
+  .hiden-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .visible-mobile {
+    display: none !important;
+  }
+}/*# sourceMappingURL=styles.css.map */
