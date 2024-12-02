@@ -58,4 +58,38 @@
   .visible-mobile {
     display: none !important;
   }
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.28;
+  color: var(--color-dark);
+  background-color: var(--color-light);
+}
+
+a,
+button,
+input,
+textarea,
+svg * {
+  transition-duration: none;
+  color: inherit;
+}
+
+h2, h3, h4 {
+  font-weight: 500;
+}
+
+h2 {
+  font-size: clamp(36px, 3.3333333333vp, 64px);
+}
+
+h3 {
+  font-size: clamp(28px, 1.9791666667vp, 38px);
+}
+
+h4 {
+  font-size: clamp(20px, 1.25vp, 24px);
 }/*# sourceMappingURL=styles.css.map */
