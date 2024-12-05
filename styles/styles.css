@@ -49,7 +49,7 @@
 }
 
 @media (max-width: 767px) {
-  .hiden-mobile {
+  .hidden-mobile {
     display: none !important;
   }
 }
