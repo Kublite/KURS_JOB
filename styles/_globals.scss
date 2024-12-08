@@ -16,6 +16,10 @@ svg * {
   color: inherit;
 }
 
+a {
+  text-decoration: none;
+}
+
 h2,
 h3,
 h4 {
@@ -32,4 +36,8 @@ h3 {
 
 h4 {
   @include fluid-text(24, 20);
+}
+
+ul {
+  list-style-type: none;
 }
