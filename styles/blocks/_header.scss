@@ -19,6 +19,21 @@
   &__menu {
     font-size: 22px;
 
+    &-dropdown {
+      background-color: var(--color-light);
+      position: absolute;
+      padding: 0;
+      display: none;
+
+      & li {
+        margin-top: 20px;
+      }
+    }
+
+    &-item:hover > ul {
+      display: block;
+    }
+
     &-list {
       display: flex;
       align-items: center;
