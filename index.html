@@ -23,14 +23,37 @@
         <nav class="header__menu hidden-mobile">
           <ul class="header__menu-list">
             <li class="header__menu-item">
-              <a href="/" class="header__menu-link">Инфо</a>
+              <button class="dropdown-menu__button">Инфо</button>
+              <ul class="dropdown-menu__list">
+                <li class="dropdown-menu__item">
+                  <a href="" class="dropdown-menu__link">О центре</a>
+                </li>
+                <li class="dropdown-menu__item">
+                  <a href="" class="dropdown-menu__link">Новости</a>
+                </li>
+                <li class="dropdown-menu__item">
+                  <a href="" class="dropdown-menu__link">Работодателям</a>
+                </li>
+              </ul>
             </li>
+
             <li class="header__menu-item">
               <a href="/" class="header__menu-link">Партнеры</a>
             </li>
 
             <li class="header__menu-item">
-              <a href="/" class="header__menu-link">Карьера</a>
+              <button class="dropdown-menu__button">Карьера</button>
+              <ul class="dropdown-menu__list">
+                <li class="dropdown-menu__item">
+                  <a href="" class="dropdown-menu__link">Вакансии</a>
+                </li>
+                <li class="dropdown-menu__item">
+                  <a href="" class="dropdown-menu__link">Мои резюме</a>
+                </li>
+                <li class="dropdown-menu__item">
+                  <a href="" class="dropdown-menu__link">Отклики</a>
+                </li>
+              </ul>
             </li>
 
             <li class="header__menu-item">
@@ -77,5 +100,6 @@
         </ul>
       </div>
     </dialog>
+    <script src="js\blocks\dropdown.js"></script>
   </body>
 </html>
