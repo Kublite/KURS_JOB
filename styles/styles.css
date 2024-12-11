@@ -124,18 +124,6 @@ ul {
 .header__menu {
   font-size: 22px;
 }
-.header__menu-dropdown {
-  background-color: var(--color-light);
-  position: absolute;
-  padding: 0;
-  display: none;
-}
-.header__menu-dropdown li {
-  margin-top: 20px;
-}
-.header__menu-item:hover > ul {
-  display: block;
-}
 .header__menu-list {
   display: flex;
   align-items: center;
