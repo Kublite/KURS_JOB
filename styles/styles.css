@@ -231,6 +231,9 @@ ul {
   padding: 0;
   min-height: 50v;
 }
+.mobile-overlay__link {
+  color: var(--color-dark);
+}
 .mobile-overlay__link:hover {
   color: var(--color-accent);
 }
@@ -242,6 +245,7 @@ ul {
   font-size: 22px;
   display: flex;
   position: relative;
+  color: var(--color-dark);
 }
 @media (hover: hover) {
   .dropdown-menu__button:hover {
@@ -285,7 +289,7 @@ ul {
   visibility: visible;
 }
 .dropdown-menu__item {
-  padding-top: 20px;
+  padding-top: 30px;
 }
 .dropdown-menu__link {
   position: relative;
@@ -314,4 +318,16 @@ ul {
   background-color: currentColor;
   transition-duration: 0.2s;
   color: var(--color-accent);
+}
+
+.mobile-dropdown__button {
+  font-size: 18px;
+}
+
+.dropdown-menu__button::after {
+  top: 6px;
+  right: -10px;
+}
+.header__menu-item.dropdown-menu__open .dropdown-menu__button::after {
+  top: 5px;
 }/*# sourceMappingURL=styles.css.map */

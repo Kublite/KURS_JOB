@@ -25,7 +25,9 @@
 
     min-height: 50v;
   }
-
+  &__link {
+    color: var(--color-dark);
+  }
   &__link:hover {
     color: var(--color-accent);
   }

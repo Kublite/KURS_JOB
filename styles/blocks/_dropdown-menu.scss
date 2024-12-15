@@ -4,6 +4,7 @@
     font-size: 22px;
     display: flex;
     position: relative;
+    color: var(--color-dark);
 
     @include hover {
       color: var(--color-accent);
@@ -46,7 +47,7 @@
   }
 
   &__item {
-    padding-top: 20px;
+    padding-top: 30px;
   }
 
   &__link {
