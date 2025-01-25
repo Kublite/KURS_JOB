@@ -1,0 +1,47 @@
+.footer {
+  background-color: var(--color-dark);
+  color: #a0b3c6;
+
+  &__body {
+    padding-top: 80px;
+    padding-bottom: 40px;
+    @include mobile {
+      padding-bottom: 2px;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 80px;
+
+    @include tablet {
+      column-gap: 20px;
+    }
+
+    @include mobile {
+      display: block;
+    }
+
+    &-column {
+      text-align: center;
+      @include mobile {
+        margin-bottom: 60px;
+      }
+    }
+
+    &-list {
+      padding: 0;
+      min-width: 150px;
+    }
+
+    &-main-name {
+      color: var(--color-light);
+    }
+
+    &-link:hover {
+      color: var(--color-light);
+    }
+  }
+}
