@@ -266,6 +266,7 @@ ul {
 .dropdown-menu__button::after {
   position: relative;
   content: "";
+  height: 0px;
   border: solid var(--color-dark);
   border-width: 0 2px 2px 0;
   display: inline-block;
