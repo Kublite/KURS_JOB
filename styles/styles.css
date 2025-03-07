@@ -17,8 +17,8 @@
   --color-dark: #1A3856;
   --color-accent: #C21631;
   --color-gray-alt: #4F6A84;
-  --border: 1px solid var(--color-gray-alt);
-  --border-radus:10px;
+  --border: 1px solid #a0b3c6;
+  --border-radus:0.5rem;
   --font-family-base: "Inter", sans-serif;
   --container-width: 1280px;
   --container-padding-x: 20px;
@@ -387,4 +387,101 @@ ul {
 }
 .footer__menu-link:hover {
   color: var(--color-light);
+}
+
+.login {
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login__inner {
+  background-color: #fff;
+  padding: 48px;
+  border-radius: var(--border-radus);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+.login__inner-form {
+  /* padding: 20px; */
+  border: var(--border);
+  border-radius: var(--border-radus);
+}
+.login__inner-form-title {
+  border-bottom: var(--border);
+  padding: 12px 20px;
+  text-align: center;
+}
+.login__inner-form-login {
+  padding: 20px 35px 10px 35px;
+}
+.login__inner-form-login-input {
+  color: inherit;
+  border: var(--border);
+  border-radius: var(--border-radus);
+  padding: 6px 12px;
+  outline: none;
+}
+.login__inner-form-login-input, .login__inner-form-login-input:hover {
+  text-decoration: none;
+}
+@media (hover: hover) {
+  .login__inner-form-login-input:hover {
+    border-color: #ac0000;
+  }
+}
+@media (hover: none) {
+  .login__inner-form-login-input:active {
+    border-color: #ac0000;
+  }
+}
+.login__inner-form-password {
+  padding: 10px 35px 20px 35px;
+}
+.login__inner-form-password-input {
+  color: inherit;
+  border: var(--border);
+  border-radius: var(--border-radus);
+  padding: 6px 12px;
+  outline: none;
+}
+.login__inner-form-password-input, .login__inner-form-password-input:hover {
+  text-decoration: none;
+}
+@media (hover: hover) {
+  .login__inner-form-password-input:hover {
+    border-color: #ac0000;
+  }
+}
+@media (hover: none) {
+  .login__inner-form-password-input:active {
+    border-color: #ac0000;
+  }
+}
+.login__inner-form-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 35px 20px 35px;
+}
+.login__inner-form-button-submit {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  background-color: var(--color-accent);
+  color: #fff;
+  border-radius: var(--border-radus);
+  padding: 6px 12px;
+  width: 100%;
+}
+@media (hover: hover) {
+  .login__inner-form-button-submit:hover {
+    transition-duration: 0.2s;
+    background-color: #ac0000;
+  }
+}
+@media (hover: none) {
+  .login__inner-form-button-submit:active {
+    transition-duration: 0.2s;
+    background-color: #ac0000;
+  }
 }/*# sourceMappingURL=styles.css.map */

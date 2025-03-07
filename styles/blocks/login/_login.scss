@@ -1,0 +1,39 @@
+.login {
+  background-color: #f8f9fa;
+  @include flex-center(false);
+  &__inner {
+    background-color: #fff;
+    padding: 48px;
+    border-radius: var(--border-radus);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    &-form {
+      /* padding: 20px; */
+      border: var(--border);
+      border-radius: var(--border-radus);
+      &-title {
+        border-bottom: var(--border);
+        padding: 12px 20px;
+        text-align: center;
+      }
+      &-login {
+        padding: 20px 35px 10px 35px;
+        &-input {
+          @include input-field;
+        }
+      }
+      &-password {
+        padding: 10px 35px 20px 35px;
+        &-input {
+          @include input-field;
+        }
+      }
+      &-button {
+        @include flex-center(false);
+        padding: 0px 35px 20px 35px;
+        &-submit {
+          @include red-button;
+        }
+      }
+    }
+  }
+}
