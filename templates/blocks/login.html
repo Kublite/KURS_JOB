@@ -1,12 +1,18 @@
 <main class="login">
+  <a href="../../index.php" class="login-back"
+    ><button class="mobile-overlay__close-button cross-button" type="submit">
+      <span class="visually-hidden">Close nav menu</span>
+    </button></a
+  >
   <div class="login__inner">
-    <form class="login__inner-form">
+    <form class="login__inner-form" method="post">
       <div class="login__inner-form-title">Вход в МУИВ JOB</div>
       <div class="login__inner-form-login">
         <input
           class="login__inner-form-login-input"
           type="text"
           placeholder="Логин"
+          name="login"
         />
       </div>
       <div class="login__inner-form-password">
@@ -14,6 +20,7 @@
           class="login__inner-form-password-input"
           type="password"
           placeholder="Пароль"
+          name="password"
         />
       </div>
       <div class="login__inner-form-button">

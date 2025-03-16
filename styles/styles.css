@@ -395,11 +395,17 @@ ul {
   justify-content: center;
   align-items: center;
 }
+.login-back {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 16px;
+}
 .login__inner {
   background-color: #fff;
   padding: 48px;
   border-radius: var(--border-radus);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15), 0 -0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 .login__inner-form {
   /* padding: 20px; */
@@ -410,6 +416,8 @@ ul {
   border-bottom: var(--border);
   padding: 12px 20px;
   text-align: center;
+  font-size: 22px;
+  font-weight: 700;
 }
 .login__inner-form-login {
   padding: 20px 35px 10px 35px;
@@ -420,6 +428,7 @@ ul {
   border-radius: var(--border-radus);
   padding: 6px 12px;
   outline: none;
+  font-size: 16px;
 }
 .login__inner-form-login-input, .login__inner-form-login-input:hover {
   text-decoration: none;
@@ -443,6 +452,7 @@ ul {
   border-radius: var(--border-radus);
   padding: 6px 12px;
   outline: none;
+  font-size: 16px;
 }
 .login__inner-form-password-input, .login__inner-form-password-input:hover {
   text-decoration: none;
@@ -472,16 +482,15 @@ ul {
   border-radius: var(--border-radus);
   padding: 6px 12px;
   width: 100%;
+  font-size: 16px;
 }
 @media (hover: hover) {
   .login__inner-form-button-submit:hover {
-    transition-duration: 0.2s;
     background-color: #ac0000;
   }
 }
 @media (hover: none) {
   .login__inner-form-button-submit:active {
-    transition-duration: 0.2s;
     background-color: #ac0000;
   }
 }/*# sourceMappingURL=styles.css.map */

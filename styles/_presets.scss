@@ -4,9 +4,7 @@
   color: #fff;
   border-radius: var(--border-radus);
   padding: 6px 12px;
-  width: 100%;
   @include hover {
-    transition-duration: 0.2s;
     background-color: #ac0000;
   }
 }
