@@ -1,12 +1,6 @@
 .login {
   background-color: #f8f9fa;
   @include flex-center(false);
-  &-back {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 16px;
-  }
   &__inner {
     background-color: #fff;
     padding: 48px;

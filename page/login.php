@@ -9,6 +9,7 @@
   </head>
   <body>
     <?php 
+      session_start();
       include '../templates\blocks/login.html'; 
       require_once('../scripts/db.php');
       if (isset($_POST['login']) && isset($_POST['password'])) {
@@ -23,7 +24,9 @@
 
           if($result -> num_rows > 0){
             while($row = $result->fetch_assoc()){
+              $_SESSION['user_role'] = $row['role'];
               header('Location: ../index.php');
+              exit();
             }
           }else{
             echo 'Пользователя не существует';

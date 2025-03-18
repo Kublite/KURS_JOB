@@ -395,12 +395,6 @@ ul {
   justify-content: center;
   align-items: center;
 }
-.login-back {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  font-size: 16px;
-}
 .login__inner {
   background-color: #fff;
   padding: 48px;
