@@ -16,6 +16,16 @@
         exit();
       }
       
+      if($_SESSION['user_role']=='1'){
+        header('Location: /page/admin-panel.php');
+      }
+      else if($_SESSION['user_role']=='2'){
+        header('Location: /page/hr-home.php');
+      }
+      else if($_SESSION['user_role']=='3'){
+        header('Location: /page/student-home.php');
+      }
+      
       include 'templates\header.html'; 
     ?>
     <main></main>
