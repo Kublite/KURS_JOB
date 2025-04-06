@@ -1,0 +1,45 @@
+<main class="registration">
+  <div class="registration__inner">
+    <form action="" class="registration__form" method="post" id="register-form">
+      <div class="registration__form-title">Зарегистрировать пользователя</div>
+      <div class="registration__form-userName">
+        <input
+          class="registration__form-userName-input"
+          type="text"
+          placeholder="Логин"
+          name="UserName"
+        />
+      </div>
+      <div class="registration__form-password">
+        <input
+          class="registration__form-password-input"
+          type="password"
+          placeholder="Пароль"
+          name="password"
+        />
+      </div>
+      <div class="registration__form-email">
+        <input
+          class="registration__form-email-input"
+          type="email"
+          placeholder="Email"
+          name="email"
+        />
+      </div>
+      <div class="registration__form-role">
+        <select name="role" class="registration__form-role-input">
+          <option value="">-- Выберите роль --</option>
+          <option value="admin">admin</option>
+          <option value="HR">HR</option>
+          <option value="student">student</option>
+        </select>
+      </div>
+      <div class="registration__form-button">
+        <button class="registration__form-button-submit" type="submit">
+          Зарегистрировать
+        </button>
+      </div>
+    </form>
+  </div>
+  <script src="../../scripts/blocks/button-register.js"></script>
+</main>

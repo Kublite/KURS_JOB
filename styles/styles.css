@@ -401,22 +401,22 @@ ul {
   border-radius: var(--border-radus);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15), 0 -0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
-.login__inner-form {
+.login__form {
   /* padding: 20px; */
   border: var(--border);
   border-radius: var(--border-radus);
 }
-.login__inner-form-title {
+.login__form-title {
   border-bottom: var(--border);
   padding: 12px 20px;
   text-align: center;
   font-size: 22px;
   font-weight: 700;
 }
-.login__inner-form-login {
+.login__form-userName {
   padding: 20px 35px 10px 35px;
 }
-.login__inner-form-login-input {
+.login__form-userName-input {
   color: inherit;
   border: var(--border);
   border-radius: var(--border-radus);
@@ -424,23 +424,23 @@ ul {
   outline: none;
   font-size: 16px;
 }
-.login__inner-form-login-input, .login__inner-form-login-input:hover {
+.login__form-userName-input, .login__form-userName-input:hover {
   text-decoration: none;
 }
 @media (hover: hover) {
-  .login__inner-form-login-input:hover {
+  .login__form-userName-input:hover {
     border-color: #ac0000;
   }
 }
 @media (hover: none) {
-  .login__inner-form-login-input:active {
+  .login__form-userName-input:active {
     border-color: #ac0000;
   }
 }
-.login__inner-form-password {
+.login__form-password {
   padding: 10px 35px 20px 35px;
 }
-.login__inner-form-password-input {
+.login__form-password-input {
   color: inherit;
   border: var(--border);
   border-radius: var(--border-radus);
@@ -448,26 +448,26 @@ ul {
   outline: none;
   font-size: 16px;
 }
-.login__inner-form-password-input, .login__inner-form-password-input:hover {
+.login__form-password-input, .login__form-password-input:hover {
   text-decoration: none;
 }
 @media (hover: hover) {
-  .login__inner-form-password-input:hover {
+  .login__form-password-input:hover {
     border-color: #ac0000;
   }
 }
 @media (hover: none) {
-  .login__inner-form-password-input:active {
+  .login__form-password-input:active {
     border-color: #ac0000;
   }
 }
-.login__inner-form-button {
+.login__form-button {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0px 35px 20px 35px;
 }
-.login__inner-form-button-submit {
+.login__form-button-submit {
   padding: 0;
   background-color: transparent;
   border: none;
@@ -479,12 +479,169 @@ ul {
   font-size: 16px;
 }
 @media (hover: hover) {
-  .login__inner-form-button-submit:hover {
+  .login__form-button-submit:hover {
     background-color: #ac0000;
   }
 }
 @media (hover: none) {
-  .login__inner-form-button-submit:active {
+  .login__form-button-submit:active {
+    background-color: #ac0000;
+  }
+}
+
+.registration {
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.registration__inner {
+  background-color: #fff;
+  padding: 48px;
+  border-radius: var(--border-radus);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15), 0 -0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+.registration__form {
+  /* padding: 20px; */
+  border: var(--border);
+  border-radius: var(--border-radus);
+}
+.registration__form-title {
+  border-bottom: var(--border);
+  padding: 12px 20px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+}
+.registration__form-userName {
+  padding: 30px 35px 20px 35px;
+}
+.registration__form-userName-input {
+  color: inherit;
+  border: var(--border);
+  border-radius: var(--border-radus);
+  padding: 6px 12px;
+  outline: none;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.registration__form-userName-input, .registration__form-userName-input:hover {
+  text-decoration: none;
+}
+@media (hover: hover) {
+  .registration__form-userName-input:hover {
+    border-color: #ac0000;
+  }
+}
+@media (hover: none) {
+  .registration__form-userName-input:active {
+    border-color: #ac0000;
+  }
+}
+.registration__form-password {
+  padding: 10px 35px 20px 35px;
+}
+.registration__form-password-input {
+  color: inherit;
+  border: var(--border);
+  border-radius: var(--border-radus);
+  padding: 6px 12px;
+  outline: none;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.registration__form-password-input, .registration__form-password-input:hover {
+  text-decoration: none;
+}
+@media (hover: hover) {
+  .registration__form-password-input:hover {
+    border-color: #ac0000;
+  }
+}
+@media (hover: none) {
+  .registration__form-password-input:active {
+    border-color: #ac0000;
+  }
+}
+.registration__form-email {
+  padding: 10px 35px 20px 35px;
+}
+.registration__form-email-input {
+  color: inherit;
+  border: var(--border);
+  border-radius: var(--border-radus);
+  padding: 6px 12px;
+  outline: none;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.registration__form-email-input, .registration__form-email-input:hover {
+  text-decoration: none;
+}
+@media (hover: hover) {
+  .registration__form-email-input:hover {
+    border-color: #ac0000;
+  }
+}
+@media (hover: none) {
+  .registration__form-email-input:active {
+    border-color: #ac0000;
+  }
+}
+.registration__form-role {
+  padding: 10px 35px 20px 35px;
+}
+.registration__form-role-input {
+  color: inherit;
+  border: var(--border);
+  border-radius: var(--border-radus);
+  padding: 6px 12px;
+  outline: none;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.registration__form-role-input, .registration__form-role-input:hover {
+  text-decoration: none;
+}
+@media (hover: hover) {
+  .registration__form-role-input:hover {
+    border-color: #ac0000;
+  }
+}
+@media (hover: none) {
+  .registration__form-role-input:active {
+    border-color: #ac0000;
+  }
+}
+.registration__form-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 35px 20px 35px;
+}
+.registration__form-button-submit {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  background-color: var(--color-accent);
+  color: #fff;
+  border-radius: var(--border-radus);
+  padding: 6px 12px;
+  width: 100%;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+@media (hover: hover) {
+  .registration__form-button-submit:hover {
+    background-color: #ac0000;
+  }
+}
+@media (hover: none) {
+  .registration__form-button-submit:active {
     background-color: #ac0000;
   }
 }/*# sourceMappingURL=styles.css.map */

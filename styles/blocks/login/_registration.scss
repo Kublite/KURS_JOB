@@ -1,4 +1,4 @@
-.login {
+.registration {
   background-color: #f8f9fa;
   @include flex-center(false);
   &__inner {
@@ -20,17 +20,27 @@
       font-weight: 700;
     }
     &-userName {
-      padding: 20px 35px 10px 35px;
+      padding: 30px 35px 20px 35px;
       &-input {
-        @include input-field;
-        font-size: 16px;
+        @include standart-refister-input;
       }
     }
     &-password {
       padding: 10px 35px 20px 35px;
       &-input {
-        @include input-field;
-        font-size: 16px;
+        @include standart-refister-input;
+      }
+    }
+    &-email {
+      padding: 10px 35px 20px 35px;
+      &-input {
+        @include standart-refister-input;
+      }
+    }
+    &-role {
+      padding: 10px 35px 20px 35px;
+      &-input {
+        @include standart-refister-input;
       }
     }
     &-button {
@@ -40,6 +50,7 @@
         @include red-button;
         width: 100%;
         font-size: 16px;
+        box-sizing: border-box;
       }
     }
   }
