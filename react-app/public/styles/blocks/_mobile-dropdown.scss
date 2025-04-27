@@ -1,0 +1,16 @@
+.mobile-dropdown {
+  &__button {
+    font-size: 18px;
+  }
+}
+
+.dropdown-menu {
+  &__button::after {
+    top: 6px;
+    right: -10px;
+  }
+
+  .header__menu-item.dropdown-menu__open &__button::after {
+    top: 5px;
+  }
+}

@@ -1,0 +1,8 @@
+@import "fonts", "variables", "media", "mixins", "utils", "globals", "presets";
+
+@import "blocks/header", "blocks/burger-button", "blocks/cross-button",
+  "blocks/mobile-overlay", "blocks/dropdown-menu", "blocks/mobile-dropdown";
+
+@import "blocks/footer";
+
+@import "blocks/login/login", "blocks/login/registration";

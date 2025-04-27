@@ -11,7 +11,7 @@
     <?php 
       include '..\templates\header-hr.html'; 
     ?>
-    <menu></menu>
+    <main></main>
     <?php 
       include '..\templates\footer.html';
     ?>
