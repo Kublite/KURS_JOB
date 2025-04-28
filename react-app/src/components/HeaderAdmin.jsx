@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import Logout from '../scripts/Logout'
 
 export default function HeaderAdmin(){
     return(
@@ -16,21 +17,21 @@ export default function HeaderAdmin(){
                     <Link to='/users' className="header__menu-link">Пользователи</Link>
                 </li>
                 <li className="header__menu-item">
-                    <a href="../scripts/logout.php" className="header__menu-link">Выход</a>
+                    < Logout />
                 </li>
             </ul>
             <ul className="mobile-overlay__list">
                 <li className="mobile-overlay__item">
-                    <a href="" className="mobile-overlay__link">Редактировать</a>
+                    <a href="" className="header__menu-link">Редактировать</a>
                 </li>
                 <li className="mobile-overlay__item">
-                    <a href="" className="mobile-overlay__link">Письма</a>
+                    <a href="" className="header__menu-link">Письма</a>
                 </li>
                 <li className="mobile-overlay__item">
                     <Link to='/users' className="header__menu-link">Пользователи</Link>
                 </li>
                 <li className="mobile-overlay__item">
-                    <a href="../scripts/logout.php" className="mobile-overlay__link">Выйти</a>
+                    < Logout />
                 </li>
             </ul>
         </>
