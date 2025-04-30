@@ -1,0 +1,24 @@
+.TableOffers {
+  &__header {
+    display: flex;
+    @include flex-center;
+    justify-content: space-between;
+  }
+
+  &__create-offers {
+    @include red-button;
+  }
+
+  &__list {
+    padding: 0;
+    display: grid;
+    gap: 24px;
+    @include mobile-above {
+      grid-template-columns: 1fr;
+    }
+
+    @include mobile-above {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}

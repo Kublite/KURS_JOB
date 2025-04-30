@@ -48,13 +48,13 @@
   overflow: hidden !important;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 769px) {
   .hidden-mobile {
     display: none !important;
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .visible-mobile {
     display: none !important;
   }
@@ -121,12 +121,12 @@ ul {
 .header {
   padding-top: 30px;
 }
-@media (max-width: 767px) {
+@media (max-width: 769px) {
   .header {
     padding-top: 15px;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 769px) {
   .header .logo__image {
     max-width: 42px;
   }
@@ -145,12 +145,12 @@ ul {
        column-gap: 40px;
   list-style-type: none;
 }
-@media (max-width: 767px) {
+@media (max-width: 769px) {
   .header__menu-list {
     display: none;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .header__menu-list {
     display: flex;
     align-items: center;
@@ -266,7 +266,7 @@ ul {
   display: flex;
   justify-content: end;
 }
-@media (max-width: 767px) {
+@media (max-width: 769px) {
   .mobile-overlay__list {
     display: flex;
     flex-direction: column;
@@ -275,7 +275,7 @@ ul {
     min-height: 50v;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .mobile-overlay__list {
     display: none;
   }
@@ -390,7 +390,7 @@ ul {
   padding-top: 80px;
   padding-bottom: 40px;
 }
-@media (max-width: 767px) {
+@media (max-width: 769px) {
   .footer__body {
     padding-bottom: 2px;
   }
@@ -408,7 +408,7 @@ ul {
          column-gap: 20px;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 769px) {
   .footer__menu {
     display: block;
   }
@@ -416,7 +416,7 @@ ul {
 .footer__menu-column {
   text-align: center;
 }
-@media (max-width: 767px) {
+@media (max-width: 769px) {
   .footer__menu-column {
     margin-bottom: 60px;
   }
@@ -686,5 +686,83 @@ ul {
 @media (hover: none) {
   .registration__form-button-submit:active {
     background-color: #ac0000;
+  }
+}
+
+.offer-card__body {
+  padding: 24px 16px;
+  border: solid var(--color-accent) 1px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+.offer-card__created_at {
+  color: var(--color-gray-alt);
+  opacity: 0.6;
+  font-size: 14px;
+}
+.offer-card__title {
+  font-weight: bold;
+  font-size: calc(23.9649px + 0.974659vw);
+}
+.offer-card__employment {
+  padding: 4px 8px;
+  border-radius: 16px;
+  border: 15px var(--color-accent);
+  background-color: var(--color-accent);
+  color: white;
+  width: -moz-max-content;
+  width: max-content;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.offer-card__footer {
+  border-top: var(--border);
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.TableOffers__header {
+  display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+}
+.TableOffers__create-offers {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  background-color: var(--color-accent);
+  color: #fff;
+  border-radius: var(--border-radus);
+  padding: 6px 12px;
+}
+@media (hover: hover) {
+  .TableOffers__create-offers:hover {
+    background-color: #ac0000;
+  }
+}
+@media (hover: none) {
+  .TableOffers__create-offers:active {
+    background-color: #ac0000;
+  }
+}
+.TableOffers__list {
+  padding: 0;
+  display: grid;
+  gap: 24px;
+}
+@media (min-width: 769px) {
+  .TableOffers__list {
+    grid-template-columns: 1fr;
+  }
+}
+@media (min-width: 769px) {
+  .TableOffers__list {
+    grid-template-columns: 1fr 1fr;
   }
 }/*# sourceMappingURL=styles.css.map */

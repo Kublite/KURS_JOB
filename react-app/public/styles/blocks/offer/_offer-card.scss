@@ -1,0 +1,40 @@
+.offer-card {
+  &__body {
+    padding: 24px 16px;
+    border: solid var(--color-accent) 1px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  &__created_at {
+    color: var(--color-gray-alt);
+    opacity: 0.6;
+    font-size: 14px;
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: calc(23.9649px + 0.974659vw);
+  }
+
+  &__employment {
+    padding: 4px 8px;
+    border-radius: 16px;
+    border: 15px var(--color-accent);
+    background-color: var(--color-accent);
+    color: white;
+    width: max-content;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  &__footer {
+    border-top: var(--border);
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-top: auto;
+    padding-top: 20px;
+  }
+}

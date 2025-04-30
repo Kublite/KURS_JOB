@@ -1,4 +1,7 @@
 import React from "react";
+import DropdownItem from '../scripts/DropdownItem';
+import { Link } from 'react-router-dom';
+import CreateOffers from '../pages/CreateOffers';
 
 export default function HeaderHR(){
     return(
@@ -27,7 +30,7 @@ export default function HeaderHR(){
         <DropdownItem title="HR">
           <ul className="dropdown-menu__list">
             <li className="dropdown-menu__item">
-              <a href="" className="dropdown-menu__link">Мои вакансии</a>
+              <Link to='/TableOffers' className="dropdown-menu__link">Вакансии</Link>
             </li>
             <li className="dropdown-menu__item">
               <a href="" className="dropdown-menu__link">Резюме</a>
@@ -67,7 +70,7 @@ export default function HeaderHR(){
       <li className="header__menu-item">
         <DropdownItem title="HR">
           <li className="dropdown-menu__item">
-            <a href="" className="dropdown-menu__link">Мои вакансии</a>
+            <Link to='/TableOffers' className="dropdown-menu__link">Вакансии</Link>
           </li>
           <li className="dropdown-menu__item">
             <a href="" className="dropdown-menu__link">Резюме</a>
