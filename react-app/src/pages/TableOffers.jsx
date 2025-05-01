@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
+/* import { Link } from 'react-router-dom'; */
+import CreateOffers from './CreateOffers';
 
 export default function TableOffers() {
   const [offers, setOffers] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     fetch("http://localhost/api/tableOffers.php", {
@@ -26,7 +28,7 @@ export default function TableOffers() {
         <div className="TableOffers__inner container">
         <header className="TableOffers__header">
             <h1>Список вакансий</h1>
-            <Link to='/TableOffers/CreateOffers' className="TableOffers__create-offers">Создать</Link>
+            <button onClick={() => setIsModalOpen(true)} className="TableOffers__create-offers">Создать</button>
         </header>
         {offers.length === 0 ? (
         <p>Вакансий пока нет</p>
@@ -50,20 +52,19 @@ export default function TableOffers() {
             </ul>
       )}
         </div>
-      {/* <h1>Список вакансий</h1>
-      {offers.length === 0 ? (
-        <p>Вакансий пока нет</p>
-      ) : (
-        <ul>
-          {offers.map((offer, index) => (
-            <li key={index}>
-              <strong>{offer.title}</strong> — {offer.speciality}, {offer.city}, {offer.salary}₽  
-              <br />
-              <small>Размещено: {offer.created_at}</small>
-            </li>
-          ))}
-        </ul>
-      )} */}
+        {isModalOpen && (
+        <div className="modal-overlay">
+          <div className="modal-window">
+            <CreateOffers
+              onSuccess={() => {
+                fetchOffers();        // обновим список
+                setIsModalOpen(false); // закроем модалку
+              }}
+              onCancel={() => setIsModalOpen(false)} // отмена
+            />
+          </div>
+        </div>
+      )}
     </main>
   );
 }

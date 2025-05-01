@@ -223,7 +223,7 @@ ul {
   top: 50%;
   left: 15%;
   width: 70%;
-  height: 2px;
+  height: 4px;
   background-color: var(--color-gray-alt);
   border-radius: 5px;
 }
@@ -533,7 +533,7 @@ ul {
 }
 
 .registration {
-  background-color: #f8f9fa;
+  background-color: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -765,4 +765,134 @@ ul {
   .TableOffers__list {
     grid-template-columns: 1fr 1fr;
   }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-window {
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 600px;
+  width: 100%;
+}
+
+.modal-button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  width: 48px;
+  aspect-ratio: 1;
+  top: 5vh;
+  right: 5vw;
+  position: absolute;
+}
+.modal-button::before, .modal-button::after {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 4px;
+  background-color: var(--color-dark);
+  border-radius: 5px;
+}
+.modal-button::before {
+  rotate: 45deg;
+}
+.modal-button::after {
+  rotate: -45deg;
+}
+
+.createOffers {
+  margin: 5vh 0;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.createOffers__inner {
+  background-color: #fff;
+  padding: 48px;
+  border-radius: var(--border-radus);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15), 0 -0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+.createOffers__form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  border: var(--border);
+  border-radius: var(--border-radus);
+}
+.createOffers__form-name {
+  border-bottom: var(--border);
+  padding: 12px 20px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+}
+.createOffers__form-block-input {
+  color: inherit;
+  border: var(--border);
+  border-radius: var(--border-radus);
+  padding: 6px 12px;
+  outline: none;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.createOffers__form-block-input, .createOffers__form-block-input:hover {
+  text-decoration: none;
+}
+@media (hover: hover) {
+  .createOffers__form-block-input:hover {
+    border-color: #ac0000;
+  }
+}
+@media (hover: none) {
+  .createOffers__form-block-input:active {
+    border-color: #ac0000;
+  }
+}
+.createOffers__form-button {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.createOffers__form-button-submit {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  background-color: var(--color-accent);
+  color: #fff;
+  border-radius: var(--border-radus);
+  padding: 6px 12px;
+  width: 100%;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+@media (hover: hover) {
+  .createOffers__form-button-submit:hover {
+    background-color: #ac0000;
+  }
+}
+@media (hover: none) {
+  .createOffers__form-button-submit:active {
+    background-color: #ac0000;
+  }
+}
+.createOffers__small-text {
+  font-size: 14px;
+  opacity: 0.6;
+  margin: 0;
 }/*# sourceMappingURL=styles.css.map */

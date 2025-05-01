@@ -1,5 +1,7 @@
 <?php
 require_once('../db.php');
+header("Access-Control-Allow-Origin: http://localhost:5173");
+header("Access-Control-Allow-Credentials: true");
 // Проверяем, был ли запрос методом POST
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Получаем данные из POST

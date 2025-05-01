@@ -12,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = $conn->query($sql);}
     if($result -> num_rows > 0){
       while($row = $result->fetch_assoc()){
+        $_SESSION['user_id'] = $row['id'];
         $_SESSION['user_role'] = $row['role'];
         echo json_encode(['success' => true, 'role' => $row['role']]);
         exit();

@@ -1,4 +1,5 @@
-.registration {
+.createOffers {
+  margin: 5vh 0;
   background-color: transparent;
   @include flex-center(false);
   &__inner {
@@ -9,43 +10,27 @@
       0 -0.5rem 1rem rgba(0, 0, 0, 0.15);
   }
   &__form {
-    /* padding: 20px; */
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
     border: var(--border);
     border-radius: var(--border-radus);
-    &-title {
+    &-name {
       border-bottom: var(--border);
       padding: 12px 20px;
       text-align: center;
       font-size: 22px;
       font-weight: 700;
     }
-    &-userName {
-      padding: 30px 35px 20px 35px;
-      &-input {
-        @include standart-register-input;
-      }
-    }
-    &-password {
-      padding: 10px 35px 20px 35px;
-      &-input {
-        @include standart-register-input;
-      }
-    }
-    &-email {
-      padding: 10px 35px 20px 35px;
-      &-input {
-        @include standart-register-input;
-      }
-    }
-    &-role {
-      padding: 10px 35px 20px 35px;
+    &-block {
       &-input {
         @include standart-register-input;
       }
     }
     &-button {
+      margin-top: 20px;
       @include flex-center(false);
-      padding: 0px 35px 20px 35px;
       &-submit {
         @include red-button;
         width: 100%;
@@ -53,5 +38,10 @@
         box-sizing: border-box;
       }
     }
+  }
+  &__small-text {
+    font-size: 14px;
+    opacity: 0.6;
+    margin: 0;
   }
 }
