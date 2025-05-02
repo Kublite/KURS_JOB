@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-/* import { Link } from 'react-router-dom'; */
-import CreateOffers from './CreateOffers';
+import { Link } from 'react-router-dom';
 
 export default function TableOffers() {
   const [offers, setOffers] = useState([]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     fetch("http://localhost/api/tableOffers.php", {
@@ -28,7 +26,7 @@ export default function TableOffers() {
         <div className="TableOffers__inner container">
         <header className="TableOffers__header">
             <h1>Список вакансий</h1>
-            <button onClick={() => setIsModalOpen(true)} className="TableOffers__create-offers">Создать</button>
+            <Link to="/TableOffers/CreateOffers" className="TableOffers__create-offers">Создать</Link>
         </header>
         {offers.length === 0 ? (
         <p>Вакансий пока нет</p>
@@ -52,19 +50,6 @@ export default function TableOffers() {
             </ul>
       )}
         </div>
-        {isModalOpen && (
-        <div className="modal-overlay">
-          <div className="modal-window">
-            <CreateOffers
-              onSuccess={() => {
-                fetchOffers();        // обновим список
-                setIsModalOpen(false); // закроем модалку
-              }}
-              onCancel={() => setIsModalOpen(false)} // отмена
-            />
-          </div>
-        </div>
-      )}
     </main>
   );
 }

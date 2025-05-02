@@ -61,6 +61,7 @@ export default function Footer(){
           </ul>
         </div>
       </nav>
+      <p>Кубышкин Степан Семенович</p>
     </div>
   </div>
 </footer>

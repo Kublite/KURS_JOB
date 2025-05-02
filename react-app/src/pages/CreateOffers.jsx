@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-export default function CreateOffers({ onSuccess, onCancel }){
+
+export default function CreateOffers(){
   function offersForm(event){
     event.preventDefault();
 
@@ -33,7 +35,6 @@ export default function CreateOffers({ onSuccess, onCancel }){
     return(
         <main className="createOffers">
             <div className="createOffers__inner">
-                <button className="modal-button" type="button" onClick={onCancel}></button>
                 <form action="" className="createOffers__form" method="post" id="register-form" onSubmit={offersForm}>
                     <h1 className="createOffers__form-name">Создать вакансию</h1>
                     <div className="createOffers__form-block">
@@ -104,9 +105,10 @@ export default function CreateOffers({ onSuccess, onCancel }){
                         />
                     </div>
                     <div className="createOffers__form-button">
-                        <button className="createOffers__form-button-submit" type="submit">
-                        Создать
-                        </button>
+                    </div>
+                    <div className="createOffers__form-button">
+                        <Link to="/TableOffers" className="createOffers-back">Назад</Link>
+                        <button className="createOffers__form-button-submit" type="submit">Создать</button>
                     </div>
                 </form>
             </div>

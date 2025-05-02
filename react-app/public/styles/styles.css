@@ -767,51 +767,6 @@ ul {
   }
 }
 
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.4);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.modal-window {
-  padding: 2rem;
-  border-radius: 1rem;
-  max-width: 600px;
-  width: 100%;
-}
-
-.modal-button {
-  padding: 0;
-  background-color: transparent;
-  border: none;
-  width: 48px;
-  aspect-ratio: 1;
-  top: 5vh;
-  right: 5vw;
-  position: absolute;
-}
-.modal-button::before, .modal-button::after {
-  content: "";
-  position: absolute;
-  width: 70%;
-  height: 4px;
-  background-color: var(--color-dark);
-  border-radius: 5px;
-}
-.modal-button::before {
-  rotate: 45deg;
-}
-.modal-button::after {
-  rotate: -45deg;
-}
-
 .createOffers {
   margin: 5vh 0;
   background-color: transparent;
@@ -895,4 +850,26 @@ ul {
   font-size: 14px;
   opacity: 0.6;
   margin: 0;
+}
+.createOffers-back {
+  opacity: 0.6;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  background-color: var(--color-gray-alt);
+  color: #fff;
+  border-radius: var(--border-radus);
+  padding: 6px 12px;
+  font-size: 16px;
+  margin-right: 1vh;
+}
+@media (hover: hover) {
+  .createOffers-back:hover {
+    background-color: var(--color-dark);
+  }
+}
+@media (hover: none) {
+  .createOffers-back:active {
+    background-color: var(--color-dark);
+  }
 }/*# sourceMappingURL=styles.css.map */
