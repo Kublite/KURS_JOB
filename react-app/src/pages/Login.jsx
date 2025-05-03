@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, {useState, useEffect} from "react";
 
 export default function Login(){
   const[role, setRole]=useState('');
@@ -10,17 +10,18 @@ export default function Login(){
     const form = event.target.closest('form'); // получаем форму
     const formData = new FormData(form);
 
+
     fetch('http://localhost/api/login.php',{
       credentials: 'include',
       method: "POST",
       body: formData})
       .then(response=>response.json())
       .then(data=>{
-        if(data.role){setRole(data.role);}
+        if(data.role){setRole(data.role); window.location.reload();}
         else{setError('Неверный логин или пароль')}
       })
       .catch(error=>{console.error(error);
-        setError('Ошибка соединения с сервером')
+        setError('Ошибка')
       })
   }
     return(

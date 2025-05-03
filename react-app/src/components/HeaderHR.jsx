@@ -1,13 +1,11 @@
 import React from "react";
 import DropdownItem from '../scripts/DropdownItem';
 import { Link } from 'react-router-dom';
-import CreateOffers from '../pages/CreateOffers';
 
 export default function HeaderHR(){
     return(
         <>
             <ul className="header__menu-list">
-        <li className="header__menu-item">
         <DropdownItem title="Инфо">
           <ul className="dropdown-menu__list">
             <li className="dropdown-menu__item">
@@ -24,9 +22,7 @@ export default function HeaderHR(){
             </li>
           </ul>
           </DropdownItem>
-        </li>
 
-        <li className="header__menu-item">
         <DropdownItem title="HR">
           <ul className="dropdown-menu__list">
             <li className="dropdown-menu__item">
@@ -39,8 +35,7 @@ export default function HeaderHR(){
               <a href="" className="dropdown-menu__link">Отклики</a>
             </li>
           </ul>
-          </DropdownItem>
-        </li>
+        </DropdownItem>
 
         <li className="header__menu-item">
           <a href="/" className="header__menu-link">Помощь</a>
@@ -50,36 +45,33 @@ export default function HeaderHR(){
         </li>
       </ul>
       <ul className="mobile-overlay__list">
-      <li className="header__menu-item">
-        <DropdownItem title="Инфо">
-          <li className="dropdown-menu__item">
-            <a href="" className="dropdown-menu__link">О центре</a>
-          </li>
-          <li className="dropdown-menu__item">
-            <a href="" className="dropdown-menu__link">Новости</a>
-          </li>
-          <li className="dropdown-menu__item">
-            <a href="" className="dropdown-menu__link">Работодателям</a>
-          </li>
-          <li className="dropdown-menu__item">
-            <a href="" className="dropdown-menu__link">Партнеры</a>
-          </li>
-        </DropdownItem>
-      </li>
+      <DropdownItem title="Инфо">
+        <li className="dropdown-menu__item">
+          <a href="" className="dropdown-menu__link">О центре</a>
+        </li>
+        <li className="dropdown-menu__item">
+          <a href="" className="dropdown-menu__link">Новости</a>
+        </li>
+        <li className="dropdown-menu__item">
+          <a href="" className="dropdown-menu__link">Работодателям</a>
+        </li>
+        <li className="dropdown-menu__item">
+          <a href="" className="dropdown-menu__link">Партнеры</a>
+        </li>
+      </DropdownItem>
 
-      <li className="header__menu-item">
-        <DropdownItem title="HR">
-          <li className="dropdown-menu__item">
-            <Link to='/TableOffers' className="dropdown-menu__link">Вакансии</Link>
-          </li>
-          <li className="dropdown-menu__item">
-            <a href="" className="dropdown-menu__link">Резюме</a>
-          </li>
-          <li className="dropdown-menu__item">
-            <a href="" className="dropdown-menu__link">Отклики</a>
-          </li>
-          </DropdownItem>
-      </li>
+      <DropdownItem title="HR">
+        <li className="dropdown-menu__item">
+          <Link to='/TableOffers' className="dropdown-menu__link">Вакансии</Link>
+        </li>
+        <li className="dropdown-menu__item">
+          <a href="" className="dropdown-menu__link">Резюме</a>
+        </li>
+        <li className="dropdown-menu__item">
+          <a href="" className="dropdown-menu__link">Отклики</a>
+        </li>
+      </DropdownItem>
+
 
       <li className="mobile-overlay__item">
         <a href="" className="mobile-overlay__link">Помощь</a>

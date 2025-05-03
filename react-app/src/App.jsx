@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import CreateOffers from './pages/CreateOffers';
 import TableOffers from './pages/TableOffers';
 import EditOffers from './pages/EditOffers'
+import OllOffers from './pages/OllOffers'
 
 export default function App(){
   const { loading, authenticated, role } = useAuth();
@@ -33,6 +34,7 @@ export default function App(){
               <Route path="/users" element={<Registration /> } />
               <Route path="/login" element={<Navigate to="/" replace />} />
               <Route path="/TableOffers" element={<TableOffers />} />
+              <Route path="/OllOffers" element={<OllOffers />} />
               <Route path="/TableOffers/CreateOffers" element={<CreateOffers />} />
               <Route path="/TableOffers/EditOffers/:id" element={<EditOffers />} />
             </Routes>

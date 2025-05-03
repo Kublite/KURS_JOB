@@ -401,6 +401,7 @@ ul {
   grid-template-columns: repeat(4, 1fr);
   -moz-column-gap: 80px;
        column-gap: 80px;
+  border-bottom: var(--border);
 }
 @media (max-width: 1023px) {
   .footer__menu {

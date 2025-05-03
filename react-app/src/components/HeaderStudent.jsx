@@ -1,11 +1,11 @@
 import React from "react";
 import DropdownItem from '../scripts/DropdownItem';
+import { Link } from 'react-router-dom';
 
 export default function HeaderStudent(){
     return(
         <>
            <ul className="header__menu-list">
-        <li className="header__menu-item">
           <DropdownItem title="Инфо">
           <ul className="dropdown-menu__list">
             <li className="dropdown-menu__item">
@@ -22,13 +22,12 @@ export default function HeaderStudent(){
             </li>
           </ul>
           </DropdownItem>
-        </li>
 
-        <li className="header__menu-item">
-          <DropdownItem title="Карьера">
+
+        <DropdownItem title="Карьера">
           <ul className="dropdown-menu__list">
             <li className="dropdown-menu__item">
-              <a href="" className="dropdown-menu__link">Вакансии</a>
+              <Link to='/OllOffers' className="dropdown-menu__link">Вакансии</Link>
             </li>
             <li className="dropdown-menu__item">
               <a href="" className="dropdown-menu__link">Мои резюме</a>
@@ -37,8 +36,7 @@ export default function HeaderStudent(){
               <a href="" className="dropdown-menu__link">Отклики</a>
             </li>
           </ul>
-          </DropdownItem>
-        </li>
+        </DropdownItem>
 
         <li className="header__menu-item">
           <a href="/" className="header__menu-link">Помощь</a>
@@ -49,7 +47,6 @@ export default function HeaderStudent(){
       </ul>
 
       <ul className="mobile-overlay__list">
-      <li className="header__menu-item">
       <DropdownItem title="Инфо">
           <li className="dropdown-menu__item">
             <a href="" className="dropdown-menu__link">О центре</a>
@@ -64,9 +61,7 @@ export default function HeaderStudent(){
             <a href="" className="dropdown-menu__link">Партнеры</a>
           </li>
           </DropdownItem>
-      </li>
 
-      <li className="header__menu-item">
       <DropdownItem title="Карьера">
           <li className="dropdown-menu__item">
             <a href="" className="dropdown-menu__link">Вакансии</a>
@@ -78,7 +73,6 @@ export default function HeaderStudent(){
             <a href="" className="dropdown-menu__link">Отклики</a>
           </li>
         </DropdownItem>
-      </li>
 
       <li className="mobile-overlay__item">
         <a href="" className="mobile-overlay__link">Помощь</a>

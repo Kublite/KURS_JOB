@@ -7,8 +7,8 @@ export default function EditOffers(){
     const [offer, setOffer] = useState([]);
     const { id } = useParams();
 
-    useEffect(() => {
-        fetch("http://localhost/api/tableOffers.php", {
+/*     useEffect(() => { */
+        fetch("http://localhost/api/editOffer.php", {
             method: 'POST',
             credentials: 'include',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
@@ -17,14 +17,14 @@ export default function EditOffers(){
         .then((response) => response.json())
         .then((data) => {
             if (data.status === 'true') {
-            setOffer(data.offers[0]);
-            console.log(data.offers[0]);
+            setOffer(data.offers);
+            console.log(data.offers);
             }
         })
         .catch((error) => {
             console.error("Ошибка редактирования:", error);
         });
-    }, [id]);
+/*     }, []); */
 
 
   function UpdateOffers(event){
@@ -62,7 +62,7 @@ export default function EditOffers(){
     return(
         <main className="createOffers">
             <div className="createOffers__inner">
-            {offer && (
+            {offer.map((offer) => (
                 <form action="" className="createOffers__form" method="post" id="register-form" onSubmit={UpdateOffers}>
                     <h1 className="createOffers__form-name">Создать вакансию</h1>
                     <div className="createOffers__form-block">
@@ -145,7 +145,7 @@ export default function EditOffers(){
                         <button className="createOffers__form-button-submit" type="submit">Сохранить</button>
                     </div>
                 </form>
-            )}
+                ))}
             </div>
         </main>
     )

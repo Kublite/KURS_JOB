@@ -1,4 +1,6 @@
 <?php 
+header("Access-Control-Allow-Origin: http://localhost:5173");
+header("Access-Control-Allow-Credentials: true");
 session_start(); 
 require_once('../scripts/db.php');
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -21,4 +23,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       echo json_encode(['status' => 'error', 'message' => 'Invalid request method', 'method'=>$_SERVER['REQUEST_METHOD']]);
     }
 }
+
 ?>

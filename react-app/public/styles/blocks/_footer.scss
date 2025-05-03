@@ -15,6 +15,7 @@
     justify-content: space-between;
     grid-template-columns: repeat(4, 1fr);
     column-gap: 80px;
+    border-bottom: var(--border);
 
     @include tablet {
       column-gap: 20px;
