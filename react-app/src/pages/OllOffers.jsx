@@ -6,7 +6,7 @@ export default function TableOffers() {
 
   useEffect(() => {
     fetch("http://localhost/api/tableOffers.php", {
-      method: "GET",
+      method: "Get",
       credentials: 'include',
     })
       .then((response) => response.json())

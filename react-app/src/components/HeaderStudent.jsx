@@ -64,7 +64,7 @@ export default function HeaderStudent(){
 
       <DropdownItem title="Карьера">
           <li className="dropdown-menu__item">
-            <a href="" className="dropdown-menu__link">Вакансии</a>
+          <Link to='/OllOffers' className="dropdown-menu__link">Вакансии</Link>
           </li>
           <li className="dropdown-menu__item">
             <a href="" className="dropdown-menu__link">Мои резюме</a>

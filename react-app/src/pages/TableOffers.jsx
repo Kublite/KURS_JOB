@@ -5,11 +5,14 @@ import { useNavigate } from 'react-router-dom';
 export default function TableOffers() {
   const [offers, setOffers] = useState([]);
   const navigate = useNavigate();
+  const paramOffer = 'my';
 
   useEffect(() => {
     fetch("http://localhost/api/tableOffers.php", {
-      method: "GET",
+      method: "POST",
       credentials: 'include',
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+      body: new URLSearchParams({ paramOffer })
     })
       .then((response) => response.json())
       .then((data) => {
