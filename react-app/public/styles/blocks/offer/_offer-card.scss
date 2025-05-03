@@ -1,5 +1,5 @@
 .offer-card {
-  &__body {
+  &__item {
     padding: 24px 16px;
     border: solid var(--color-accent) 1px;
     display: flex;
@@ -33,8 +33,23 @@
     border-top: var(--border);
     display: flex;
     justify-content: space-between;
+
     font-size: 14px;
     margin-top: auto;
     padding-top: 20px;
+  }
+  &__body {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__button {
+    &-del {
+      @include reset-button;
+      cursor: pointer;
+    }
+    &-edit {
+      @include reset-button;
+      cursor: pointer;
+    }
   }
 }

@@ -39,7 +39,7 @@ export default function Header(){
             <div className ="header__inner container">
               <a href="/" className ="header__logo logo">
                 <img
-                  src="../img/logo-muiv-mini.svg"
+                  src="../../public/img/logo-muiv-mini.svg"
                   alt="MUIV"
                   className ="logo__image"
                   width="80"

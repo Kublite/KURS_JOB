@@ -1,18 +1,43 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 
-export default function CreateOffers(){
-  function offersForm(event){
+export default function EditOffers(){
+    const [offer, setOffer] = useState([]);
+    const { id } = useParams();
+
+    useEffect(() => {
+        fetch("http://localhost/api/tableOffers.php", {
+            method: 'POST',
+            credentials: 'include',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: `offer_id=${id}`,
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.status === 'true') {
+            setOffer(data.offers[0]);
+            console.log(data.offers[0]);
+            }
+        })
+        .catch((error) => {
+            console.error("Ошибка редактирования:", error);
+        });
+    }, [id]);
+
+
+  function UpdateOffers(event){
     event.preventDefault();
 
     const form = event.target.closest('form'); // получаем форму
     const offerData = new FormData(form);
+    offerData.append('id', id);
 
-    fetch("http://localhost/api/createOffer.php", {
+    fetch("http://localhost/api/updateOffer.php", {
       method: "POST",
-      credentials: "include",
       body: offerData,
+      credentials: 'include',
     })
       .then((response) => {
         // Обрабатываем ответ от сервера
@@ -23,14 +48,12 @@ export default function CreateOffers(){
       })
       .then((data) => {
         if (data.status === 'success') {
-            alert('Вакансия успешно создана');
-            // или setSuccess(true) и показать блок
+            alert('Вакансия успешно изменена');
           } else {
             alert('Ошибка: ' + data.message);
           }
       })
       .catch((error) => {
-        // Обрабатываем ошибку
         console.error("no", error);
         alert('Ошибка');
       });
@@ -39,7 +62,8 @@ export default function CreateOffers(){
     return(
         <main className="createOffers">
             <div className="createOffers__inner">
-                <form action="" className="createOffers__form" method="post" id="register-form" onSubmit={offersForm}>
+            {offer && (
+                <form action="" className="createOffers__form" method="post" id="register-form" onSubmit={UpdateOffers}>
                     <h1 className="createOffers__form-name">Создать вакансию</h1>
                     <div className="createOffers__form-block">
                         <input
@@ -47,6 +71,7 @@ export default function CreateOffers(){
                         type="text"
                         placeholder="Название должности"
                         name="title"
+                        defaultValue={offer.title}
                         />
                     </div>
                     <div className="createOffers__form-block">
@@ -55,6 +80,7 @@ export default function CreateOffers(){
                         type="text"
                         placeholder="Тип занятости"
                         name="employment"
+                        defaultValue={offer.employment}
                         />
                     </div>
                     <div className="createOffers__form-block">
@@ -63,6 +89,7 @@ export default function CreateOffers(){
                         type="text"
                         placeholder="Форма занятости"
                         name="format"
+                        defaultValue={offer.format}
                         />
                     </div>
                     <div className="createOffers__form-block">
@@ -70,6 +97,7 @@ export default function CreateOffers(){
                         className="createOffers__form-block-input"
                         placeholder="Описание"
                         name="description"
+                        defaultValue={offer.description}
                         />
                     </div>
                     <div className="createOffers__form-block">
@@ -77,6 +105,7 @@ export default function CreateOffers(){
                         className="createOffers__form-block-input"
                         placeholder="Требования"
                         name="requirements"
+                        defaultValue={offer.requirements}
                         />
                     </div>
                     <div className="createOffers__form-block">
@@ -106,15 +135,17 @@ export default function CreateOffers(){
                         type="number"
                         placeholder="Доход"
                         name="salary"
+                        defaultValue={offer.salary}
                         />
                     </div>
                     <div className="createOffers__form-button">
                     </div>
                     <div className="createOffers__form-button">
                         <Link to="/TableOffers" className="createOffers-back">Назад</Link>
-                        <button className="createOffers__form-button-submit" type="submit">Создать</button>
+                        <button className="createOffers__form-button-submit" type="submit">Сохранить</button>
                     </div>
                 </form>
+            )}
             </div>
         </main>
     )

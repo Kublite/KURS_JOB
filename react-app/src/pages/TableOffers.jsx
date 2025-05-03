@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function TableOffers() {
   const [offers, setOffers] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("http://localhost/api/tableOffers.php", {
@@ -21,6 +23,31 @@ export default function TableOffers() {
       });
   }, []);
 
+  function handleDelete(id) {
+    if (!window.confirm('Удалить эту вакансию?')) return;
+  
+    fetch('http://localhost/api/deleteOffer.php', {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: `id=${id}`,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === 'success') {
+          // Удаляем из состояния
+          setOffers(prev => prev.filter(offer => offer.id !== id));
+        } else {
+          alert('Ошибка удаления');
+        }
+      })
+      .catch((err) => {
+        console.error('Ошибка удаления:', err);
+      });
+  }
+
   return (
     <main className="TableOffers">
         <div className="TableOffers__inner container">
@@ -33,17 +60,25 @@ export default function TableOffers() {
       ) : (
             <ul className="TableOffers__list">
                 {offers.map((offer, index) => (
-                    <li key={index} className="offer-card__body">
+                    <li key={index} className="offer-card__item">
+                      <div className="offer-card__body">
                         <div className="offer-card__created_at">{offer.created_at}</div>
+                        <div>
+                        <button className="offer-card__button-del" onClick={() => handleDelete(offer.id)}><img src="../../public/img/garbage.svg" alt="garbage"/></button>
+                          <button onClick={() => navigate(`/TableOffers/EditOffers/${offer.id}`)} className="offer-card__button-edit"><img src="../../public/img/edit.svg" alt="edit"/></button> 
+                        </div>
+                        
+                      </div>
                         <h3 className="offer-card__title">
                             {offer.title}
                         </h3>
                         <div className="offer-card__employment">{offer.employment}</div>
+            
                         <div className="offer-card__footer">
-                          <div className="offer-card__footer-speciality">Cпециальность:<br/>{offer.speciality}</div>
-                          <div className="offer-card__footer-city">Город:<br/>{offer.city}</div>
-                          <div className="offer-card__footer-format">Занятость:<br/>{offer.format}</div>
-                          <div className="offer-card__footer-salary">Доход:<br/>{offer.salary ? `${offer.salary}₽` : "сдельная"}</div>
+                          <div className="offer-card__footer-speciality">{offer.speciality}</div>
+                          <div className="offer-card__footer-city">{offer.city}</div>
+                          <div className="offer-card__footer-format">{offer.format}</div>
+                          <div className="offer-card__footer-salary">{offer.salary ? `${offer.salary}₽` : "сдельная"}</div>
                         </div>
                     </li>
                 ))}

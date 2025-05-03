@@ -689,7 +689,7 @@ ul {
   }
 }
 
-.offer-card__body {
+.offer-card__item {
   padding: 24px 16px;
   border: solid var(--color-accent) 1px;
   display: flex;
@@ -723,6 +723,22 @@ ul {
   font-size: 14px;
   margin-top: auto;
   padding-top: 20px;
+}
+.offer-card__body {
+  display: flex;
+  justify-content: space-between;
+}
+.offer-card__button-del {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.offer-card__button-edit {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .TableOffers__header {
