@@ -1,8 +1,24 @@
 .TableOffers {
-  &__header {
+  &__content {
     display: flex;
-    @include flex-center;
+    gap: 24px;
+    justify-content: center;
+    /* align-items: center; */
+  }
+
+  &__info {
+    display: flex;
     justify-content: space-between;
+    align-items: center;
+  }
+  &__open-filter {
+    @include reset-button;
+    width: 44px;
+    height: 44px;
+    background-color: var();
+  }
+  &__lenght {
+    font-size: 20px;
   }
 
   &__create-offers {

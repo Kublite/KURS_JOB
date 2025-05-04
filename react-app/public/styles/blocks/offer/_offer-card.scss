@@ -5,6 +5,8 @@
     display: flex;
     flex-direction: column;
     cursor: pointer;
+    min-width: 260px;
+    min-height: 408px;
   }
 
   &__created_at {

@@ -5,7 +5,13 @@ require_once('../scripts/db.php');
 session_start();
 $user_id = $_SESSION['user_id'];
 
-$sql = "SELECT * FROM offers where user_id = '$user_id'";
+$paramOffer = $_POST['paramOffer'] ?? null;
+
+if ($paramOffer === 'my') {
+    $sql = "SELECT * FROM offers WHERE user_id = '$user_id'";
+} else {
+    $sql = "SELECT * FROM offers";
+}
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {

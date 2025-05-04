@@ -696,6 +696,8 @@ ul {
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  min-width: 260px;
+  min-height: 408px;
 }
 .offer-card__created_at {
   color: var(--color-gray-alt);
@@ -742,12 +744,27 @@ ul {
   cursor: pointer;
 }
 
-.TableOffers__header {
+.TableOffers__content {
   display: flex;
-  display: flex;
+  gap: 24px;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
+}
+.TableOffers__info {
+  display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+.TableOffers__open-filter {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  width: 44px;
+  height: 44px;
+  background-color: var();
+}
+.TableOffers__lenght {
+  font-size: 20px;
 }
 .TableOffers__create-offers {
   padding: 0;
@@ -887,6 +904,79 @@ ul {
 }
 @media (hover: none) {
   .createOffers-back:active {
+    background-color: var(--color-dark);
+  }
+}
+
+@media (max-width: 1023px) {
+  .offers-filters {
+    display: none;
+  }
+}
+.offers-filters__form {
+  margin: 1em 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: #fff;
+  padding: 24px;
+  border-radius: var(--border-radus);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15), 0 -0.5rem 1rem rgba(0, 0, 0, 0.15);
+  width: 260px;
+}
+.offers-filters__title {
+  font-weight: bold;
+}
+.offers-filters__form-block-select {
+  color: inherit;
+  border: var(--border);
+  border-radius: var(--border-radus);
+  padding: 6px 12px;
+  outline: none;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.offers-filters__form-block-select, .offers-filters__form-block-select:hover {
+  text-decoration: none;
+}
+@media (hover: hover) {
+  .offers-filters__form-block-select:hover {
+    border-color: #ac0000;
+  }
+}
+@media (hover: none) {
+  .offers-filters__form-block-select:active {
+    border-color: #ac0000;
+  }
+}
+.offers-filters__name {
+  font-size: 14px;
+  opacity: 0.6;
+  margin: 0;
+}
+.offers-filters__form-button {
+  display: flex;
+}
+.offers-filters__form-button-back {
+  opacity: 0.6;
+  width: 100%;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  background-color: var(--color-gray-alt);
+  color: #fff;
+  border-radius: var(--border-radus);
+  padding: 6px 12px;
+  font-size: 16px;
+}
+@media (hover: hover) {
+  .offers-filters__form-button-back:hover {
+    background-color: var(--color-dark);
+  }
+}
+@media (hover: none) {
+  .offers-filters__form-button-back:active {
     background-color: var(--color-dark);
   }
 }/*# sourceMappingURL=styles.css.map */

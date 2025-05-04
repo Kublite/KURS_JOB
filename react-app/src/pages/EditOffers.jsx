@@ -75,22 +75,22 @@ export default function EditOffers(){
                         />
                     </div>
                     <div className="createOffers__form-block">
-                        <input
-                        className="createOffers__form-block-input"
-                        type="text"
-                        placeholder="Тип занятости"
-                        name="employment"
-                        defaultValue={offer.employment}
-                        />
+                        <select name="employment" className="createOffers__form-block-input" defaultValue={offer.employment}>
+                            <option value="">--Тип работы--</option>
+                            <option value="Стажировка">Стажировка</option>
+                            <option value="Практика">Практика</option>
+                            <option value="Волонтерство">Волонтерство</option>
+                            <option value="Работа">Работа</option>
+                        </select>
                     </div>
                     <div className="createOffers__form-block">
-                        <input
-                        className="createOffers__form-block-input"
-                        type="text"
-                        placeholder="Форма занятости"
-                        name="format"
-                        defaultValue={offer.format}
-                        />
+                        <select name="format" className="createOffers__form-block-input" defaultValue={offer.format}>
+                            <option value="">--Формат работы--</option>
+                            <option value="В офисе">В офисе</option>
+                            <option value="Удаленный">Удаленный</option>
+                            <option value="Гибридный">Гибридный</option>
+                            <option value="Разъездной">Разъездной</option>
+                        </select>
                     </div>
                     <div className="createOffers__form-block">
                         <textarea
@@ -109,7 +109,7 @@ export default function EditOffers(){
                         />
                     </div>
                     <div className="createOffers__form-block">
-                        <select name="speciality" className="createOffers__form-block-input">
+                        <select name="speciality" className="createOffers__form-block-input" defaultValue={offer.speciality}>
                             <option value="">--Специальность студента --</option>
                             <option value="ИТ">ИТ</option>
                             <option value="Экономика">Экономика</option>
@@ -118,7 +118,7 @@ export default function EditOffers(){
                         </select>
                     </div>
                     <div className="createOffers__form-block">
-                        <select name="city" className="createOffers__form-block-input">
+                        <select name="city" className="createOffers__form-block-input" defaultValue={offer.city}>
                             <option value="">--Город--</option>
                             <option value="Москва">Москва</option>
                             <option value="Пенза">Пенза</option>
@@ -137,8 +137,6 @@ export default function EditOffers(){
                         name="salary"
                         defaultValue={offer.salary}
                         />
-                    </div>
-                    <div className="createOffers__form-button">
                     </div>
                     <div className="createOffers__form-button">
                         <Link to="/TableOffers" className="createOffers-back">Назад</Link>

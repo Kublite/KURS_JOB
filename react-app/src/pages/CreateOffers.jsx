@@ -109,8 +109,6 @@ export default function CreateOffers(){
                         />
                     </div>
                     <div className="createOffers__form-button">
-                    </div>
-                    <div className="createOffers__form-button">
                         <Link to="/TableOffers" className="createOffers-back">Назад</Link>
                         <button className="createOffers__form-button-submit" type="submit">Создать</button>
                     </div>

@@ -1,0 +1,47 @@
+.offers-filters {
+  @include tablet {
+    display: none;
+  }
+  &__form {
+    margin: 1em 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: #fff;
+    padding: 24px;
+    border-radius: var(--border-radus);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15),
+      0 -0.5rem 1rem rgba(0, 0, 0, 0.15);
+    width: 260px;
+  }
+  &__title {
+    font-weight: bold;
+  }
+  &__form-block {
+    &-select {
+      @include standart-register-input;
+    }
+  }
+  &__name {
+    font-size: 14px;
+    opacity: 0.6;
+    margin: 0;
+  }
+
+  &__form-button {
+    display: flex;
+    &-back {
+      opacity: 0.6;
+      width: 100%;
+      @include reset-button;
+      background-color: var(--color-gray-alt);
+      color: #fff;
+      border-radius: var(--border-radus);
+      padding: 6px 12px;
+      font-size: 16px;
+      @include hover {
+        background-color: var(--color-dark);
+      }
+    }
+  }
+}
