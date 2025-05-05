@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import OfferFilters from '../components/OfferFilters';
 
 export default function TableOffers() {
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [offers, setOffers] = useState([]);
   const[filters, setFilters]=useState({
           employment:'',
@@ -42,7 +43,7 @@ export default function TableOffers() {
             <h1>Список вакансий</h1>
             <div className="TableOffers__info">
               <div className="TableOffers__lenght">{offers.length} вакансий</div>
-              <button className="TableOffers__open-filter">
+              <button className="TableOffers__open-filter" onClick={() => setIsFilterOpen(prev => !prev)}>
                 <img src="../../public/img/filter.svg" alt="filter" width="24"
                   height="24"/>
                 
@@ -52,6 +53,12 @@ export default function TableOffers() {
         {offers.length === 0 ? (
         <p>Вакансий пока нет</p>
       ) : (
+        <>
+        {isFilterOpen && (
+              <div className="offers-filters__mobile">
+                <OfferFilters filters={filters} setFilters={setFilters}/>
+              </div>
+            )}
           <div className="TableOffers__content">
             <ul className="TableOffers__list">
                 {filteredOffers.map((offer) => (
@@ -73,9 +80,9 @@ export default function TableOffers() {
                     </li>
                 ))}
             </ul>
-            <OfferFilters filters={filters} setFilters={setFilters}/>
-            
+            <div className="offers-filters__desktop"><OfferFilters filters={filters} setFilters={setFilters}/></div>
           </div>
+          </>
       )}
         </div>
     </main>

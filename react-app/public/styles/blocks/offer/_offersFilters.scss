@@ -1,6 +1,8 @@
 .offers-filters {
-  @include tablet {
-    display: none;
+  &__desktop {
+    @include tablet {
+      display: none;
+    }
   }
   &__form {
     margin: 1em 0;
@@ -13,35 +15,48 @@
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15),
       0 -0.5rem 1rem rgba(0, 0, 0, 0.15);
     width: 260px;
+    @include tablet {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    &-block {
+      &-select {
+        @include standart-register-input;
+      }
+    }
+
+    &-button {
+      display: flex;
+      &-back {
+        opacity: 0.6;
+        width: 100%;
+        @include reset-button;
+        background-color: var(--color-gray-alt);
+        color: #fff;
+        border-radius: var(--border-radus);
+        padding: 6px 12px;
+        font-size: 16px;
+        @include hover {
+          background-color: var(--color-dark);
+        }
+      }
+    }
   }
+
   &__title {
     font-weight: bold;
   }
-  &__form-block {
-    &-select {
-      @include standart-register-input;
-    }
-  }
+
   &__name {
     font-size: 14px;
     opacity: 0.6;
     margin: 0;
   }
 
-  &__form-button {
-    display: flex;
-    &-back {
-      opacity: 0.6;
-      width: 100%;
-      @include reset-button;
-      background-color: var(--color-gray-alt);
-      color: #fff;
-      border-radius: var(--border-radus);
-      padding: 6px 12px;
-      font-size: 16px;
-      @include hover {
-        background-color: var(--color-dark);
-      }
+  &__mobile {
+    @include tablet-above {
+      display: none;
     }
   }
 }
