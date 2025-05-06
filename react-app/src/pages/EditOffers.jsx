@@ -1,13 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import MDEditor from "@uiw/react-md-editor";
 
 
 export default function EditOffers(){
-    const [offer, setOffer] = useState([]);
+    const [offer, setOffer] = useState({});
     const { id } = useParams();
 
-/*     useEffect(() => { */
+    useEffect(() => {
         fetch("http://localhost/api/editOffer.php", {
             method: 'POST',
             credentials: 'include',
@@ -17,14 +18,14 @@ export default function EditOffers(){
         .then((response) => response.json())
         .then((data) => {
             if (data.status === 'true') {
-            setOffer(data.offers);
+            setOffer(data.offers[0]);
             console.log(data.offers);
             }
         })
         .catch((error) => {
             console.error("Ошибка редактирования:", error);
         });
-/*     }, []); */
+    }, []);
 
 
   function UpdateOffers(event){
@@ -58,11 +59,10 @@ export default function EditOffers(){
         alert('Ошибка');
       });
   }
-
     return(
         <main className="createOffers">
             <div className="createOffers__inner">
-            {offer.map((offer) => (
+            {offer &&(
                 <form action="" className="createOffers__form" method="post" id="register-form" onSubmit={UpdateOffers}>
                     <h1 className="createOffers__form-name">Создать вакансию</h1>
                     <div className="createOffers__form-block">
@@ -99,6 +99,10 @@ export default function EditOffers(){
                         name="description"
                         defaultValue={offer.description}
                         />
+                        <label htmlFor="description">Описание</label>
+                        <div data-color-mode="light">
+                            <MDEditor value={offer.description} onChange={(value)=>setOffer({...offer, description: value})}/>
+                        </div>
                     </div>
                     <div className="createOffers__form-block">
                         <textarea
@@ -143,7 +147,7 @@ export default function EditOffers(){
                         <button className="createOffers__form-button-submit" type="submit">Сохранить</button>
                     </div>
                 </form>
-                ))}
+                )}
             </div>
         </main>
     )
