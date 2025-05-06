@@ -63,8 +63,8 @@ export default function TableOffers() {
         <p>Вакансий пока нет</p>
       ) : (
             <ul className="TableOffers__list">
-                {offers.map((offer, index) => (
-                  <li key={index} className="offer-card__item">
+                {offers.map((offer) => (
+                  <li key={offer.id} className="offer-card__item">
                       <div className="offer-card__body">
                         <div className="offer-card__created_at">{offer.created_at}</div>
                         <div>

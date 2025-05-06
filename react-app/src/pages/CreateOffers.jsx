@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import MDEditor from "@uiw/react-md-editor";
 
 export default function CreateOffers(){
+    const [description, setDescription] = useState("");
   function offersForm(event){
     event.preventDefault();
 
     const form = event.target.closest('form'); // получаем форму
     const offerData = new FormData(form);
+
+    offerData.append("description", description);
 
     fetch("http://localhost/api/createOffer.php", {
       method: "POST",
@@ -24,7 +27,6 @@ export default function CreateOffers(){
       .then((data) => {
         if (data.status === 'success') {
             alert('Вакансия успешно создана');
-            // или setSuccess(true) и показать блок
           } else {
             alert('Ошибка: ' + data.message);
           }
@@ -66,11 +68,10 @@ export default function CreateOffers(){
                         />
                     </div>
                     <div className="createOffers__form-block">
-                        <textarea
-                        className="createOffers__form-block-input"
-                        placeholder="Описание"
-                        name="description"
-                        />
+                        <label htmlFor="description">Описание</label>
+                        <div data-color-mode="light">
+                            <MDEditor value={description} onChange={setDescription} />
+                        </div>
                     </div>
                     <div className="createOffers__form-block">
                         <textarea
