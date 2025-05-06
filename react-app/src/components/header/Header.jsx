@@ -3,7 +3,7 @@ import { useState } from 'react';
 import HeaderAdmin from './HeaderAdmin';
 import HeaderHR from './HeaderHR';
 import HeaderStudent from './HeaderStudent';
-import useAuth from '../scripts/auth';
+import useAuth from '../../scripts/auth';
 
 export default function Header(){
   const [isMobileMenuOpen, setMobileMenuOpen]=useState(false);

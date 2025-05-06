@@ -1,5 +1,5 @@
 import React from "react";
-import DropdownItem from '../scripts/DropdownItem';
+import DropdownItem from '../../scripts/DropdownItem';
 import { Link } from 'react-router-dom';
 
 export default function HeaderHR(){
