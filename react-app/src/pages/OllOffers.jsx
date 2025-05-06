@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import OfferFilters from '../components/OfferFilters';
+import OfferCard from "../components/OfferCard";
 
 export default function TableOffers() {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -66,17 +67,7 @@ export default function TableOffers() {
                       <div className="offer-card__body">
                         <div className="offer-card__created_at">{offer.created_at}</div>
                       </div>
-                        <h3 className="offer-card__title">
-                            {offer.title}
-                        </h3>
-                        <div className="offer-card__employment">{offer.employment}</div>
-                        <div className="offer-card__requirements">{offer.requirements}</div>
-                        <div className="offer-card__footer">
-                          <div className="offer-card__footer-speciality">{offer.speciality}</div>
-                          <div className="offer-card__footer-city">{offer.city}</div>
-                          <div className="offer-card__footer-format">{offer.format}</div>
-                          <div className="offer-card__footer-salary">{offer.salary ? `${offer.salary}₽` : "сдельная"}</div>
-                        </div>
+                        <OfferCard offer={offer}/>
                     </li>
                 ))}
             </ul>
