@@ -70,7 +70,7 @@ export default function TableOffers() {
                             {offer.title}
                         </h3>
                         <div className="offer-card__employment">{offer.employment}</div>
-            
+                        <div className="offer-card__requirements">{offer.requirements}</div>
                         <div className="offer-card__footer">
                           <div className="offer-card__footer-speciality">{offer.speciality}</div>
                           <div className="offer-card__footer-city">{offer.city}</div>

@@ -48,7 +48,7 @@ export default function OfferFilters({filters, setFilters}){
               </select>
             </div>
             <div className="offers-filters__form-button">
-              <button className="offers-filters__form-button-back">Сбросить</button>
+              <button className="offers-filters__form-button-back" >Сбросить</button>
             </div>
         </form>
       </div>)

@@ -20,6 +20,16 @@
     font-size: calc(23.9649px + 0.974659vw);
   }
 
+  &__requirements {
+    overflow: hidden; /* Скрытие выходящего за границы текста */
+    text-overflow: ellipsis; /* Добавление "..." */
+    max-width: 100%;
+    white-space: pre-wrap;
+    margin-bottom: 20px;
+    color: var(--color-gray-alt);
+    /*     opacity: 0.8; */
+    font-size: 14px;
+  }
   &__employment {
     padding: 4px 8px;
     border-radius: 16px;

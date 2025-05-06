@@ -63,27 +63,30 @@ export default function TableOffers() {
       ) : (
             <ul className="TableOffers__list">
                 {offers.map((offer, index) => (
-                    <li key={index} className="offer-card__item">
+                  <li key={index} className="offer-card__item">
                       <div className="offer-card__body">
                         <div className="offer-card__created_at">{offer.created_at}</div>
                         <div>
-                        <button className="offer-card__button-del" onClick={() => handleDelete(offer.id)}><img src="../../public/img/garbage.svg" alt="garbage"/></button>
-                          <button onClick={() => navigate(`/TableOffers/EditOffers/${offer.id}`)} className="offer-card__button-edit"><img src="../../public/img/edit.svg" alt="edit"/></button> 
+                          <button className="offer-card__button-del" onClick={() => handleDelete(offer.id)}>
+                            <img src="../../public/img/garbage.svg" alt="garbage"/>
+                          </button>
+                          <button onClick={() => navigate(`/TableOffers/EditOffers/${offer.id}`)} className="offer-card__button-edit">
+                            <img src="../../public/img/edit.svg" alt="edit"/>
+                          </button> 
                         </div>
-                        
                       </div>
+
                         <h3 className="offer-card__title">
-                            {offer.title}
+                          {offer.title}
                         </h3>
                         <div className="offer-card__employment">{offer.employment}</div>
-            
                         <div className="offer-card__footer">
                           <div className="offer-card__footer-speciality">{offer.speciality}</div>
                           <div className="offer-card__footer-city">{offer.city}</div>
                           <div className="offer-card__footer-format">{offer.format}</div>
                           <div className="offer-card__footer-salary">{offer.salary ? `${offer.salary}₽` : "сдельная"}</div>
                         </div>
-                    </li>
+                  </li>
                 ))}
             </ul>
       )}

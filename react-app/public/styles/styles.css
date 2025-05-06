@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Inter";
   src: url("../fonts/Inter24pt-Regular.woff2") format("woff2");
@@ -712,6 +713,16 @@ ul {
 .offer-card__title {
   font-weight: bold;
   font-size: calc(23.9649px + 0.974659vw);
+}
+.offer-card__requirements {
+  overflow: hidden; /* Скрытие выходящего за границы текста */
+  text-overflow: ellipsis; /* Добавление "..." */
+  max-width: 100%;
+  white-space: pre-wrap;
+  margin-bottom: 20px;
+  color: var(--color-gray-alt);
+  /*     opacity: 0.8; */
+  font-size: 14px;
 }
 .offer-card__employment {
   padding: 4px 8px;
