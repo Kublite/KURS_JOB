@@ -1011,4 +1011,49 @@ ul {
   .offers-filters__mobile {
     display: none;
   }
+}
+
+.pageOffer__container-button {
+  display: flex;
+  justify-content: space-between;
+}
+.pageOffer__back {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  background-color: var(--color-accent);
+  color: #fff;
+  border-radius: var(--border-radus);
+  padding: 6px 12px;
+}
+@media (hover: hover) {
+  .pageOffer__back:hover {
+    background-color: #ac0000;
+  }
+}
+@media (hover: none) {
+  .pageOffer__back:active {
+    background-color: #ac0000;
+  }
+}
+.pageOffer__response {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  background-color: var(--color-accent);
+  color: #fff;
+  border-radius: var(--border-radus);
+  padding: 6px 12px;
+  font-size: 18px;
+  width: auto;
+}
+@media (hover: hover) {
+  .pageOffer__response:hover {
+    background-color: #ac0000;
+  }
+}
+@media (hover: none) {
+  .pageOffer__response:active {
+    background-color: #ac0000;
+  }
 }/*# sourceMappingURL=styles.css.map */

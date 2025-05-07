@@ -8,8 +8,9 @@ import Registration from './pages/Registration';
 import Login from './pages/Login';
 import CreateOffers from './pages/CreateOffers';
 import TableOffers from './pages/TableOffers';
-import EditOffers from './pages/EditOffers'
-import OllOffers from './pages/OllOffers'
+import EditOffers from './pages/EditOffers';
+import OllOffers from './pages/OllOffers';
+import PageOffer from './pages/PageOffer';
 
 export default function App(){
   const { loading, authenticated, role } = useAuth();
@@ -37,6 +38,7 @@ export default function App(){
               <Route path="/OllOffers" element={<OllOffers />} />
               <Route path="/TableOffers/CreateOffers" element={<CreateOffers />} />
               <Route path="/TableOffers/EditOffers/:id" element={<EditOffers />} />
+              <Route path="/OllOffers/PageOffer/:id" element={<PageOffer />} />
             </Routes>
           <Footer />
         </Router>

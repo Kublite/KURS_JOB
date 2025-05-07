@@ -1,0 +1,14 @@
+.pageOffer {
+  &__container-button {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__back {
+    @include red-button;
+  }
+  &__response {
+    @include red-button;
+    font-size: 18px;
+    width: auto;
+  }
+}

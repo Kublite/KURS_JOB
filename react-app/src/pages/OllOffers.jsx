@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import OfferFilters from '../components/OfferFilters';
 import OfferCard from "../components/OfferCard";
+import { useNavigate } from 'react-router-dom';
 
 export default function TableOffers() {
+  const navigate = useNavigate();
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [offers, setOffers] = useState([]);
   const[filters, setFilters]=useState({
@@ -63,7 +65,7 @@ export default function TableOffers() {
           <div className="TableOffers__content">
             <ul className="TableOffers__list">
                 {filteredOffers.map((offer) => (
-                    <li key={offer.id} className="offer-card__item">
+                    <li key={offer.id} className="offer-card__item" onClick={() => navigate(`/OllOffers/PageOffer/${offer.id}`)}> 
                       <div className="offer-card__body">
                         <div className="offer-card__created_at">{offer.created_at}</div>
                       </div>
