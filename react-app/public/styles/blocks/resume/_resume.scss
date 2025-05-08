@@ -1,0 +1,75 @@
+.resume {
+  &__inner {
+    max-width: 775px;
+  }
+
+  &__photo-width {
+    width: 250px;
+  }
+  &__img {
+    display: flex;
+    flex-direction: column; /* ключевой момент */
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    @include mobile {
+      display: block;
+    }
+  }
+
+  &__end {
+    display: grid;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  &__input {
+    display: grid;
+    gap: 24px;
+    margin-bottom: 24px;
+    @include mobile-above {
+      min-width: 450px;
+    }
+  }
+  &__contact-information {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 16px;
+  }
+
+  &__buttin {
+    &-img {
+      @include red-button;
+      font-size: 18px;
+      background-color: var(--color-dark);
+      @include hover {
+        background-color: var(--color-dark);
+        opacity: 0.95;
+      }
+    }
+
+    &-pdf {
+      @include red-button;
+      font-size: 18px;
+      width: 100%;
+      background-color: var(--color-dark);
+      @include hover {
+        background-color: var(--color-dark);
+        opacity: 0.95;
+      }
+    }
+
+    &-save {
+      @include red-button;
+      font-size: 18px;
+      width: 100%;
+    }
+  }
+}

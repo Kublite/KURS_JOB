@@ -1056,4 +1056,137 @@ ul {
   .pageOffer__response:active {
     background-color: #ac0000;
   }
+}
+
+.resume__inner {
+  max-width: 775px;
+}
+.resume__photo-width {
+  width: 250px;
+}
+.resume__img {
+  display: flex;
+  flex-direction: column; /* ключевой момент */
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+.resume__body {
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 769px) {
+  .resume__body {
+    display: block;
+  }
+}
+.resume__end {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.resume__input {
+  display: grid;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+@media (min-width: 769px) {
+  .resume__input {
+    min-width: 450px;
+  }
+}
+.resume__contact-information {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 16px;
+}
+.resume__buttin-img {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  background-color: var(--color-accent);
+  color: #fff;
+  border-radius: var(--border-radus);
+  padding: 6px 12px;
+  font-size: 18px;
+  background-color: var(--color-dark);
+}
+@media (hover: hover) {
+  .resume__buttin-img:hover {
+    background-color: #ac0000;
+  }
+}
+@media (hover: none) {
+  .resume__buttin-img:active {
+    background-color: #ac0000;
+  }
+}
+@media (hover: hover) {
+  .resume__buttin-img:hover {
+    background-color: var(--color-dark);
+    opacity: 0.95;
+  }
+}
+@media (hover: none) {
+  .resume__buttin-img:active {
+    background-color: var(--color-dark);
+    opacity: 0.95;
+  }
+}
+.resume__buttin-pdf {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  background-color: var(--color-accent);
+  color: #fff;
+  border-radius: var(--border-radus);
+  padding: 6px 12px;
+  font-size: 18px;
+  width: 100%;
+  background-color: var(--color-dark);
+}
+@media (hover: hover) {
+  .resume__buttin-pdf:hover {
+    background-color: #ac0000;
+  }
+}
+@media (hover: none) {
+  .resume__buttin-pdf:active {
+    background-color: #ac0000;
+  }
+}
+@media (hover: hover) {
+  .resume__buttin-pdf:hover {
+    background-color: var(--color-dark);
+    opacity: 0.95;
+  }
+}
+@media (hover: none) {
+  .resume__buttin-pdf:active {
+    background-color: var(--color-dark);
+    opacity: 0.95;
+  }
+}
+.resume__buttin-save {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  background-color: var(--color-accent);
+  color: #fff;
+  border-radius: var(--border-radus);
+  padding: 6px 12px;
+  font-size: 18px;
+  width: 100%;
+}
+@media (hover: hover) {
+  .resume__buttin-save:hover {
+    background-color: #ac0000;
+  }
+}
+@media (hover: none) {
+  .resume__buttin-save:active {
+    background-color: #ac0000;
+  }
 }/*# sourceMappingURL=styles.css.map */

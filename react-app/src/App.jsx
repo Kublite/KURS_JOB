@@ -11,6 +11,7 @@ import TableOffers from './pages/TableOffers';
 import EditOffers from './pages/EditOffers';
 import OllOffers from './pages/OllOffers';
 import PageOffer from './pages/PageOffer';
+import Resume from './pages/Resume';
 
 export default function App(){
   const { loading, authenticated, role } = useAuth();
@@ -34,6 +35,7 @@ export default function App(){
               <Route path="/" element={<main/>}/>
               <Route path="/users" element={<Registration /> } />
               <Route path="/login" element={<Navigate to="/" replace />} />
+              <Route path="/Resume" element={<Resume />} />
               <Route path="/TableOffers" element={<TableOffers />} />
               <Route path="/OllOffers" element={<OllOffers />} />
               <Route path="/TableOffers/CreateOffers" element={<CreateOffers />} />
