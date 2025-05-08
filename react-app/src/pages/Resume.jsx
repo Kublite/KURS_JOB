@@ -6,6 +6,7 @@ export default function Resume(){
     const [photoFile, setPhotoFile] = useState(null);
     const [description, setDescription] = useState("");
     const [dataResume, setDataResume] = useState({});
+    const [isEditing, setIsEditing] = useState(false);
 
     const handleImageUpload = (e) => { //загрузка фото
         const file = e.target.files[0];
@@ -27,6 +28,7 @@ export default function Resume(){
             if (data.status === 'true') {
             setDataResume(data.resume[0]);
             console.log(data.resume);
+            setIsEditing(true);
             }
         })
 
@@ -41,7 +43,7 @@ export default function Resume(){
         resumeData.append("photo", photoFile); 
         resumeData.append("description", description);
 
-        fetch("http://localhost/api/createResume.php",{
+        fetch(`http://localhost/api/${isEditing ? 'updateResume' : 'createResume'}.php`,{
             method: "POST",
             credentials: "include",
             body: resumeData,
@@ -51,7 +53,7 @@ export default function Resume(){
         })
         .then((data) => {
             if (data.status === 'success') {
-                alert('Ваше резюме успешно создано');
+                alert('Ваше резюме успешно сохранено');
               } else {
                 alert('Ошибка: ' + data.message);
               }
@@ -59,6 +61,7 @@ export default function Resume(){
         .catch((error) => {
             console.error("no", error);
             alert('Ошибка');
+            console.log(isEditing)
           })
 
     }
@@ -70,7 +73,7 @@ export default function Resume(){
                 <form action="" method="post" onSubmit={resumeForm} encType="multipart/form-data">
                     <div className="resume__body">
                         <div className="resume__img">
-                            <img src={`http://localhost/${dataResume.photo_path}` || ""} alt=""  className="resume__photo-width"/>
+                            <img src={image ? image : `http://localhost/${dataResume.photo_path}`} alt=""  className="resume__photo-width"/>
                             <label className="resume__buttin-img">
                                 Загрузить фото
                                 <input
