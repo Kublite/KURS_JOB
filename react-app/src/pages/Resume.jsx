@@ -1,10 +1,11 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import MDEditor from "@uiw/react-md-editor";
 
 export default function Resume(){
     const [image, setImage] = useState(null);
     const [photoFile, setPhotoFile] = useState(null);
     const [description, setDescription] = useState("");
+    const [dataResume, setDataResume] = useState({});
 
     const handleImageUpload = (e) => { //загрузка фото
         const file = e.target.files[0];
@@ -13,6 +14,23 @@ export default function Resume(){
             setPhotoFile(file); 
         }
     };
+
+    useEffect(() => {
+        fetch('http://localhost/api/getResume.php', {
+            method:"GET",
+            credentials: "include"
+        })
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            if (data.status === 'true') {
+            setDataResume(data.resume[0]);
+            console.log(data.resume);
+            }
+        })
+
+    }, []);
 
     function resumeForm(event){
         event.preventDefault();
@@ -48,10 +66,11 @@ export default function Resume(){
         <main>
             <div className="resume__inner container">
                 <h1 className="resume__title-pahe">Создать резюме</h1>
+                {dataResume &&(
                 <form action="" method="post" onSubmit={resumeForm} encType="multipart/form-data">
                     <div className="resume__body">
                         <div className="resume__img">
-                            <img src={image || ""} alt=""  className="resume__photo-width"/>
+                            <img src={`http://localhost/${dataResume.photo_path}` || ""} alt=""  className="resume__photo-width"/>
                             <label className="resume__buttin-img">
                                 Загрузить фото
                                 <input
@@ -70,6 +89,7 @@ export default function Resume(){
                                 type="text"
                                 placeholder="ФИО"
                                 name="fullName"
+                                defaultValue={dataResume.full_name}
                                 />
                             </div>
                             <div className="createOffers__form-block">
@@ -78,6 +98,7 @@ export default function Resume(){
                                 type="text"
                                 placeholder="Желаемая должность"
                                 name="desiredPosition"
+                                defaultValue={dataResume.desired_position}
                                 />
                             </div> 
                             <div className="createOffers__form-block">
@@ -86,6 +107,7 @@ export default function Resume(){
                                     type="text"
                                     placeholder="Город"
                                     name="city"
+                                    defaultValue={dataResume.city}
                                     />
                                 </div> 
                             <div>Контактная информация</div>
@@ -96,6 +118,7 @@ export default function Resume(){
                                     type="text"
                                     placeholder="Номер телефона"
                                     name="phone"
+                                    defaultValue={dataResume.phone}
                                     />
                                 </div> 
                                 <div className="createOffers__form-block">
@@ -104,6 +127,7 @@ export default function Resume(){
                                     type="email"
                                     placeholder="Почта"
                                     name="email"
+                                    defaultValue={dataResume.email}
                                     />
                                 </div> 
                                 <div className="createOffers__form-block">
@@ -112,6 +136,7 @@ export default function Resume(){
                                     type="text"
                                     placeholder="Telegram"
                                     name="telegram"
+                                    defaultValue={dataResume.telegram}
                                     />
                                 </div> 
                                 <div className="createOffers__form-block">
@@ -120,10 +145,11 @@ export default function Resume(){
                                     type="text"
                                     placeholder="Git"
                                     name="git"
+                                    defaultValue={dataResume.git}
                                     />
                                 </div> 
                             </div>
-                            <select className="offers-filters__form-block-select" name="speciality">
+                            <select className="offers-filters__form-block-select" name="speciality" defaultValue={dataResume.speciality}>
                                 <option value="">Специальность</option>
                                 <option value="ИТ">ИТ</option>
                                 <option value="Экономика">Экономика</option>
@@ -134,12 +160,13 @@ export default function Resume(){
                     </div>
                     <div className="resume__end">
                         <div  data-color-mode="light" >
-                            <MDEditor value={description} onChange={setDescription}/>
+                            <MDEditor value={dataResume.description} onChange={(value)=>setDescription({...dataResume, description: value})}/>
                         </div>
                         <button className="resume__buttin-pdf">Сгенерировать PDF</button>
                         <button className="resume__buttin-save" type="submit">Сохранить</button>
                     </div>
                 </form>
+                )}
             </div>
         </main>
     )
