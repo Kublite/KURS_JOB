@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost
--- Время создания: Май 07 2025 г., 10:28
+-- Время создания: Май 08 2025 г., 19:48
 -- Версия сервера: 8.0.39
 -- Версия PHP: 8.2.26
 
@@ -59,6 +59,35 @@ INSERT INTO `offers` (`id`, `title`, `description`, `requirements`, `speciality`
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `resumes`
+--
+
+CREATE TABLE `resumes` (
+  `id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `full_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `desired_position` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `city` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `phone` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `email` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `telegram` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `git` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `speciality` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `photo_path` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `description` text COLLATE utf8mb4_general_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Дамп данных таблицы `resumes`
+--
+
+INSERT INTO `resumes` (`id`, `user_id`, `full_name`, `desired_position`, `city`, `phone`, `email`, `telegram`, `git`, `speciality`, `photo_path`, `created_at`, `description`) VALUES
+(1, 3, 'gfnb', 'fgn', 'gfn', '89267633808', 'Stepanida525@gmail.com', 'bdfb', 'dfbdf', 'ИТ', '../uploads/681cfb764132c_unknown.png', '2025-05-08 18:44:06', 'dfb');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `users`
 --
 
@@ -96,6 +125,13 @@ ALTER TABLE `offers`
   ADD KEY `fk_user` (`user_id`);
 
 --
+-- Индексы таблицы `resumes`
+--
+ALTER TABLE `resumes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Индексы таблицы `users`
 --
 ALTER TABLE `users`
@@ -112,6 +148,12 @@ ALTER TABLE `offers`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
+-- AUTO_INCREMENT для таблицы `resumes`
+--
+ALTER TABLE `resumes`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
@@ -126,6 +168,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `offers`
   ADD CONSTRAINT `fk_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Ограничения внешнего ключа таблицы `resumes`
+--
+ALTER TABLE `resumes`
+  ADD CONSTRAINT `resumes_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
