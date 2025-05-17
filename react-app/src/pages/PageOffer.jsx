@@ -26,6 +26,27 @@ export default function PageOffer(){
         });
     }, []);
 
+    function response(){
+
+        fetch("http://localhost/api/responce.php",{
+            method: 'POST',
+            credentials: 'include',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: `offer_id=${id}`,
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.status === 'true') {
+                alert('Резюме отправили');
+            } else {
+              alert('Ошибка: ' + data.message);
+            }
+        })
+        .catch((error) => {
+            console.error("Ошибка открытия:", error);
+        });
+    }
+
     return(
         <main>
             <div>
@@ -34,7 +55,7 @@ export default function PageOffer(){
                     <MDEditor.Markdown source={offer.description} />
                     <div className="pageOffer__container-button">
                         <Link to="/OllOffers"  className="pageOffer__back">Назад</Link>
-                        <button className="pageOffer__response">Откликнуться</button>
+                        <button className="pageOffer__response" onClick={response}>Откликнуться</button>
                     </div>
                 </div>
                 ))}
