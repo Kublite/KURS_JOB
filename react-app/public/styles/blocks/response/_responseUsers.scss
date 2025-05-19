@@ -32,4 +32,8 @@
   &__approved {
     @include red-button;
   }
+
+  &__cursor {
+    cursor: pointer;
+  }
 }

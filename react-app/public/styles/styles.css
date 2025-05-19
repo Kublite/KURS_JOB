@@ -1263,4 +1263,7 @@ ul {
   .response-user__approved:active {
     background-color: #ac0000;
   }
+}
+.response-user__cursor {
+  cursor: pointer;
 }/*# sourceMappingURL=styles.css.map */

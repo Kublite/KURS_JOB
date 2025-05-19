@@ -51,7 +51,7 @@ export default function PageOffer(){
         <main>
             <div>
             {offer.map((offer) => (
-                <div className="page-offer__inner container" data-color-mode="light">
+                <div key={offer.id} className="page-offer__inner container" data-color-mode="light">
                     <MDEditor.Markdown source={offer.description} />
                     <div className="pageOffer__container-button">
                         <Link to="/OllOffers"  className="pageOffer__back">Назад</Link>

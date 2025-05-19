@@ -11,6 +11,7 @@ $status = 'expectation';
 $sql = "
 SELECT 
     a.id AS application_id,
+    r.id,
     r.full_name,
     r.desired_position,
     r.city,
@@ -23,7 +24,9 @@ SELECT
     r.description,
     a.status,
     a.applied_at,
-    o.title
+    o.title,
+    a.user_id,
+    a.offer_id
 FROM applications a
 JOIN offers o ON a.offer_id = o.id
 JOIN resumes r ON a.user_id = r.user_id

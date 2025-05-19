@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 
 export default function ResponseUsers(){
+    const navigate = useNavigate();
     const [ResponseUsers, setResponseUsers] = useState([]);
 
     useEffect(() => {
@@ -49,8 +51,8 @@ export default function ResponseUsers(){
         <ul className="response-user__list">
              {ResponseUsers.map((applications) => (
                 <li key={applications.application_id} className="response-user__item">
-                    <div className="response-user__body">{applications.title}</div>
-                    <div className="response-user__body">{applications.full_name}</div>
+                    <div className="response-user__body response-user__cursor" onClick={() => navigate(`/OllOffers/PageOffer/${applications.offer_id}`)}>{applications.title}</div>
+                    <div className="response-user__body response-user__cursor" onClick={() => navigate(`/ViewingResume/${applications.user_id}`)}>{applications.full_name}</div>
                     <div className="response-user__body">
                         <button className="response-user__rejected" onClick={() => updateStatus(applications.application_id, 'rejected')}>Отказаться</button>
                     </div>
