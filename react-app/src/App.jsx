@@ -12,6 +12,7 @@ import EditOffers from './pages/EditOffers';
 import OllOffers from './pages/OllOffers';
 import PageOffer from './pages/PageOffer';
 import Resume from './pages/Resume';
+import ResponseUsers from './pages/ResponseUsers'
 
 export default function App(){
   const { loading, authenticated, role } = useAuth();
@@ -41,6 +42,7 @@ export default function App(){
               <Route path="/TableOffers/CreateOffers" element={<CreateOffers />} />
               <Route path="/TableOffers/EditOffers/:id" element={<EditOffers />} />
               <Route path="/OllOffers/PageOffer/:id" element={<PageOffer />} />
+              <Route path="/ResponseUsers" element={<ResponseUsers />} />
             </Routes>
           <Footer />
         </Router>

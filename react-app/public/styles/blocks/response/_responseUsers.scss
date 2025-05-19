@@ -1,0 +1,35 @@
+.response-user {
+  &__list {
+    display: grid;
+    gap: 24px;
+    @include mobile {
+      padding: 0;
+    }
+  }
+  &__item {
+    /* display: flex; */
+    border: var(--border);
+    border-radius: var(--border-radus);
+    display: grid;
+    grid-template-columns: 1fr 1fr auto auto;
+    gap: 20px;
+    padding: 15px;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+  }
+
+  &__rejected {
+    @include red-button;
+    background-color: var(--color-dark);
+    @include hover {
+      background-color: var(--color-gray-alt);
+    }
+  }
+
+  &__approved {
+    @include red-button;
+  }
+}

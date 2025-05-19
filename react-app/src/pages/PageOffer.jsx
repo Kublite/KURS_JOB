@@ -28,7 +28,7 @@ export default function PageOffer(){
 
     function response(){
 
-        fetch("http://localhost/api/responce.php",{
+        fetch("http://localhost/api/response.php",{
             method: 'POST',
             credentials: 'include',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},

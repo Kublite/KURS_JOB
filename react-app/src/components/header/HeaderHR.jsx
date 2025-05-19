@@ -32,7 +32,7 @@ export default function HeaderHR(){
               <a href="" className="dropdown-menu__link">Резюме</a>
             </li>
             <li className="dropdown-menu__item">
-              <a href="" className="dropdown-menu__link">Отклики</a>
+            <Link to='/ResponseUsers' className="dropdown-menu__link">Отклики</Link>
             </li>
           </ul>
         </DropdownItem>
