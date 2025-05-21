@@ -14,6 +14,7 @@ import PageOffer from './pages/PageOffer';
 import Resume from './pages/Resume';
 import ResponseUsers from './pages/ResponseUsers';
 import ViewingResume from './pages/ViewingResume';
+import AnswersHr from './pages/AnswersHr';
 
 export default function App(){
   const { loading, authenticated, role } = useAuth();
@@ -45,6 +46,7 @@ export default function App(){
               <Route path="/OllOffers/PageOffer/:id" element={<PageOffer />} />
               <Route path="/ViewingResume/:id" element={<ViewingResume />} />
               <Route path="/ResponseUsers" element={<ResponseUsers />} />
+              <Route path="/AnswersHr" element={<AnswersHr />} />
             </Routes>
           <Footer />
         </Router>

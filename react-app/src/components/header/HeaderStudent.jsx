@@ -33,7 +33,7 @@ export default function HeaderStudent(){
               <Link to='/Resume' className="dropdown-menu__link">Резюме</Link>
             </li>
             <li className="dropdown-menu__item">
-              <a href="" className="dropdown-menu__link">Отклики</a>
+              <a href="/AnswersHr" className="dropdown-menu__link">Отклики</a>
             </li>
           </ul>
         </DropdownItem>
