@@ -33,13 +33,13 @@ export default function HeaderStudent(){
               <Link to='/Resume' className="dropdown-menu__link">Резюме</Link>
             </li>
             <li className="dropdown-menu__item">
-              <a href="/AnswersHr" className="dropdown-menu__link">Отклики</a>
+              <Link to='/AnswersHr' className="dropdown-menu__link">Отклики</Link>
             </li>
           </ul>
         </DropdownItem>
 
         <li className="header__menu-item">
-          <a href="/" className="header__menu-link">Помощь</a>
+          <Link to='/CreateMessage' className="header__menu-link">Помощь</Link>
         </li>
         <li className="header__menu-item">
           <a href="../scripts/logout.php" className="header__menu-link">Профиль</a>
@@ -64,18 +64,18 @@ export default function HeaderStudent(){
 
       <DropdownItem title="Карьера">
           <li className="dropdown-menu__item">
-          <Link to='/OllOffers' className="dropdown-menu__link">Вакансии</Link>
+            <Link to='/OllOffers' className="dropdown-menu__link">Вакансии</Link>
           </li>
           <li className="dropdown-menu__item">
-            <a href="" className="dropdown-menu__link">Мои резюме</a>
+            <Link to='/Resume' className="dropdown-menu__link">Резюме</Link>
           </li>
           <li className="dropdown-menu__item">
-            <a href="" className="dropdown-menu__link">Отклики</a>
+            <Link to='/AnswersHr' className="dropdown-menu__link">Отклики</Link>
           </li>
         </DropdownItem>
 
       <li className="mobile-overlay__item">
-        <a href="" className="mobile-overlay__link">Помощь</a>
+        <Link to='/CreateMessage' className="mobile-overlay__link">Помощь</Link>
       </li>
       <li className="mobile-overlay__item">
         <a href="" className="mobile-overlay__link">Профиль</a>

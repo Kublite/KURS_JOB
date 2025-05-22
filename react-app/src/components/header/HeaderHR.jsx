@@ -32,13 +32,13 @@ export default function HeaderHR(){
               <a href="" className="dropdown-menu__link">Резюме</a>
             </li>
             <li className="dropdown-menu__item">
-            <Link to='/ResponseUsers' className="dropdown-menu__link">Отклики</Link>
+              <Link to='/ResponseUsers' className="dropdown-menu__link">Отклики</Link>
             </li>
           </ul>
         </DropdownItem>
 
         <li className="header__menu-item">
-          <a href="/" className="header__menu-link">Помощь</a>
+          <Link to='/CreateMessage' className="header__menu-link">Помощь</Link>
         </li>
         <li className="header__menu-item">
           <a href="../scripts/logout.php" className="header__menu-link">Профиль</a>
@@ -68,7 +68,7 @@ export default function HeaderHR(){
           <a href="" className="dropdown-menu__link">Резюме</a>
         </li>
         <li className="dropdown-menu__item">
-          <a href="" className="dropdown-menu__link">Отклики</a>
+          <Link to='/ResponseUsers' className="dropdown-menu__link">Отклики</Link>
         </li>
       </DropdownItem>
 

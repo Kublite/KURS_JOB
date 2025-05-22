@@ -4,6 +4,8 @@ import MDEditor from "@uiw/react-md-editor";
 
 export default function CreateOffers(){
     const [description, setDescription] = useState("");
+
+
   function offersForm(event){
     event.preventDefault();
 
@@ -41,7 +43,7 @@ export default function CreateOffers(){
     return(
         <main className="createOffers">
             <div className="createOffers__inner">
-                <form action="" className="createOffers__form" method="post" id="register-form" onSubmit={offersForm}>
+                <form action="" className="createOffers__form" method="post" onSubmit={offersForm}>
                     <h1 className="createOffers__form-name">Создать вакансию</h1>
                     <div className="createOffers__form-block">
                         <input

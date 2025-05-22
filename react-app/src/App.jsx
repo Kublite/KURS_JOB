@@ -15,6 +15,7 @@ import Resume from './pages/Resume';
 import ResponseUsers from './pages/ResponseUsers';
 import ViewingResume from './pages/ViewingResume';
 import AnswersHr from './pages/AnswersHr';
+import CreateMessage from './pages/CreateMessage';
 
 export default function App(){
   const { loading, authenticated, role } = useAuth();
@@ -47,6 +48,7 @@ export default function App(){
               <Route path="/ViewingResume/:id" element={<ViewingResume />} />
               <Route path="/ResponseUsers" element={<ResponseUsers />} />
               <Route path="/AnswersHr" element={<AnswersHr />} />
+              <Route path="/CreateMessage" element={<CreateMessage />} />
             </Routes>
           <Footer />
         </Router>
