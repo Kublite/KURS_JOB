@@ -11,7 +11,7 @@ export default function HeaderAdmin(){
                 </li>
 
                 <li className="header__menu-item">
-                    <a href="/" className="header__menu-link">Письма</a>
+                    <Link to='/TableMessage' className="header__menu-link">Письма</Link>
                 </li>
                 <li className="header__menu-item">
                     <Link to='/users' className="header__menu-link">Пользователи</Link>
@@ -25,7 +25,7 @@ export default function HeaderAdmin(){
                     <a href="" className="header__menu-link">Редактировать</a>
                 </li>
                 <li className="mobile-overlay__item">
-                    <a href="" className="header__menu-link">Письма</a>
+                    <Link to='/TableMessage' className="header__menu-link">Письма</Link>
                 </li>
                 <li className="mobile-overlay__item">
                     <Link to='/users' className="header__menu-link">Пользователи</Link>

@@ -16,6 +16,8 @@ import ResponseUsers from './pages/ResponseUsers';
 import ViewingResume from './pages/ViewingResume';
 import AnswersHr from './pages/AnswersHr';
 import CreateMessage from './pages/CreateMessage';
+import TableMessage from './pages/TableMessage';
+import Message from './pages/Message';
 
 export default function App(){
   const { loading, authenticated, role } = useAuth();
@@ -49,6 +51,8 @@ export default function App(){
               <Route path="/ResponseUsers" element={<ResponseUsers />} />
               <Route path="/AnswersHr" element={<AnswersHr />} />
               <Route path="/CreateMessage" element={<CreateMessage />} />
+              <Route path="/TableMessage" element={<TableMessage />} />
+              <Route path="/TableMessage/Message/:id" element={<Message />} />
             </Routes>
           <Footer />
         </Router>
