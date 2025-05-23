@@ -26,6 +26,15 @@ export default function PageOffer(){
         });
     }, []);
 
+    useEffect(() => {
+        fetch("http://localhost/api/addView.php", {
+          method: "POST",
+          credentials: "include",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: `offer_id=${id}`,
+        });
+      }, []);
+
     function response(){
 
         fetch("http://localhost/api/response.php",{

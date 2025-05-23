@@ -7,6 +7,7 @@ export default function TableOffers() {
   const navigate = useNavigate();
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [offers, setOffers] = useState([]);
+  const [viewsCount, setViewsCount] = useState([]);
   const[filters, setFilters]=useState({
           employment:'',
           format:'',
@@ -39,6 +40,23 @@ export default function TableOffers() {
     );
   });
 
+  useEffect(() => {
+    fetch("http://localhost/api/getViewsCount.php", {
+      method: "Get",
+      credentials: 'include',
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status === 'true') {
+          setViewsCount(data.views);
+          console.log(data.views);
+        }
+      })
+      .catch((error) => {
+        console.error("Ошибка:", error);
+      });
+  }, []);
+
   return (
     <main className="TableOffers">
         <div className="TableOffers__inner container">
@@ -69,7 +87,7 @@ export default function TableOffers() {
                       <div className="offer-card__body">
                         <div className="offer-card__created_at">{offer.created_at}</div>
                       </div>
-                        <OfferCard offer={offer}/>
+                        <OfferCard offer={offer} viewsCount={viewsCount} />
                     </li>
                 ))}
             </ul>
