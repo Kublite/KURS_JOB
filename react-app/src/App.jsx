@@ -35,14 +35,31 @@ export default function App(){
       );
     }
     else{
-      return(
+      if(role=='admin'){
+        return(
         <Router>
           <Header />
             <Routes>
               <Route path="/" element={<main/>}/>
               <Route path="/Registration" element={<Registration /> } />
               <Route path="/login" element={<Navigate to="/" replace />} />
-              <Route path="/Resume" element={<Resume />} />
+              <Route path="/OllOffers" element={<OllOffers />} />
+              <Route path="/OllOffers/PageOffer/:id" element={<PageOffer />} />
+              <Route path="/ViewingResume/:id" element={<ViewingResume />} />
+              <Route path="/TableMessage" element={<TableMessage />} />
+              <Route path="/TableMessage/Message/:id" element={<Message />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          <Footer />
+        </Router>
+      )}
+      else if(role=='HR'){
+        return(
+        <Router>
+          <Header />
+            <Routes>
+              <Route path="/" element={<main/>}/>
+              <Route path="/login" element={<Navigate to="/" replace />} />
               <Route path="/TableOffers" element={<TableOffers />} />
               <Route path="/OllOffers" element={<OllOffers />} />
               <Route path="/TableOffers/CreateOffers" element={<CreateOffers />} />
@@ -50,15 +67,29 @@ export default function App(){
               <Route path="/OllOffers/PageOffer/:id" element={<PageOffer />} />
               <Route path="/ViewingResume/:id" element={<ViewingResume />} />
               <Route path="/ResponseUsers" element={<ResponseUsers />} />
-              <Route path="/AnswersHr" element={<AnswersHr />} />
               <Route path="/CreateMessage" element={<CreateMessage />} />
-              <Route path="/TableMessage" element={<TableMessage />} />
-              <Route path="/TableMessage/Message/:id" element={<Message />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           <Footer />
         </Router>
-      )
+      )}
+      else if(role=='student'){
+        return(
+        <Router>
+          <Header />
+            <Routes>
+              <Route path="/" element={<main/>}/>
+              <Route path="/login" element={<Navigate to="/" replace />} />
+              <Route path="/Resume" element={<Resume />} />
+              <Route path="/OllOffers" element={<OllOffers />} />
+              <Route path="/OllOffers/PageOffer/:id" element={<PageOffer />} />
+              <Route path="/AnswersHr" element={<AnswersHr />} />
+              <Route path="/CreateMessage" element={<CreateMessage />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          <Footer />
+        </Router>
+      )}
     }
   }
 }
