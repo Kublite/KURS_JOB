@@ -18,6 +18,7 @@ import AnswersHr from './pages/AnswersHr';
 import CreateMessage from './pages/CreateMessage';
 import TableMessage from './pages/TableMessage';
 import Message from './pages/Message';
+import NotFound from './pages/NotFound';
 
 export default function App(){
   const { loading, authenticated, role } = useAuth();
@@ -53,6 +54,7 @@ export default function App(){
               <Route path="/CreateMessage" element={<CreateMessage />} />
               <Route path="/TableMessage" element={<TableMessage />} />
               <Route path="/TableMessage/Message/:id" element={<Message />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           <Footer />
         </Router>
