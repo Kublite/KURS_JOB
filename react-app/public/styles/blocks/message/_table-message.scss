@@ -1,0 +1,26 @@
+.tableMessage {
+  margin: 5vh 0;
+  &__list {
+    display: grid;
+    gap: 24px;
+    @include mobile {
+      padding: 0;
+    }
+  }
+  &__item {
+    border: var(--border);
+    border-radius: var(--border-radus);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    padding: 15px;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+  }
+  &__cursor {
+    cursor: pointer;
+  }
+}

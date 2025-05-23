@@ -39,7 +39,7 @@ export default function App(){
           <Header />
             <Routes>
               <Route path="/" element={<main/>}/>
-              <Route path="/users" element={<Registration /> } />
+              <Route path="/Registration" element={<Registration /> } />
               <Route path="/login" element={<Navigate to="/" replace />} />
               <Route path="/Resume" element={<Resume />} />
               <Route path="/TableOffers" element={<TableOffers />} />

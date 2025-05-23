@@ -15,7 +15,7 @@ export default function Message(){
             .then((response) => response.json())
             .then((data) => {
                 if (data.status === 'true') {
-                    setMessage(data.messages);
+                    setMessage(data.messages); 
                     console.log(data);
                 }})
             .catch((error) => {
@@ -27,11 +27,11 @@ export default function Message(){
             <div className="Message__inner container">
                 {Message.map((messages) => (
                     <div key={messages.id}>
-                        <div className="tableMessage__body">{messages.subject}</div>
-                        <div className="tableMessage__body">{messages.full_name}</div>
-                        <div className="tableMessage__body">{messages.contact_info}</div>
-                        <div className="tableMessage__body">{messages.message}</div>
-                        <div className="tableMessage__body">{messages.created_at}</div>
+                        <h1 className="Message__body">{messages.subject}</h1>
+                        <h2 className="Message__body">{messages.full_name}</h2>
+                        <h3 className="Message__body">{messages.contact_info}</h3>
+                        <p className="Message__body">{messages.message}</p>
+                        <p className="Message__body">{messages.created_at}</p>
                     </div>
 
                 ))}

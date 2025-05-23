@@ -31,14 +31,14 @@ export default function TableMessage(){
              {tableMessage.map((messages) => (
                 <li key={messages.id} className="tableMessage__item">
                     <div className="tableMessage__body tableMessage__cursor" onClick={() => navigate(`/TableMessage/Message/${messages.id}`)}>{messages.subject}</div>
-                    <div className="tableMessage__body tableMessage__cursor">{messages.full_name}</div>
-                    <div className="tableMessage__body tableMessage__cursor">{messages.contact_info}</div>
+                    <div className="tableMessage__body">{messages.full_name}</div>
+                    <div className="tableMessage__body">{messages.contact_info}</div>
                     <div className="tableMessage__body">{messages.created_at}</div>
                 </li>
              ))}
         </ul>
       )}
-        </div>
+        </div> 
     </main>
     )
 }

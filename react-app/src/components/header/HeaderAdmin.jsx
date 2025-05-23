@@ -14,7 +14,7 @@ export default function HeaderAdmin(){
                     <Link to='/TableMessage' className="header__menu-link">Письма</Link>
                 </li>
                 <li className="header__menu-item">
-                    <Link to='/users' className="header__menu-link">Пользователи</Link>
+                    <Link to='/Registration' className="header__menu-link">Пользователи</Link>
                 </li>
                 <li className="header__menu-item">
                     < Logout />
