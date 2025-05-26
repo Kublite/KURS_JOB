@@ -82,6 +82,7 @@ body {
 
 main {
   flex: 1;
+  margin: 5vh 0;
 }
 
 a,
@@ -540,7 +541,6 @@ ul {
 }
 
 .registration {
-  margin: 5vh 0;
   background-color: transparent;
   display: flex;
   justify-content: center;
@@ -824,7 +824,6 @@ ul {
 }
 
 .createOffers {
-  margin: 5vh 0;
   background-color: transparent;
   display: flex;
   justify-content: center;
@@ -1060,8 +1059,6 @@ ul {
 }
 
 .resume__inner {
-  margin-bottom: 5vh;
-  margin-top: 5vh;
   max-width: 775px;
 }
 .resume__photo-width {
@@ -1304,7 +1301,6 @@ ul {
 }
 
 .createMessage {
-  margin: 5vh 0;
   background-color: transparent;
   display: flex;
   justify-content: center;
@@ -1383,13 +1379,6 @@ ul {
   }
 }
 
-.Message__body {
-  margin: 5vh 0;
-}
-
-.tableMessage {
-  margin: 5vh 0;
-}
 .tableMessage__list {
   display: grid;
   gap: 24px;
@@ -1415,4 +1404,13 @@ ul {
 }
 .tableMessage__cursor {
   cursor: pointer;
+}
+
+.breadcrumbs {
+  font-size: 18px;
+  padding: 15px;
+  background-color: var(--color-accent);
+  color: var(--color-light);
+  border-radius: 0.5rem;
+  font-weight: 700;
 }/*# sourceMappingURL=styles.css.map */

@@ -19,6 +19,7 @@ import CreateMessage from './pages/CreateMessage';
 import TableMessage from './pages/TableMessage';
 import Message from './pages/Message';
 import NotFound from './pages/NotFound';
+import Breadcrumbs from "./components/Breadcrumbs";
 
 export default function App(){
   const { loading, authenticated, role } = useAuth();
@@ -39,6 +40,7 @@ export default function App(){
         return(
         <Router>
           <Header />
+          <Breadcrumbs />
             <Routes>
               <Route path="/" element={<main/>}/>
               <Route path="/Registration" element={<Registration /> } />

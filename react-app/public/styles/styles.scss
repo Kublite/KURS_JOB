@@ -15,5 +15,7 @@
 
 @import "blocks/response/responseUsers.scss";
 
-@import "blocks/message/create-message.scss", "blocks/message/message.scss",
+@import "blocks/message/create-message.scss",
   "blocks/message/table-message.scss";
+
+@import "blocks/breadcrumbs/breadcrumbs.scss";
