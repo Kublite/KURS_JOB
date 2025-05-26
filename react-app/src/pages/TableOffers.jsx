@@ -6,6 +6,7 @@ import OfferCard from "../components/OfferCard";
 export default function TableOffers() {
   const [offers, setOffers] = useState([]);
   const navigate = useNavigate();
+  const [viewsCount, setViewsCount] = useState([]);
   const paramOffer = 'my';
 
   useEffect(() => {
@@ -52,6 +53,23 @@ export default function TableOffers() {
       });
   }
 
+  useEffect(() => {
+      fetch("http://localhost/api/getViewsCount.php", {
+        method: "Get",
+        credentials: 'include',
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.status === 'true') {
+            setViewsCount(data.views);
+            console.log(data.views);
+          }
+        })
+        .catch((error) => {
+          console.error("Ошибка:", error);
+        });
+    }, []);
+
   return (
     <main className="TableOffers">
         <div className="TableOffers__inner container">
@@ -77,7 +95,7 @@ export default function TableOffers() {
                         </div>
                       </div>
 
-                       <OfferCard offer={offer}/>
+                       <OfferCard offer={offer} viewsCount={viewsCount} />
                   </li>
                 ))}
             </ul>

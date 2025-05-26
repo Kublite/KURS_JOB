@@ -1060,6 +1060,8 @@ ul {
 }
 
 .resume__inner {
+  margin-bottom: 5vh;
+  margin-top: 5vh;
   max-width: 775px;
 }
 .resume__photo-width {
@@ -1190,6 +1192,38 @@ ul {
   .resume__buttin-save:active {
     background-color: #ac0000;
   }
+}
+
+.viewing-resume__inner {
+  margin-bottom: 5vh;
+  margin-top: 5vh;
+}
+.viewing-resume__photo-width {
+  width: 250px;
+}
+.viewing-resume__contact-list {
+  padding: 0px;
+}
+.viewing-resume__body {
+  display: flex;
+  border-bottom: 2px solid var(--color-accent);
+  justify-content: space-between;
+  padding-bottom: 2vh;
+  margin-bottom: 2vh;
+}
+@media (max-width: 769px) {
+  .viewing-resume__body {
+    display: block;
+  }
+}
+.viewing-resume__contact-list, .viewing-resume__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2vh;
+}
+.viewing-resume__form-block:empty {
+  display: none;
 }
 
 .response-user__list {

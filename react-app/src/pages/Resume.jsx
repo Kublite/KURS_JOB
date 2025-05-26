@@ -16,6 +16,10 @@ export default function Resume(){
         }
     };
 
+    const generatePDF = () => {
+        window.open(`/generate-resume-pdf/${dataResume.user_id}`, '_blank');
+      };
+
     useEffect(() => {
         fetch('http://localhost/api/getResume.php', {
             method:"GET",
@@ -26,8 +30,9 @@ export default function Resume(){
         })
         .then((data) => {
             if (data.status === 'true') {
-            setDataResume(data.resume[0]);
-            console.log(data.resume);
+                const resume = data.resume[0];
+                setDataResume(resume);
+                setDescription(resume.description || "");
             setIsEditing(true);
             }
         })
@@ -163,9 +168,9 @@ export default function Resume(){
                     </div>
                     <div className="resume__end">
                         <div  data-color-mode="light" >
-                            <MDEditor value={dataResume.description} onChange={(value)=>setDescription({...dataResume, description: value})}/>
+                            <MDEditor value={description} onChange={setDescription} />
                         </div>
-                        <button className="resume__buttin-pdf">Сгенерировать PDF</button>
+                        <button className="resume__buttin-pdf" type="button" onClick={generatePDF}>Сгенерировать PDF</button>
                         <button className="resume__buttin-save" type="submit">Сохранить</button>
                     </div>
                 </form>

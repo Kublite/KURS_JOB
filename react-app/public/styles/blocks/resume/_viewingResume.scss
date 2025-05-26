@@ -1,0 +1,35 @@
+.viewing-resume {
+  &__inner {
+    margin-bottom: 5vh;
+    margin-top: 5vh;
+  }
+
+  &__photo-width {
+    width: 250px;
+  }
+
+  &__contact-list {
+    padding: 0px;
+  }
+  &__body {
+    display: flex;
+    border-bottom: 2px solid var(--color-accent);
+    justify-content: space-between;
+    padding-bottom: 2vh;
+    margin-bottom: 2vh;
+    @include mobile {
+      display: block;
+    }
+  }
+
+  &__contact-list,
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2vh;
+  }
+  &__form-block:empty {
+    display: none;
+  }
+}

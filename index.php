@@ -9,6 +9,8 @@
   </head>
   <body>
     <?php 
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Credentials: true");
       session_start();
       
       if (!isset($_SESSION['user_role'])) {

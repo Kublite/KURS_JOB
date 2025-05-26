@@ -68,6 +68,7 @@ export default function App(){
               <Route path="/ViewingResume/:id" element={<ViewingResume />} />
               <Route path="/ResponseUsers" element={<ResponseUsers />} />
               <Route path="/CreateMessage" element={<CreateMessage />} />
+              <Route path="/generate-resume-pdf/:id" element={<ViewingResume generatePDF={true} />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           <Footer />
@@ -85,6 +86,7 @@ export default function App(){
               <Route path="/OllOffers/PageOffer/:id" element={<PageOffer />} />
               <Route path="/AnswersHr" element={<AnswersHr />} />
               <Route path="/CreateMessage" element={<CreateMessage />} />
+              <Route path="/generate-resume-pdf/:id" element={<ViewingResume generatePDF={true} />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           <Footer />
