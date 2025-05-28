@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost
--- Время создания: Май 11 2025 г., 22:22
+-- Время создания: Май 28 2025 г., 11:44
 -- Версия сервера: 8.0.39
 -- Версия PHP: 8.2.26
 
@@ -34,6 +34,17 @@ CREATE TABLE `applications` (
   `status` varchar(50) COLLATE utf8mb4_general_ci DEFAULT 'pending',
   `applied_at` datetime DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Дамп данных таблицы `applications`
+--
+
+INSERT INTO `applications` (`id`, `user_id`, `offer_id`, `status`, `applied_at`) VALUES
+(4, 3, 2, 'approved', '2025-05-18 00:59:40'),
+(5, 19, 3, 'expectation', '2025-05-18 01:30:04'),
+(6, 3, 1, 'rejected', '2025-05-20 17:18:12'),
+(7, 3, 6, 'expectation', '2025-05-20 17:18:17'),
+(8, 3, 15, 'expectation', '2025-05-25 13:16:48');
 
 -- --------------------------------------------------------
 
@@ -70,11 +81,20 @@ CREATE TABLE `logs` (
 
 CREATE TABLE `messages` (
   `id` int NOT NULL,
-  `sender_id` int DEFAULT NULL,
-  `receiver_id` int DEFAULT NULL,
-  `content` text COLLATE utf8mb4_general_ci,
-  `timestamp` datetime DEFAULT CURRENT_TIMESTAMP
+  `subject` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `full_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `contact_info` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `message` text COLLATE utf8mb4_general_ci NOT NULL,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Дамп данных таблицы `messages`
+--
+
+INSERT INTO `messages` (`id`, `subject`, `full_name`, `contact_info`, `message`, `created_at`) VALUES
+(1, 'dfbd', 'dfbdfb', 'dfbdfb', 'jbdf,vm dfkdfnvd sdfkbvnsdm dsfknvsdf sre;lrtytm ashvc gbrfmjroihs scdhsvgrlkmv ', '2025-05-22 22:09:50'),
+(2, '`11111', '1111111', '11111111', '111111111111', '2025-05-22 22:42:30');
 
 -- --------------------------------------------------------
 
@@ -123,7 +143,8 @@ INSERT INTO `offers` (`id`, `title`, `description`, `requirements`, `speciality`
 (11, 'вма', 'sdv', 'мва', 'Экономика', NULL, 'Пенза', 17, '2025-05-02 16:31:07', 'вма', 'ам'),
 (12, '11111111', '111111111', '111111111', 'ИТ', NULL, 'Пенза', 17, '2025-05-03 00:30:37', '111111111', '11111111'),
 (14, 'bv', 'fbd', 'dfb', 'ИТ', NULL, 'Москва', 2, '2025-05-03 16:13:14', 'dfb', 'dfb'),
-(15, 'test', '**ваив**\r\n*ваиваи*\r\n\r\n- \r\n- ваи\r\n- ваи\r\n- ваи', 'test', 'Педагог', NULL, 'Рязань', 2, '2025-05-06 20:44:06', 'Разъездной', 'Работа');
+(15, 'test', '**ваив**\r\n*ваиваи*\r\n\r\n- \r\n- ваи\r\n- ваи\r\n- ваи', 'test', 'Педагог', NULL, 'Рязань', 2, '2025-05-06 20:44:06', 'Разъездной', 'Работа'),
+(16, 'test', '# 👋 Добро пожаловать на платформу HH-Clone\r\n\r\n---\r\n\r\n## 🌐 О нас\r\n\r\n> Мы создаём удобные сервисы для поиска работы и подбора сотрудников.  \r\n> Наша цель — **соединить лучших специалистов и компании**.\r\n\r\n---\r\n\r\n## 💼 Актуальные вакансии\r\n\r\n| Вакансия               | Зарплата   | Город             | Опыт     |\r\n|------------------------|------------|-------------------|----------|\r\n| Frontend-разработчик   | 120 000 ₽  | Москва            | от 1 года|\r\n| HR-менеджер            | 90 000 ₽   | Казань            | от 2 лет |\r\n| Юрист                  | 100 000 ₽  | Санкт-Петербург   | от 3 лет |\r\n\r\n---\r\n\r\n## 🛠 Что вы можете:\r\n\r\n- 🔍 Найти вакансию\r\n- 📝 Создать резюме\r\n- 📥 Получить отклики\r\n- 📊 Следить за статистикой\r\n\r\n---\r\n\r\n## 🧭 Как начать?\r\n\r\n1. Зарегистрируйтесь\r\n2. Заполните профиль\r\n3. Добавьте резюме или вакансию\r\n4. Получите результат!\r\n\r\n---\r\n\r\n## 🖼 Пример интерфейса\r\n\r\n![Пример интерфейса](https://placehold.co/600x200/EEE/31343C?text=Интерфейс+сайта)\r\n\r\n---\r\n\r\n## 📬 Контакты\r\n\r\nsupport@hh-clone.ru\r\n+7 (999) 000-00-00\r\nг. Москва, ул. Примерная, д. 1\r\n\r\nyaml\r\nКопировать\r\nРедактировать\r\n\r\n---\r\n\r\n© 2025 HH-Clone. Все права защищены.', 'test', 'ИТ', NULL, 'Москва', 2, '2025-05-26 10:55:00', 'test', 'test');
 
 -- --------------------------------------------------------
 
@@ -152,7 +173,7 @@ CREATE TABLE `resumes` (
 --
 
 INSERT INTO `resumes` (`id`, `user_id`, `full_name`, `desired_position`, `city`, `phone`, `email`, `telegram`, `git`, `speciality`, `photo_path`, `created_at`, `description`) VALUES
-(7, 3, 'Степан Кубышкин', '', 'Москва', '89267633808', 'Stepanida525@gmail.com', '', '', '', 'uploads/1746746553_unknown.png', '2025-05-08 23:22:25', '');
+(7, 3, 'Степан Кубышкин', '', 'Москва', '89267633808', 'Stepanida525@gmail.com', '', '', '', 'uploads/1746746553_unknown.png', '2025-05-08 23:22:25', 'ваиваиваиврпрьпртп ваиваиногр амиваиваивааи');
 
 -- --------------------------------------------------------
 
@@ -206,7 +227,8 @@ INSERT INTO `users` (`id`, `UserName`, `pass`, `role`, `email`) VALUES
 (17, '1111', '1111', 'HR', 'dfbd@dfb.com'),
 (18, 'Stepanida', 'Stepanida525', 'HR', 'Stepanida525@gmail.com'),
 (19, 'Stepanida', 'Stepanida525', 'HR', 'Stepanida525@gmail.com'),
-(20, '1111', '1111', 'HR', 'dfbd@dfb.com');
+(20, '1111', '1111', 'HR', 'dfbd@dfb.com'),
+(23, '222222222222', '222222222222222222', 'admin', '222222222222@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -221,6 +243,18 @@ CREATE TABLE `views` (
   `resume_id` int DEFAULT NULL,
   `viewed_at` datetime DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Дамп данных таблицы `views`
+--
+
+INSERT INTO `views` (`id`, `user_id`, `offer_id`, `resume_id`, `viewed_at`) VALUES
+(1, 3, 1, NULL, '2025-05-24 01:39:42'),
+(2, 3, 2, NULL, '2025-05-24 01:39:47'),
+(3, 1, 1, NULL, '2025-05-24 01:40:22'),
+(4, 3, 15, NULL, '2025-05-25 13:16:47'),
+(5, 2, 15, NULL, '2025-05-25 13:17:19'),
+(6, 3, 16, NULL, '2025-05-26 13:55:20');
 
 --
 -- Индексы сохранённых таблиц
@@ -253,9 +287,7 @@ ALTER TABLE `logs`
 -- Индексы таблицы `messages`
 --
 ALTER TABLE `messages`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `sender_id` (`sender_id`),
-  ADD KEY `receiver_id` (`receiver_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `notifications`
@@ -314,7 +346,7 @@ ALTER TABLE `views`
 -- AUTO_INCREMENT для таблицы `applications`
 --
 ALTER TABLE `applications`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT для таблицы `favorites`
@@ -332,7 +364,7 @@ ALTER TABLE `logs`
 -- AUTO_INCREMENT для таблицы `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `notifications`
@@ -344,13 +376,13 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT для таблицы `offers`
 --
 ALTER TABLE `offers`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT для таблицы `resumes`
 --
 ALTER TABLE `resumes`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT для таблицы `site_content`
@@ -368,13 +400,13 @@ ALTER TABLE `uploads`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT для таблицы `views`
 --
 ALTER TABLE `views`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
@@ -399,13 +431,6 @@ ALTER TABLE `favorites`
 --
 ALTER TABLE `logs`
   ADD CONSTRAINT `logs_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
-
---
--- Ограничения внешнего ключа таблицы `messages`
---
-ALTER TABLE `messages`
-  ADD CONSTRAINT `messages_ibfk_1` FOREIGN KEY (`sender_id`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `messages_ibfk_2` FOREIGN KEY (`receiver_id`) REFERENCES `users` (`id`);
 
 --
 -- Ограничения внешнего ключа таблицы `notifications`
