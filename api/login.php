@@ -2,7 +2,7 @@
 header("Access-Control-Allow-Origin: http://localhost:5173");
 header("Access-Control-Allow-Credentials: true");
 session_start(); 
-require_once('../scripts/db.php');
+require_once('./db.php');
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $UserName = $_POST['UserName'] ?? null; // Используем ?? для избежания ошибок
   $password = $_POST['password'] ?? null;
