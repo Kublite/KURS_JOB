@@ -26,7 +26,7 @@ export default function ViewingResume({ generatePDF = false }) {
   };
 
   useEffect(() => {
-    fetch("http://localhost/api/getResume.php", {
+    fetch("/api/getResume.php", {
       method: 'POST',
       credentials: 'include',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },

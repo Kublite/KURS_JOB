@@ -8,7 +8,7 @@ export default function CreateMessage(){
         const form = event.target.closest('form'); // получаем форму
         const messageData = new FormData(form);
 
-        fetch("http://localhost/api/sendMessage.php",{
+        fetch("/api/sendMessage.php",{
             method: "POST",
             credentials: "include",
             body: messageData,

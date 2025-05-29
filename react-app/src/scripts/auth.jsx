@@ -7,7 +7,7 @@ export default function useAuth(){
         authenticated: false,
         role: null})
     useEffect(()=>{
-        fetch('http://localhost/api/session.php',{credentials: 'include'})// чтобы работали куки/сессии
+        fetch('/api/session.php',{credentials: 'include'})// чтобы работали куки/сессии
         .then(response=>response.json())
         .then((data)=>
         setAuth({

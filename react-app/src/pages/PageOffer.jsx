@@ -9,7 +9,7 @@ export default function PageOffer(){
     const { id } = useParams();
 
      useEffect(() => {
-        fetch("http://localhost/api/editOffer.php", {
+        fetch("/api/editOffer.php", {
             method: 'POST',
             credentials: 'include',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
@@ -28,7 +28,7 @@ export default function PageOffer(){
     }, []);
 
     useEffect(() => {
-        fetch("http://localhost/api/addView.php", {
+        fetch("/api/addView.php", {
           method: "POST",
           credentials: "include",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -38,7 +38,7 @@ export default function PageOffer(){
 
     function response(){
 
-        fetch("http://localhost/api/response.php",{
+        fetch("/api/response.php",{
             method: 'POST',
             credentials: 'include',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},

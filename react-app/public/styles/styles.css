@@ -85,6 +85,11 @@ main {
   margin: 5vh 0;
 }
 
+table {
+  width: 100%;
+  overflow-x: auto;
+}
+
 a,
 button,
 input,

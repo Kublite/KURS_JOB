@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 export default function Logout(){
     const navigate = useNavigate();
     function handleLogout() {
-        fetch('http://localhost/api/logout.php', {
+        fetch('/api/logout.php', {
             method: "POST",
             credentials: 'include'
         })

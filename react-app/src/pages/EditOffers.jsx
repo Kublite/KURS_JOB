@@ -9,7 +9,7 @@ export default function EditOffers(){
     const { id } = useParams();
 
     useEffect(() => {
-        fetch("http://localhost/api/editOffer.php", {
+        fetch("/api/editOffer.php", {
             method: 'POST',
             credentials: 'include',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
@@ -35,7 +35,7 @@ export default function EditOffers(){
     const offerData = new FormData(form);
     offerData.append('id', id);
 
-    fetch("http://localhost/api/updateOffer.php", {
+    fetch("/api/updateOffer.php", {
       method: "POST",
       body: offerData,
       credentials: 'include',

@@ -11,7 +11,7 @@ export default function Login(){
     const formData = new FormData(form);
 
 
-    fetch('http://localhost/api/login.php',{
+    fetch('/api/login.php',{
       credentials: 'include',
       method: "POST",
       body: formData})

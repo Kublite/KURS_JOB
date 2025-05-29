@@ -6,7 +6,7 @@ export default function TableMessage(){
     const [tableMessage, setTableMessage] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost/api/tableMessage.php",{
+        fetch("/api/tableMessage.php",{
             method: "Get",
             credentials: 'include',
         })

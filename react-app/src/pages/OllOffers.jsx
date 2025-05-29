@@ -17,7 +17,7 @@ export default function TableOffers() {
       })
 
   useEffect(() => {
-    fetch("http://localhost/api/tableOffers.php", {
+    fetch("/api/tableOffers.php", {
       method: "Get",
       credentials: 'include',
     })
@@ -42,7 +42,7 @@ export default function TableOffers() {
   });
 
   useEffect(() => {
-    fetch("http://localhost/api/getViewsCount.php", {
+    fetch("/api/getViewsCount.php", {
       method: "Get",
       credentials: 'include',
     })
@@ -68,7 +68,7 @@ export default function TableOffers() {
             <div className="TableOffers__info">
               <div className="TableOffers__lenght">{offers.length} вакансий</div>
               <button className="TableOffers__open-filter" onClick={() => setIsFilterOpen(prev => !prev)}>
-                <img src="../../public/img/filter.svg" alt="filter" width="24"
+                <img src="/img/filter.svg" alt="filter" width="24"
                   height="24"/>
                 
               </button>

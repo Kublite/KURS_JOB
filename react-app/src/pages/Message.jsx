@@ -6,7 +6,7 @@ export default function Message(){
     const { id } = useParams();
 
     useEffect(() => {
-            fetch("http://localhost/api/tableMessage.php",{
+            fetch("/api/tableMessage.php",{
                 method: "POST",
                 credentials: 'include',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},

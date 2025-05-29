@@ -6,7 +6,7 @@ export default function Registration(){
     const form = event.target.closest('form'); // получаем форму
     const registerData = new FormData(form);
 
-    fetch("http://localhost/api/register.php", {
+    fetch("/api/register.php", {
       method: "POST",
       body: registerData,
     })

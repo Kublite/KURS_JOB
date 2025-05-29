@@ -21,7 +21,7 @@ export default function Resume(){
       };
 
     useEffect(() => {
-        fetch('http://localhost/api/getResume.php', {
+        fetch('/api/getResume.php', {
             method:"GET",
             credentials: "include"
         })
@@ -48,7 +48,7 @@ export default function Resume(){
         resumeData.append("photo", photoFile); 
         resumeData.append("description", description);
 
-        fetch(`http://localhost/api/${isEditing ? 'updateResume' : 'createResume'}.php`,{
+        fetch(`/api/${isEditing ? 'updateResume' : 'createResume'}.php`,{
             method: "POST",
             credentials: "include",
             body: resumeData,

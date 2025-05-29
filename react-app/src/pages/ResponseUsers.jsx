@@ -6,7 +6,7 @@ export default function ResponseUsers(){
     const [ResponseUsers, setResponseUsers] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost/api/getResponse.php",{
+        fetch("/api/getResponse.php",{
             method: "Get",
             credentials: 'include',
         })
@@ -22,7 +22,7 @@ export default function ResponseUsers(){
     }, []);
 
     function updateStatus(applicationId, newStatus) {
-        fetch("http://localhost/api/updateApplications.php", {
+        fetch("/api/updateApplications.php", {
           method: 'POST',
           credentials: 'include',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },

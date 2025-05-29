@@ -4,7 +4,7 @@ export default function AnswersHr(){
     const [statusApplications, setStatusApplications] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost/api/AnswersHr.php",{
+        fetch("/api/AnswersHr.php",{
             method: "Get",
             credentials: 'include',
         })

@@ -14,7 +14,7 @@ export default function CreateOffers(){
 
     offerData.append("description", description);
 
-    fetch("http://localhost/api/createOffer.php", {
+    fetch("/api/createOffer.php", {
       method: "POST",
       credentials: "include",
       body: offerData,

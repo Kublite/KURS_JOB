@@ -10,7 +10,7 @@ export default function TableOffers() {
   const paramOffer = 'my';
 
   useEffect(() => {
-    fetch("http://localhost/api/tableOffers.php", {
+    fetch("/api/tableOffers.php", {
       method: "POST",
       credentials: 'include',
       headers: {'Content-Type': 'application/x-www-form-urlencoded'},
@@ -31,7 +31,7 @@ export default function TableOffers() {
   function handleDelete(id) {
     if (!window.confirm('Удалить эту вакансию?')) return;
   
-    fetch('http://localhost/api/deleteOffer.php', {
+    fetch('/api/deleteOffer.php', {
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -54,7 +54,7 @@ export default function TableOffers() {
   }
 
   useEffect(() => {
-      fetch("http://localhost/api/getViewsCount.php", {
+      fetch("/api/getViewsCount.php", {
         method: "Get",
         credentials: 'include',
       })
@@ -87,10 +87,10 @@ export default function TableOffers() {
                         <div className="offer-card__created_at">{offer.created_at}</div>
                         <div>
                           <button className="offer-card__button-del" onClick={() => handleDelete(offer.id)}>
-                            <img src="../../public/img/garbage.svg" alt="garbage"/>
+                            <img src="/img/garbage.svg" alt="garbage"/>
                           </button>
                           <button onClick={() => navigate(`/TableOffers/EditOffers/${offer.id}`)} className="offer-card__button-edit">
-                            <img src="../../public/img/edit.svg" alt="edit"/>
+                            <img src="/img/edit.svg" alt="edit"/>
                           </button> 
                         </div>
                       </div>
