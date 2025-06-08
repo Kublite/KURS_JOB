@@ -16,6 +16,7 @@ const breadcrumbNameMap = {
   "Registration": "Регистрация",
   "login": "Авторизация",
   "ViewingResume": "Просмотр резюме",
+  "EditPage": "Редактор страниц",
   "generate-resume-pdf": "PDF резюме"
 };
 

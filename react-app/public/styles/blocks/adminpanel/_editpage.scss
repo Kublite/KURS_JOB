@@ -1,0 +1,19 @@
+.edit {
+  &-List {
+    display: flex;
+    justify-content: space-between;
+  }
+  &-Item {
+    @include red-button;
+  }
+
+  &-page {
+    &__content {
+      margin-bottom: 2vh;
+    }
+    &__save-button {
+      @include red-button;
+      width: 100%;
+    }
+  }
+}

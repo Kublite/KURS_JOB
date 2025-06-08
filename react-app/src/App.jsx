@@ -20,6 +20,8 @@ import TableMessage from './pages/TableMessage';
 import Message from './pages/Message';
 import NotFound from './pages/NotFound';
 import Breadcrumbs from "./components/Breadcrumbs";
+import SelectPage from "./pages/SelectPage";
+import EditPage from "./pages/EditPage";
 
 export default function App(){
   const { loading, authenticated, role } = useAuth();
@@ -50,6 +52,11 @@ export default function App(){
               <Route path="/ViewingResume/:id" element={<ViewingResume />} />
               <Route path="/TableMessage" element={<TableMessage />} />
               <Route path="/TableMessage/Message/:id" element={<Message />} />
+              <Route path="/SelectPage" element={<SelectPage />} />
+              <Route path="/EditCareerCenter" element={<EditPage />} />
+              <Route path="/EditNews" element={<EditPage />} />
+              <Route path="/EditPraktika" element={<EditPage />} />
+              <Route path="/EditRabotodatelyam" element={<EditPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           <Footer />

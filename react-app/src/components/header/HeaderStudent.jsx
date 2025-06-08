@@ -19,7 +19,7 @@ export default function HeaderStudent(){
               <a href="" className="dropdown-menu__link">Работодателям</a>
             </li>
             <li className="dropdown-menu__item">
-              <a href="" className="dropdown-menu__link">Партнеры</a>
+              <a href="" className="dropdown-menu__link">О практке</a>
             </li>
           </ul>
           </DropdownItem>
@@ -59,7 +59,7 @@ export default function HeaderStudent(){
             <a href="" className="dropdown-menu__link">Работодателям</a>
           </li>
           <li className="dropdown-menu__item">
-            <a href="" className="dropdown-menu__link">Партнеры</a>
+            <a href="" className="dropdown-menu__link">О практке</a>
           </li>
           </DropdownItem>
 

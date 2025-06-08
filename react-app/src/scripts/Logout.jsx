@@ -10,7 +10,7 @@ export default function Logout(){
         })
         .then(response=>response.json())
         .then((data)=>{
-            if(data.success){
+            if(data.success){window.location.reload();
                 navigate('/login', { replace: true });
             }
         })
