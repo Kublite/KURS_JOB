@@ -10,16 +10,16 @@ export default function HeaderStudent(){
           <DropdownItem title="Инфо">
           <ul className="dropdown-menu__list">
             <li className="dropdown-menu__item">
-              <a href="" className="dropdown-menu__link">О центре</a>
+              <Link to='/CareerCenter' className="dropdown-menu__link">О центре</Link>
             </li>
             <li className="dropdown-menu__item">
-              <a href="" className="dropdown-menu__link">Новости</a>
+              <Link to='/News' className="dropdown-menu__link">Новости</Link>
             </li>
             <li className="dropdown-menu__item">
-              <a href="" className="dropdown-menu__link">Работодателям</a>
+              <Link to='/Rabotodatelyam' className="dropdown-menu__link">Работодателям</Link>
             </li>
             <li className="dropdown-menu__item">
-              <a href="" className="dropdown-menu__link">О практке</a>
+              <Link to='/Praktika' className="dropdown-menu__link">О практке</Link>
             </li>
           </ul>
           </DropdownItem>
@@ -50,16 +50,16 @@ export default function HeaderStudent(){
       <ul className="mobile-overlay__list">
       <DropdownItem title="Инфо">
           <li className="dropdown-menu__item">
-            <a href="" className="dropdown-menu__link">О центре</a>
+            <Link to='/CareerCenter' className="dropdown-menu__link">О центре</Link>
           </li>
           <li className="dropdown-menu__item">
-            <a href="" className="dropdown-menu__link">Новости</a>
+            <Link to='/News' className="dropdown-menu__link">Новости</Link>
           </li>
           <li className="dropdown-menu__item">
-            <a href="" className="dropdown-menu__link">Работодателям</a>
+            <Link to='/Rabotodatelyam' className="dropdown-menu__link">Работодателям</Link>
           </li>
           <li className="dropdown-menu__item">
-            <a href="" className="dropdown-menu__link">О практке</a>
+            <Link to='/Praktika' className="dropdown-menu__link">О практке</Link>
           </li>
           </DropdownItem>
 

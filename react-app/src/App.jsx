@@ -22,6 +22,7 @@ import NotFound from './pages/NotFound';
 import Breadcrumbs from "./components/Breadcrumbs";
 import SelectPage from "./pages/SelectPage";
 import EditPage from "./pages/EditPage";
+import ViewingPage from "./pages/ViewingPage";
 
 export default function App(){
   const { loading, authenticated, role } = useAuth();
@@ -53,10 +54,10 @@ export default function App(){
               <Route path="/TableMessage" element={<TableMessage />} />
               <Route path="/TableMessage/Message/:id" element={<Message />} />
               <Route path="/SelectPage" element={<SelectPage />} />
-              <Route path="/EditCareerCenter" element={<EditPage />} />
-              <Route path="/EditNews" element={<EditPage />} />
-              <Route path="/EditPraktika" element={<EditPage />} />
-              <Route path="/EditRabotodatelyam" element={<EditPage />} />
+              <Route path="/CareerCenter" element={<EditPage />} />
+              <Route path="/News" element={<EditPage />} />
+              <Route path="/Praktika" element={<EditPage />} />
+              <Route path="/Rabotodatelyam" element={<EditPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           <Footer />
@@ -66,6 +67,7 @@ export default function App(){
         return(
         <Router>
           <Header />
+          <Breadcrumbs />
             <Routes>
               <Route path="/" element={<main/>}/>
               <Route path="/login" element={<Navigate to="/" replace />} />
@@ -78,6 +80,12 @@ export default function App(){
               <Route path="/ResponseUsers" element={<ResponseUsers />} />
               <Route path="/CreateMessage" element={<CreateMessage />} />
               <Route path="/generate-resume-pdf/:id" element={<ViewingResume generatePDF={true} />} />
+
+              <Route path="/CareerCenter" element={<ViewingPage />} />
+              <Route path="/News" element={<ViewingPage />} />
+              <Route path="/Praktika" element={<ViewingPage />} />
+              <Route path="/Rabotodatelyam" element={<ViewingPage />} />
+
               <Route path="*" element={<NotFound />} />
             </Routes>
           <Footer />
@@ -87,6 +95,7 @@ export default function App(){
         return(
         <Router>
           <Header />
+          <Breadcrumbs />
             <Routes>
               <Route path="/" element={<main/>}/>
               <Route path="/login" element={<Navigate to="/" replace />} />
@@ -96,6 +105,12 @@ export default function App(){
               <Route path="/AnswersHr" element={<AnswersHr />} />
               <Route path="/CreateMessage" element={<CreateMessage />} />
               <Route path="/generate-resume-pdf/:id" element={<ViewingResume generatePDF={true} />} />
+
+              <Route path="/CareerCenter" element={<ViewingPage />} />
+              <Route path="/News" element={<ViewingPage />} />
+              <Route path="/Praktika" element={<ViewingPage />} />
+              <Route path="/Rabotodatelyam" element={<ViewingPage />} />
+
               <Route path="*" element={<NotFound />} />
             </Routes>
           <Footer />

@@ -9,16 +9,16 @@ export default function SelectPage(){
                 <label>Какую страницу будем редактировать?</label>
                 <ul className="edit-List">
                     <li className="edit-Item">
-                        <Link to='/EditCareerCenter'>О центре</Link>
+                        <Link to='/CareerCenter'>О центре</Link>
                     </li>
                     <li className="edit-Item">
-                        <Link to='/EditNews'>Новости</Link>
+                        <Link to='/News'>Новости</Link>
                     </li>
                     <li className="edit-Item">
-                        <Link to='/EditRabotodatelyam'>Работодателям</Link>
+                        <Link to='/Rabotodatelyam'>Работодателям</Link>
                     </li>
                     <li className="edit-Item">
-                       <Link to='/EditPraktika'>О практке</Link>
+                       <Link to='/Praktika'>О практке</Link>
                     </li>
                  </ul>
             </div>

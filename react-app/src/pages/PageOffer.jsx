@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import MDEditor from "@uiw/react-md-editor";
-import Breadcrumbs from "../components/Breadcrumbs";
 
 export default function PageOffer(){
     const [offer, setOffer] = useState([]);
@@ -59,7 +58,6 @@ export default function PageOffer(){
 
     return(
         <main>
-            <Breadcrumbs />
             <div>
             {offer.map((offer) => (
                 <div key={offer.id} className="page-offer__inner container" data-color-mode="light">

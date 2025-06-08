@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import OfferFilters from '../components/OfferFilters';
 import OfferCard from "../components/OfferCard";
 import { useNavigate } from 'react-router-dom';
-import Breadcrumbs from "../components/Breadcrumbs";
 
 export default function TableOffers() {
   const navigate = useNavigate();
@@ -61,7 +60,6 @@ export default function TableOffers() {
   return (
     
     <main className="TableOffers">
-      <Breadcrumbs />
         <div className="TableOffers__inner container">
         <header className="TableOffers__header">
             <h1>Список вакансий</h1>
