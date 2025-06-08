@@ -10,7 +10,7 @@ export default function HeaderHR(){
         <DropdownItem title="Инфо">
           <ul className="dropdown-menu__list">
             <li className="dropdown-menu__item">
-              <Link to='/CareerCenter' className="dropdown-menu__link">О центре</Link>
+              <Link to='/' className="dropdown-menu__link">О центре</Link>
             </li>
             <li className="dropdown-menu__item">
               <Link to='/News' className="dropdown-menu__link">Новости</Link>
@@ -48,7 +48,7 @@ export default function HeaderHR(){
       <ul className="mobile-overlay__list">
       <DropdownItem title="Инфо">
         <li className="dropdown-menu__item">
-          <Link to='/CareerCenter' className="dropdown-menu__link">О центре</Link>
+          <Link to='/' className="dropdown-menu__link">О центре</Link>
         </li>
         <li className="dropdown-menu__item">
           <Link to='/News' className="dropdown-menu__link">Новости</Link>

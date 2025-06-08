@@ -29,11 +29,10 @@
   &__list {
     position: absolute;
     padding: 0;
-    margin: 0;
-    transform: translateY(-75px);
     opacity: 0;
     visibility: hidden;
-    transition: visibility 0.2s, opacity 0.2s, transform 0.2s;
+    background-color: #fff;
+    border-radius: var(--border-radus);
   }
 
   .header__menu-item.dropdown-menu__open &__button::after {
@@ -48,7 +47,7 @@
   }
 
   &__item {
-    padding-top: 30px;
+    padding: 20px;
   }
 
   &__link {

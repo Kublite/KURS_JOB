@@ -2,8 +2,12 @@ import React, { useState, useEffect } from "react";
 import MDEditor from "@uiw/react-md-editor";
 
 export default function ViewingPage() {
-  const page = window.location.pathname.split('/').pop();
+  let page = window.location.pathname.split('/').pop();
   const [content, setContent] = useState('');
+  if (!page) {
+    page = 'CareerCenter';
+  }
+  console.log(page)
 
   useEffect(() => {
     const params = new URLSearchParams();
