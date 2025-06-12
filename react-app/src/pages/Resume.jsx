@@ -70,6 +70,7 @@ export default function Resume(){
           })
 
     }
+    console.log(dataResume.photo_path);
     return(
         <main>
             <div className="resume__inner container">
@@ -78,7 +79,7 @@ export default function Resume(){
                 <form action="" method="post" onSubmit={resumeForm} encType="multipart/form-data">
                     <div className="resume__body">
                         <div className="resume__img">
-                            <img src={image ? image : `/${dataResume.photo_path}`} alt=""  className="resume__photo-width"/>
+                            <img src={image ? image : ` http://r92676qx.beget.tech/${dataResume.photo_path}`} alt=""  className="resume__photo-width"/>
                             <label className="resume__buttin-img">
                                 Загрузить фото
                                 <input

@@ -48,8 +48,8 @@ export default function TableOffers() {
           alert('Ошибка удаления');
         }
       })
-      .catch((err) => {
-        console.error('Ошибка удаления:', err);
+      .catch((error) => {
+        console.error('Ошибка удаления:', error); 
       });
   }
 

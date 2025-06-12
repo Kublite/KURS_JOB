@@ -1,8 +1,6 @@
 import React from "react";
-import { useNavigate } from 'react-router-dom';
 
 export default function Logout(){
-    const navigate = useNavigate();
     function handleLogout() {
         fetch('/api/logout.php', {
             method: "POST",
@@ -10,8 +8,9 @@ export default function Logout(){
         })
         .then(response=>response.json())
         .then((data)=>{
-            if(data.success){window.location.reload();
-                navigate('/login', { replace: true });
+            if(data.success){
+                window.location.reload();
+                window.location.href = '/';
             }
         })
         .catch((error) => {

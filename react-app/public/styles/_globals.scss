@@ -59,3 +59,17 @@ h4 {
 ul {
   list-style-type: none;
 }
+
+.viewing-resume__body,
+.viewing-resume__info,
+.viewing-resume__contact-list,
+.w-md-editor-show,
+.w-md-editor-show-live,
+img,
+p,
+li,
+div,
+section {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}

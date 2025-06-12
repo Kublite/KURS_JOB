@@ -125,6 +125,21 @@ ul {
   list-style-type: none;
 }
 
+.viewing-resume__body,
+.viewing-resume__info,
+.viewing-resume__contact-list,
+.w-md-editor-show,
+.w-md-editor-show-live,
+img,
+p,
+li,
+div,
+section {
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
+  page-break-inside: avoid;
+}
+
 .header {
   padding-top: 30px;
 }
@@ -764,6 +779,12 @@ ul {
   border: none;
   cursor: pointer;
 }
+.offer-card__favorites {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
 
 .TableOffers__content {
   display: flex;
@@ -1020,6 +1041,7 @@ ul {
 .pageOffer__container-button {
   display: flex;
   justify-content: space-between;
+  padding-top: 3rem;
 }
 .pageOffer__back {
   padding: 0;

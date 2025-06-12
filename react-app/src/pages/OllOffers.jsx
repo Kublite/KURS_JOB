@@ -3,11 +3,12 @@ import OfferFilters from '../components/OfferFilters';
 import OfferCard from "../components/OfferCard";
 import { useNavigate } from 'react-router-dom';
 
-export default function TableOffers() {
+export default function OllOffers() {
   const navigate = useNavigate();
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [offers, setOffers] = useState([]);
   const [viewsCount, setViewsCount] = useState([]);
+  const [favorites, setFavorites] = useState([]);
   const[filters, setFilters]=useState({
           employment:'',
           format:'',
@@ -57,6 +58,27 @@ export default function TableOffers() {
       });
   }, []);
 
+  useEffect(() => {
+    fetch("/api/getFavorites.php", {
+      method: "Get",
+      credentials: 'include',
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status === 'true') {
+          setFavorites(data.favorites);
+          console.log(data.favorites);
+        }
+      })
+      .catch((error) => {
+        console.error("Ошибка:", error);
+      });
+  }, []);
+
+  const isFavorite = (offerId) => {
+    return favorites.some((fav) => fav.offer_id === offerId.toString());
+  };
+
   return (
     
     <main className="TableOffers">
@@ -86,9 +108,20 @@ export default function TableOffers() {
                 {filteredOffers.map((offer) => (
                     <li key={offer.id} className="offer-card__item" onClick={() => navigate(`/OllOffers/PageOffer/${offer.id}`)}> 
                       <div className="offer-card__body">
-                        <div className="offer-card__created_at">{offer.created_at}</div>
+                        <div className="offer-card__created_at">
+                          {offer.created_at}
+                          </div>
+                        <div>
+                          <button className="offer-card__favorites" >
+                            {isFavorite(offer.id) ? (
+                              <img width="30px" src="/img/favoritesON.svg" alt="favorites" />
+                            ) : (
+                              <img width="30px" src="/img/favoritesOFF.svg" alt="favorites" />
+                            )}
+                          </button>
+                        </div>
                       </div>
-                        <OfferCard offer={offer} viewsCount={viewsCount} />
+                      <OfferCard offer={offer} viewsCount={viewsCount} />
                     </li>
                 ))}
             </ul>

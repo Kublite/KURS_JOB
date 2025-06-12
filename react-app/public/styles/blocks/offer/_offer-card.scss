@@ -64,4 +64,8 @@
       cursor: pointer;
     }
   }
+  &__favorites {
+    @include reset-button;
+    cursor: pointer;
+  }
 }

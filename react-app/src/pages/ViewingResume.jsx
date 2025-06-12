@@ -40,8 +40,8 @@ export default function ViewingResume({ generatePDF = false }) {
 
           // Загружаем фото
           if (res.photo_path) {
-            convertImageToBase64(`http://localhost/${res.photo_path}`);
-            console.log("Загружаю картинку по:", `http://localhost/${res.photo_path}`);
+            convertImageToBase64(`http://r92676qx.beget.tech/${res.photo_path}`);
+            console.log("Загружаю картинку по:", `http://r92676qx.beget.tech/${res.photo_path}`);
           }
         }
       });
@@ -61,7 +61,6 @@ export default function ViewingResume({ generatePDF = false }) {
       }, 1000);
     }
   }, [resume, imageData, generatePDF]);
-
   return (
     <main>
       {resume && (

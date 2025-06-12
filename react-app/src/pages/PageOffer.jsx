@@ -48,7 +48,7 @@ export default function PageOffer(){
             if (data.status === 'true') {
                 alert('Резюме отправили');
             } else {
-              alert('Ошибка: ' + data.message);
+              alert(data.message);
             }
         })
         .catch((error) => {

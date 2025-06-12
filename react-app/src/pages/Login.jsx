@@ -17,7 +17,7 @@ export default function Login(){
       body: formData})
       .then(response=>response.json())
       .then(data=>{
-        if(data.role){setRole(data.role); window.location.reload();}
+        if(data.role){setRole(data.role);  window.location.href = '/';}
         else{setError('Неверный логин или пароль')}
       })
       .catch(error=>{console.error(error);

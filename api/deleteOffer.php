@@ -13,7 +13,7 @@ if (!$user_id || !$id) {
   exit;
 }
 
-$sql = "DELETE FROM offers WHERE id = $id AND user_id = $user_id";
+$sql = "DELETE FROM offers WHERE id = $id AND user_id = '$user_id'";
 
 if ($conn->query($sql)) {
   echo json_encode(['status' => 'success']);

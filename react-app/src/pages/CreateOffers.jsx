@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import MDEditor from "@uiw/react-md-editor";
+import { useNavigate } from 'react-router-dom';
 
 export default function CreateOffers(){
     const [description, setDescription] = useState("");
+    const navigate = useNavigate();
 
 
   function offersForm(event){
@@ -38,6 +40,8 @@ export default function CreateOffers(){
         console.error("no", error);
         alert('Ошибка');
       });
+
+    
   }
 
     return(
@@ -54,20 +58,22 @@ export default function CreateOffers(){
                         />
                     </div>
                     <div className="createOffers__form-block">
-                        <input
-                        className="createOffers__form-block-input"
-                        type="text"
-                        placeholder="Тип занятости"
-                        name="employment"
-                        />
+                        <select name="employment" className="createOffers__form-block-input">
+                            <option value="">--Тип работы--</option>
+                            <option value="Стажировка">Стажировка</option>
+                            <option value="Практика">Практика</option>
+                            <option value="Волонтерство">Волонтерство</option>
+                            <option value="Работа">Работа</option>
+                        </select>
                     </div>
                     <div className="createOffers__form-block">
-                        <input
-                        className="createOffers__form-block-input"
-                        type="text"
-                        placeholder="Форма занятости"
-                        name="format"
-                        />
+                        <select name="format" className="createOffers__form-block-input">
+                            <option value="">--Формат работы--</option>
+                            <option value="В офисе">В офисе</option>
+                            <option value="Удаленный">Удаленный</option>
+                            <option value="Гибридный">Гибридный</option>
+                            <option value="Разъездной">Разъездной</option>
+                        </select>
                     </div>
                     <div className="createOffers__form-block">
                         <label htmlFor="description">Описание</label>
@@ -113,7 +119,7 @@ export default function CreateOffers(){
                     </div>
                     <div className="createOffers__form-button">
                         <Link to="/TableOffers" className="createOffers-back">Назад</Link>
-                        <button className="createOffers__form-button-submit" type="submit">Создать</button>
+                        <button className="createOffers__form-button-submit" type="submit" onClick={() => navigate(`/TableOffers/`)}>Создать</button>
                     </div>
                 </form>
             </div>
