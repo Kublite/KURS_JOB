@@ -134,7 +134,7 @@ export default function OllOffers() {
             <ul className="TableOffers__list">
                 {filteredOffers.map((offer) => (
                     <li key={offer.id} className="offer-card__item">
-                    <div onClick={() => navigate(`/OllOffers/PageOffer/${offer.id}`)}>
+                    <div className="offer-card__item-entrails" onClick={() => navigate(`/OllOffers/PageOffer/${offer.id}`)}>
                       <div className="offer-card__body">
                         <div className="offer-card__created_at">{offer.created_at}</div>
                         <div>
