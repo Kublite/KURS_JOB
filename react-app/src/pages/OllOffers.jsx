@@ -79,6 +79,33 @@ export default function OllOffers() {
     return favorites.some((fav) => fav.offer_id === offerId.toString());
   };
 
+  function changeFavorites(event, offerId) {
+    event.preventDefault();
+    event.stopPropagation();
+  
+    const formData = new FormData();
+    formData.append("offer_id", offerId);
+  
+    fetch("/api/changeFavorites.php", {
+      method: "POST",
+      credentials: "include",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === "added") {
+          setFavorites((prev) => [...prev, { offer_id: offerId.toString() }]);
+        } else if (data.status === "removed") {
+          setFavorites((prev) =>
+            prev.filter((fav) => fav.offer_id !== offerId.toString())
+          );
+        } else {
+          console.error("Неизвестный ответ сервера", data);
+        }
+      })
+      .catch((err) => console.error("Ошибка при смене избранного:", err));
+  }
+
   return (
     
     <main className="TableOffers">
@@ -106,23 +133,26 @@ export default function OllOffers() {
           <div className="TableOffers__content">
             <ul className="TableOffers__list">
                 {filteredOffers.map((offer) => (
-                    <li key={offer.id} className="offer-card__item" onClick={() => navigate(`/OllOffers/PageOffer/${offer.id}`)}> 
+                    <li key={offer.id} className="offer-card__item">
+                    <div onClick={() => navigate(`/OllOffers/PageOffer/${offer.id}`)}>
                       <div className="offer-card__body">
-                        <div className="offer-card__created_at">
-                          {offer.created_at}
-                          </div>
+                        <div className="offer-card__created_at">{offer.created_at}</div>
                         <div>
-                          <button className="offer-card__favorites" >
-                            {isFavorite(offer.id) ? (
-                              <img width="30px" src="/img/favoritesON.svg" alt="favorites" />
-                            ) : (
-                              <img width="30px" src="/img/favoritesOFF.svg" alt="favorites" />
-                            )}
-                          </button>
+                        <button
+                          className="offer-card__favorites"
+                          onClick={(e) => changeFavorites(e, offer.id)}
+                        >
+                          {isFavorite(offer.id) ? (
+                            <img width="30px" src="/img/favoritesON.svg" alt="favorites" />
+                          ) : (
+                            <img width="30px" src="/img/favoritesOFF.svg" alt="favorites" />
+                          )}
+                        </button>
                         </div>
                       </div>
                       <OfferCard offer={offer} viewsCount={viewsCount} />
-                    </li>
+                    </div>
+                  </li>
                 ))}
             </ul>
             <div className="offers-filters__desktop"><OfferFilters filters={filters} setFilters={setFilters}/></div>
