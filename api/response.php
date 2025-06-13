@@ -1,5 +1,6 @@
 <?php
 require_once('./db.php');
+require_once('./log.php');
 header("Access-Control-Allow-Origin: http://localhost:5173");
 header("Access-Control-Allow-Credentials: true");
 session_start();
@@ -18,14 +19,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($check && $check->num_rows > 0) {
         echo json_encode(['status' => 'error', 'message' => 'Вы уже откликались на эту вакансию']);
+        logAction($conn, $user_id, 'responce', "Повторный отклик");
         exit;
     }
 
     $sql = "INSERT INTO `applications` (user_id, offer_id, status) VALUES ('$user_id', $offer_id, 'expectation')";
     if ($conn->query($sql) === TRUE) {
         echo json_encode(['status' => 'success', 'message' => 'Ваше резюме отправленно']);
+        logAction($conn, $user_id, 'responce', "Отклик отправлен");
     } else {
-        echo json_encode(['status' => 'error', 'message' => 'Error during registration']);
+        echo json_encode(['status' => 'error', 'message' => 'Ошибка отправки отклика']);
+        logAction($conn, $user_id, 'responce', "Ошибка отправки отклика");
     }
 }
 else {

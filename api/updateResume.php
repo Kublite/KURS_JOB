@@ -1,5 +1,5 @@
 <?php
-
+require_once('./log.php');
 require_once('./db.php');
 header("Access-Control-Allow-Origin: http://localhost:5173");
 header("Access-Control-Allow-Credentials: true");
@@ -53,8 +53,10 @@ $sql .= " WHERE user_id = " . (int)$user_id;
 
         if ($conn->query($sql) === TRUE) {
             echo json_encode(['status' => 'success', 'message' => 'User is registered']);
+            logAction($conn, $user_id, 'updateResume', "Обновление резюме");
         } else {
             echo json_encode(['status' => 'error', 'message' => 'Error during registration']);
+            logAction($conn, $user_id, 'updateResume', "Ошибка обновления резюме");
         }
 } else {
     echo json_encode(['status' => 'error', 'message' => 'Invalid request method', 'method'=>$_SERVER['REQUEST_METHOD']]);

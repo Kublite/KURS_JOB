@@ -1,5 +1,6 @@
 <?php
 require_once('./db.php');
+require_once('./log.php');
 header('Access-Control-Allow-Origin: http://localhost:5173');
 header("Access-Control-Allow-Credentials: true");
 session_start();
@@ -17,8 +18,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($conn->query($sql) === TRUE) {
         echo json_encode(['status' => 'success']);
+        logAction($conn, $_SESSION['user_id'], 'updateApplications', "Обновил статус отклика: $application_id");
     } else {
         echo json_encode(['status' => 'error', 'message' => 'Failed to update status']);
+        logAction($conn, $_SESSION['user_id'], 'updateApplications', "Ошибка обновления статуса: $application_id");
     }
 } else {
     echo json_encode(['status' => 'error', 'message' => 'Invalid request method']);

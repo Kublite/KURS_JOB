@@ -3,6 +3,8 @@ header("Access-Control-Allow-Origin: http://localhost:5173");
 header("Access-Control-Allow-Credentials: true");
 session_start(); 
 require_once('./db.php');
+require_once('./log.php');
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $UserName = $_POST['UserName'] ?? null; // Используем ?? для избежания ошибок
   $password = $_POST['password'] ?? null;
@@ -17,6 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['user_id'] = $row['id'];
         $_SESSION['user_role'] = $row['role'];
         echo json_encode(['success' => true, 'role' => $row['role']]);
+        logAction($conn, $_SESSION['user_id'], 'login', 'Успешная авторизация');
         exit();
       }
     }else{

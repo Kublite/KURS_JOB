@@ -1,6 +1,7 @@
 <?php
 
 require_once('./db.php');
+require_once('./log.php');
 header("Access-Control-Allow-Origin: http://localhost:5173");
 header("Access-Control-Allow-Credentials: true");
 session_start();
@@ -33,9 +34,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     salary = " . ($salary !== null ? "'" . $conn->real_escape_string($salary) . "'" : "NULL") . "
     WHERE id = " . (int)$id;
         if ($conn->query($sql) === TRUE) {
-            echo json_encode(['status' => 'success', 'message' => 'User is registered']);
+            echo json_encode(['status' => 'success', 'message' => 'Вакансия обновлена']);
+            logAction($conn, $_SESSION['user_id'], 'updateOffer', "Обновлена вакансия: $id");
         } else {
-            echo json_encode(['status' => 'error', 'message' => 'Error during registration']);
+            echo json_encode(['status' => 'error', 'message' => 'Ошибка обновления вакансии']);
+            logAction($conn, $_SESSION['user_id'], 'updateOffer', "Ошибка обновления вакансии: $id");
         }
     }
 } else {

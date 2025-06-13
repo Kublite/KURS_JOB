@@ -1,5 +1,6 @@
 <?php
 require_once('./db.php');
+require_once('./log.php');
 header("Access-Control-Allow-Origin: http://localhost:5173");
 header("Access-Control-Allow-Credentials: true");
 session_start();
@@ -52,7 +53,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($stmt->execute()) {
         echo json_encode(['status' => 'success', 'message' => 'Резюме сохранено']);
+        logAction($conn, $user_id, 'createresume', "Резюме сохранено");
     } else {
         echo json_encode(['status' => 'error', 'message' => 'Ошибка при сохранении']);
+        logAction($conn, $user_id, 'createresume', "Ошибка при сохранении резюме");
     }
 }

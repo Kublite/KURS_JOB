@@ -18,7 +18,10 @@ export default function Registration(){
         return response.json();
       })
       .then((data) => {
-        console.log(data); // Обрабатываем данные, полученные от сервера
+        console.log(data);
+        if (data.status === 'success') {
+          alert('Пользователь зарегестрирован');
+        }
       })
       .catch((error) => {
         // Обрабатываем ошибку

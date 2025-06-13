@@ -1,5 +1,6 @@
 <?php
 require_once('./db.php');
+require_once('./log.php');
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Credentials: true");
 header("Content-Type: application/json");
@@ -22,4 +23,5 @@ if ($row = $result->fetch_assoc()) {
   echo json_encode(['status' => 'true', 'page' => $row]);
 } else {
   echo json_encode(['status' => 'error', 'message' => 'Страница не найдена']);
+  logAction($conn, $_SESSION['user_id'], 'getPage', "Переход на несуществующую страницу");
 }

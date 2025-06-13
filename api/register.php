@@ -1,5 +1,6 @@
 <?php
 require_once('./db.php');
+require_once('./log.php');
 header("Access-Control-Allow-Origin: http://localhost:5173");
 header("Access-Control-Allow-Credentials: true");
 // Проверяем, был ли запрос методом POST
@@ -17,9 +18,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Выполняем SQL-запрос
         $sql = "INSERT INTO `users` (UserName, pass, email, role) VALUES ('$UserName', '$password', '$email', '$role')";
         if ($conn->query($sql) === TRUE) {
-            echo json_encode(['status' => 'success', 'message' => 'User is registered']);
+            echo json_encode(['status' => 'success', 'message' => 'Пользователь зарегистрирован']);
+            logAction($conn, $_SESSION['user_id'], 'register', "Зарегистрирован пользователь: '$UserName");
         } else {
             echo json_encode(['status' => 'error', 'message' => 'Error during registration']);
+            logAction($conn, $_SESSION['user_id'], 'register', "Ошибка регистрации");
         }
     }
 } else {

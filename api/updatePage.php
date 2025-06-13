@@ -1,5 +1,6 @@
 <?php
 require_once('./db.php');
+require_once('./log.php');
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Credentials: true");
 header("Content-Type: application/json");
@@ -19,6 +20,8 @@ $stmt->bind_param("ss", $content, $page);
 
 if ($stmt->execute()) {
   echo json_encode(['status' => 'success']);
+  logAction($conn, $_SESSION['user_id'], 'updatePage', "Обновление страницы: $page");
 } else {
   echo json_encode(['status' => 'error', 'message' => 'Ошибка при сохранении']);
+  logAction($conn, $_SESSION['user_id'], 'updatePage', "Обновление страницы:$page");
 }
