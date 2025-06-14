@@ -2,10 +2,12 @@ import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import MDEditor from "@uiw/react-md-editor";
+import Toast from "../components/Toast";
 
 export default function PageOffer(){
     const [offer, setOffer] = useState([]);
     const { id } = useParams();
+    const [toast, setToast] = useState(null);
 
      useEffect(() => {
         fetch("/api/editOffer.php", {
@@ -45,10 +47,10 @@ export default function PageOffer(){
         })
         .then((response) => response.json())
         .then((data) => {
-            if (data.status === 'true') {
-                alert('Резюме отправили');
+            if (data.status === 'success') { 
+                setToast({ message: "Резюме отправлено", type: "success" });
             } else {
-              alert(data.message);
+              setToast({ message: data.message, type: "error" });
             }
         })
         .catch((error) => {
@@ -69,6 +71,13 @@ export default function PageOffer(){
                 </div>
                 ))}
             </div>
+            {toast && (
+                    <Toast
+                      message={toast.message}
+                      type={toast.type}
+                      onClose={() => setToast(null)}
+                    />
+                  )}
         </main>
     )
 }

@@ -1,11 +1,13 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import Logout from '../../scripts/Logout'
+import SimpleNotifications from '../SimpleNotifications';
 
 export default function HeaderAdmin(){
     return(
         <>
             <ul className="header__menu-list">
+            <SimpleNotifications />
                 <li className="header__menu-item">
                     <Link to='/' className="header__menu-link">Редактировать</Link>
                 </li>
@@ -21,6 +23,7 @@ export default function HeaderAdmin(){
                 </li>
             </ul>
             <ul className="mobile-overlay__list">
+            <SimpleNotifications />
                 <li className="mobile-overlay__item">
                     <Link to='/' className="header__menu-link">Редактировать</Link>
                 </li>

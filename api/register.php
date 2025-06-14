@@ -1,31 +1,32 @@
 <?php
 require_once('./db.php');
 require_once('./log.php');
-header("Access-Control-Allow-Origin: http://localhost:5173");
+
+header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Credentials: true");
-// Проверяем, был ли запрос методом POST
+header("Content-Type: application/json; charset=utf-8");
+
+session_start();
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Получаем данные из POST
-    $UserName = $_POST['UserName'] ?? null; // Используем ?? для избежания ошибок
+    $UserName = $_POST['UserName'] ?? null;
     $password = $_POST['password'] ?? null;
     $email = $_POST['email'] ?? null;
     $role = $_POST['role'] ?? null;
 
-    // Проверяем, заполнены ли поля
     if (empty($UserName) || empty($password) || empty($email) || empty($role)) {
-        echo json_encode(['status' => 'error', 'message' => 'Fields are not filled']);
+        echo json_encode(['status' => 'error', 'message' => 'Заполнены не все поля']);
+        exit;
+    }
+
+    $sql = "INSERT INTO `users` (UserName, pass, email, role) VALUES ('$UserName', '$password', '$email', '$role')";
+    if ($conn->query($sql) === TRUE) {
+        logAction($conn, $_SESSION['user_id'] ?? null, 'register', "Зарегистрирован пользователь: $UserName");
+        echo json_encode(['status' => 'success', 'message' => 'Пользователь зарегистрирован']);
     } else {
-        // Выполняем SQL-запрос
-        $sql = "INSERT INTO `users` (UserName, pass, email, role) VALUES ('$UserName', '$password', '$email', '$role')";
-        if ($conn->query($sql) === TRUE) {
-            echo json_encode(['status' => 'success', 'message' => 'Пользователь зарегистрирован']);
-            logAction($conn, $_SESSION['user_id'], 'register', "Зарегистрирован пользователь: '$UserName");
-        } else {
-            echo json_encode(['status' => 'error', 'message' => 'Error during registration']);
-            logAction($conn, $_SESSION['user_id'], 'register', "Ошибка регистрации");
-        }
+        logAction($conn, $_SESSION['user_id'] ?? null, 'register', "Ошибка регистрации");
+        echo json_encode(['status' => 'error', 'message' => 'Ошибка при регистрации']);
     }
 } else {
-    echo json_encode(['status' => 'error', 'message' => 'Invalid request method', 'method'=>$_SERVER['REQUEST_METHOD']]);
+    echo json_encode(['status' => 'error', 'message' => 'Invalid request method']);
 }
-?>

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import MDEditor from "@uiw/react-md-editor";
+import Toast from "../components/Toast";
 
 export default function EditPage() {
+  const [toast, setToast] = useState(null);
   const [content, setContent] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
   const page = window.location.pathname.split('/').pop();
@@ -22,11 +24,11 @@ export default function EditPage() {
           setContent(data.page.content || "");
           setIsLoaded(true);
         } else {
-          alert("Ошибка загрузки данных");
+          setToast({ message: "Ошибка загрузки данных", type: "error" });
         }
       })
       .catch(() => {
-        alert("Ошибка при подключении к серверу");
+        setToast({ message: "Ошибка при подключении к серверу", type: "error" });
       });
   }, [page]);
 
@@ -46,12 +48,13 @@ export default function EditPage() {
       .then(res => res.json())
       .then((data) => {
         if (data.status === 'success') {
-          alert("Контент успешно сохранён");
+          setToast({ message: "Контент успешно сохранён", type: "success" });
         } else {
-          alert("Ошибка при сохранении");
+          setToast({ message: "Ошибка при сохранении", type: "error" });
         }
       })
-      .catch(() => alert("Ошибка соединения с сервером"));
+      .catch(() =>
+      setToast({ message: "Ошибка соединения с сервером", type: "error" }));
   };
 
   return (
@@ -65,6 +68,13 @@ export default function EditPage() {
           <button type="submit" className="edit-page__save-button">Сохранить</button>
         </form>
       )}
+      {toast && (
+              <Toast
+                message={toast.message}
+                type={toast.type}
+                onClose={() => setToast(null)}
+              />
+            )}
     </main>
   );
 }

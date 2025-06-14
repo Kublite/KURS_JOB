@@ -19,6 +19,9 @@
   &__menu {
     font-size: 22px;
 
+    &-item {
+      list-style: none;
+    }
     &-list {
       display: flex;
       align-items: center;

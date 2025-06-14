@@ -1,5 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
+import Toast from "../components/Toast";
+
 export default function Registration(){
+  const [toast, setToast] = useState(null);
+
   function registerForm(event){
     event.preventDefault();
 
@@ -18,14 +22,14 @@ export default function Registration(){
         return response.json();
       })
       .then((data) => {
-        console.log(data);
         if (data.status === 'success') {
-          alert('Пользователь зарегестрирован');
+          setToast({ message: "Пользователь зарегистрирован", type: "success" });
+        } else {
+          setToast({ message: data.message || "Ошибка регистрации", type: "error" });
         }
       })
-      .catch((error) => {
-        // Обрабатываем ошибку
-        console.error("no", error);
+      .catch(() => {
+        setToast({ message: "Ошибка сети", type: "error" });
       });
   }
 
@@ -72,6 +76,13 @@ export default function Registration(){
         </button>
       </div>
     </form>
+    {toast && (
+        <Toast
+          message={toast.message}
+          type={toast.type}
+          onClose={() => setToast(null)}
+        />
+      )}
   </div>
 </main>
     )

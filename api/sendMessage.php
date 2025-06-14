@@ -1,7 +1,8 @@
 <?php
 require_once('./db.php');
 require_once('./log.php');
-header("Access-Control-Allow-Origin: http://localhost:5173");
+require_once('./notify.php');
+header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Credentials: true");
 header("Content-Type: application/json; charset=UTF-8");
 
@@ -23,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($stmt->execute()) {
             echo json_encode(['status' => 'success', 'message' => 'Сообщение отправлено']);
             logAction($conn, $_SESSION['user_id'], 'sendMessage', "Сообщение отправлено");
+            addNotification($conn, 3, "Вам пришло письмо"); 
         } else {
             echo json_encode(['status' => 'error', 'message' => 'Ошибка при отправке сообщения']);
             logAction($conn, $_SESSION['user_id'], 'sendMessage', "Ошибка при отправке сообщения");

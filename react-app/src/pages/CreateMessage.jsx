@@ -1,6 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
+import Toast from "../components/Toast";
 
 export default function CreateMessage(){
+    const [toast, setToast] = useState(null);
 
     function SendMessage(event){
         event.preventDefault();
@@ -8,18 +10,23 @@ export default function CreateMessage(){
         const form = event.target.closest('form'); // получаем форму
         const messageData = new FormData(form);
 
-        fetch("/api/sendMessage.php",{
+        fetch("/api/sendMessage.php", {
             method: "POST",
             credentials: "include",
             body: messageData,
-        })
-        .then(() => {
-            alert("Сообщение отправлено!");
           })
-        .catch((err) => {
+          .then((response) => response.json()) // 👈 ОБЯЗАТЕЛЬНО!
+          .then((data) => {
+            if (data.status === 'success') {
+              setToast({ message: "Сообщение отправлено", type: "success" });
+            } else {
+              setToast({ message: data.message || "Ошибка отправки", type: "error" });
+            }
+          })
+          .catch((err) => {
             console.error("Ошибка отправки", err);
-            alert("Произошла ошибка при отправке.");
-        })
+            setToast({ message: err.message, type: "error" });
+          });
     }
 
 
@@ -63,6 +70,13 @@ export default function CreateMessage(){
                         <button className="createMessage__form-button-submit" type="submit">Отправить</button>
                     </div>
                 </form>
+                {toast && (
+                        <Toast
+                          message={toast.message}
+                          type={toast.type}
+                          onClose={() => setToast(null)}
+                        />
+                      )}
             </div>
         </main>
     )

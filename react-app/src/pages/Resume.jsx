@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import MDEditor from "@uiw/react-md-editor";
+import Toast from "../components/Toast";
 
 export default function Resume(){
     const [image, setImage] = useState(null);
@@ -7,6 +8,7 @@ export default function Resume(){
     const [description, setDescription] = useState("");
     const [dataResume, setDataResume] = useState({});
     const [isEditing, setIsEditing] = useState(false);
+    const [toast, setToast] = useState(null);
 
     const handleImageUpload = (e) => { //загрузка фото
         const file = e.target.files[0];
@@ -58,15 +60,13 @@ export default function Resume(){
         })
         .then((data) => {
             if (data.status === 'success') {
-                alert('Ваше резюме успешно сохранено');
+                setToast({ message: "Ваше резюме успешно сохранено", type: "success" });
               } else {
-                alert('Ошибка: ' + data.message);
+                setToast({ message: 'Ошибка: ' + data.message, type: "error" });
               }
           })
-        .catch((error) => {
-            console.error("no", error);
-            alert('Ошибка');
-            console.log(isEditing)
+        .catch(() => {
+            setToast({ message: 'Ошибка сервера', type: "error" });
           })
 
     }
@@ -176,6 +176,13 @@ export default function Resume(){
                     </div>
                 </form>
                 )}
+                {toast && (
+                        <Toast
+                          message={toast.message}
+                          type={toast.type}
+                          onClose={() => setToast(null)}
+                        />
+                      )}
             </div>
         </main>
     )

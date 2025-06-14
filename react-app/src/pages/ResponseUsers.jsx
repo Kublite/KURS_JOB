@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
+import Toast from "../components/Toast";
 
 export default function ResponseUsers(){
+  const [toast, setToast] = useState(null);
     const navigate = useNavigate();
     const [ResponseUsers, setResponseUsers] = useState([]);
 
@@ -31,10 +33,9 @@ export default function ResponseUsers(){
           .then((response) => response.json())
           .then((data) => {
             if (data.status === 'success') {
-              alert('Статус обновлён');
-              // по желанию: обнови список вручную
+              setToast({ message: "Статус обновлён", type: "success" });
             } else {
-              alert('Ошибка: ' + data.message);
+              setToast({ message: 'Ошибка: ' + data.message, type: "error" });
             }
           })
           .catch((error) => {
@@ -63,6 +64,13 @@ export default function ResponseUsers(){
              ))}
         </ul>
       )}
+      {toast && (
+              <Toast
+                message={toast.message}
+                type={toast.type}
+                onClose={() => setToast(null)}
+              />
+            )}
         </div>
     </main>
     )

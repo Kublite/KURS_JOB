@@ -1,9 +1,15 @@
 <?php
 require_once('./log.php');
 require_once('./db.php');
-header("Access-Control-Allow-Origin: http://localhost:5173");
+header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Credentials: true");
 session_start();
+
+function addNotification($user_id, $message, $conn) {
+    $stmt = $conn->prepare("INSERT INTO notifications (user_id, message, is_read, created_at) VALUES (?, ?, 0, NOW())");
+    $stmt->bind_param("is", $user_id, $message);
+    $stmt->execute();
+}
 // Проверяем, был ли запрос методом POST
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user_id = $_SESSION['user_id'];
@@ -54,6 +60,7 @@ $sql .= " WHERE user_id = " . (int)$user_id;
         if ($conn->query($sql) === TRUE) {
             echo json_encode(['status' => 'success', 'message' => 'User is registered']);
             logAction($conn, $user_id, 'updateResume', "Обновление резюме");
+            addNotification($user_id, "Вы успешно обновили резюме", $conn);
         } else {
             echo json_encode(['status' => 'error', 'message' => 'Error during registration']);
             logAction($conn, $user_id, 'updateResume', "Ошибка обновления резюме");

@@ -2,11 +2,13 @@ import React from "react";
 import DropdownItem from '../../scripts/DropdownItem';
 import { Link } from 'react-router-dom';
 import Logout from '../../scripts/Logout'
+import SimpleNotifications from '../SimpleNotifications';
 
 export default function HeaderHR(){
     return(
         <>
             <ul className="header__menu-list">
+            <SimpleNotifications />
         <DropdownItem title="Инфо">
           <ul className="dropdown-menu__list">
             <li className="dropdown-menu__item">
@@ -30,9 +32,6 @@ export default function HeaderHR(){
               <Link to='/TableOffers' className="dropdown-menu__link">Вакансии</Link>
             </li>
             <li className="dropdown-menu__item">
-              <a href="" className="dropdown-menu__link">Резюме</a>
-            </li>
-            <li className="dropdown-menu__item">
               <Link to='/ResponseUsers' className="dropdown-menu__link">Отклики</Link>
             </li>
           </ul>
@@ -45,6 +44,7 @@ export default function HeaderHR(){
         < Logout />
         </li>
       </ul>
+
       <ul className="mobile-overlay__list">
       <DropdownItem title="Инфо">
         <li className="dropdown-menu__item">
@@ -66,9 +66,6 @@ export default function HeaderHR(){
           <Link to='/TableOffers' className="dropdown-menu__link">Вакансии</Link>
         </li>
         <li className="dropdown-menu__item">
-          <a href="" className="dropdown-menu__link">Резюме</a>
-        </li>
-        <li className="dropdown-menu__item">
           <Link to='/ResponseUsers' className="dropdown-menu__link">Отклики</Link>
         </li>
       </DropdownItem>
@@ -80,6 +77,7 @@ export default function HeaderHR(){
       <li className="mobile-overlay__item">
       < Logout />
       </li>
+      <SimpleNotifications />
     </ul>
         </>
     )

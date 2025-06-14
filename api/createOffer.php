@@ -1,6 +1,6 @@
 <?php
 require_once('./db.php');
-header("Access-Control-Allow-Origin: http://localhost:5173");
+header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Credentials: true");
 session_start();
 $user_id = $_SESSION['user_id'];

@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import MDEditor from "@uiw/react-md-editor";
 import { useNavigate } from 'react-router-dom';
+import Toast from "../components/Toast";
 
 export default function CreateOffers(){
     const [description, setDescription] = useState("");
     const navigate = useNavigate();
+    const [toast, setToast] = useState(null);
 
 
   function offersForm(event){
@@ -30,15 +32,15 @@ export default function CreateOffers(){
       })
       .then((data) => {
         if (data.status === 'success') {
-            alert('Вакансия успешно создана');
+            setToast({ message: "Вакансия успешно создана", type: "success" });
           } else {
-            alert('Ошибка: ' + data.message);
+            setToast({ message: 'Ошибка: ' + data.message, type: "error" });
           }
       })
       .catch((error) => {
         // Обрабатываем ошибку
         console.error("no", error);
-        alert('Ошибка');
+        setToast({ message: 'Ошибка', type: "error" });
       });
 
     
@@ -122,6 +124,13 @@ export default function CreateOffers(){
                         <button className="createOffers__form-button-submit" type="submit" onClick={() => navigate(`/TableOffers/`)}>Создать</button>
                     </div>
                 </form>
+                {toast && (
+                        <Toast
+                          message={toast.message}
+                          type={toast.type}
+                          onClose={() => setToast(null)}
+                        />
+                      )}
             </div>
         </main>
     )

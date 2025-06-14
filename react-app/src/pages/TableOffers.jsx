@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import OfferCard from "../components/OfferCard";
+import Toast from "../components/Toast";
 
 export default function TableOffers() {
   const [offers, setOffers] = useState([]);
   const navigate = useNavigate();
   const [viewsCount, setViewsCount] = useState([]);
   const paramOffer = 'my';
+  const [toast, setToast] = useState(null);
 
   useEffect(() => {
     fetch("/api/tableOffers.php", {
@@ -44,8 +46,9 @@ export default function TableOffers() {
         if (data.status === 'success') {
           // Удаляем из состояния
           setOffers(prev => prev.filter(offer => offer.id !== id));
+          setToast({ message: "Вакансия удалена", type: "success" });
         } else {
-          alert('Ошибка удаления');
+          setToast({ message: "Ошибка удаления", type: "error" });
         }
       })
       .catch((error) => {
@@ -100,6 +103,13 @@ export default function TableOffers() {
                 ))}
             </ul>
       )}
+      {toast && (
+              <Toast
+                message={toast.message}
+                type={toast.type}
+                onClose={() => setToast(null)}
+              />
+            )}
         </div>
     </main>
   );

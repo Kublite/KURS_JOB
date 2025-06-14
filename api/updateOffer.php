@@ -2,7 +2,7 @@
 
 require_once('./db.php');
 require_once('./log.php');
-header("Access-Control-Allow-Origin: http://localhost:5173");
+header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Credentials: true");
 session_start();
 // Проверяем, был ли запрос методом POST

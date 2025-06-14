@@ -4,6 +4,7 @@ import HeaderAdmin from './HeaderAdmin';
 import HeaderHR from './HeaderHR';
 import HeaderStudent from './HeaderStudent';
 import useAuth from '../../scripts/auth';
+import SimpleNotifications from '../SimpleNotifications';
 
 export default function Header(){
   const [isMobileMenuOpen, setMobileMenuOpen]=useState(false);
@@ -50,6 +51,7 @@ export default function Header(){
               <nav className ="header__menu hidden-mobile">
               {MenuComponent && <MenuComponent />}
               </nav>
+
               <button
                 className="button__burger-button burger-button visible-mobile"
                 type="button"

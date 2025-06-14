@@ -2,11 +2,13 @@ import React from "react";
 import DropdownItem from '../../scripts/DropdownItem';
 import { Link } from 'react-router-dom';
 import Logout from '../../scripts/Logout'
+import SimpleNotifications from '../SimpleNotifications';
 
 export default function HeaderStudent(){
     return(
         <>
            <ul className="header__menu-list">
+            <SimpleNotifications />
           <DropdownItem title="Инфо">
           <ul className="dropdown-menu__list">
             <li className="dropdown-menu__item">
@@ -62,7 +64,7 @@ export default function HeaderStudent(){
             <Link to='/Praktika' className="dropdown-menu__link">О практке</Link>
           </li>
           </DropdownItem>
-
+          <SimpleNotifications />
       <DropdownItem title="Карьера">
           <li className="dropdown-menu__item">
             <Link to='/OllOffers' className="dropdown-menu__link">Вакансии</Link>
