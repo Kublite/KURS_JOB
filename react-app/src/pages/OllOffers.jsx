@@ -14,6 +14,7 @@ export default function OllOffers() {
           format:'',
           speciality:'',
           city:'',
+          onlyFavorites: false
       })
 
   useEffect(() => {
@@ -33,13 +34,18 @@ export default function OllOffers() {
       });
   }, []);
   const filteredOffers = offers.filter((offer) => {
-    return (
+    const matchFilters =
       (!filters.city || offer.city === filters.city) &&
       (!filters.employment || offer.employment === filters.employment) &&
-      (!filters.format || offer.format === filters.format)&&
-      (!filters.speciality || offer.speciality === filters.speciality)
-    );
+      (!filters.format || offer.format === filters.format) &&
+      (!filters.speciality || offer.speciality === filters.speciality);
+  
+    const matchFavorite =
+      !filters.onlyFavorites || favorites.some(fav => fav.offer_id === offer.id.toString());
+  
+    return matchFilters && matchFavorite;
   });
+  
 
   useEffect(() => {
     fetch("/api/getViewsCount.php", {

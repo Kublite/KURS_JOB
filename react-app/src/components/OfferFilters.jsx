@@ -36,7 +36,7 @@ export default function OfferFilters({filters, setFilters}){
               </select>
             </div>
             <div className="offers-filters__form-block">
-            <p className="offers-filters__name">Формат работы</p>
+              <p className="offers-filters__name">Формат работы</p>
               <select value={filters.city} onChange={(e) => setFilters({ ...filters, city: e.target.value })} name="city" className="createOffers__form-block-input">
                 <option value="">Город</option>
                 <option value="Москва">Москва и МО</option>
@@ -47,6 +47,19 @@ export default function OfferFilters({filters, setFilters}){
                 <option value="Рязань">Рязань</option>
               </select>
             </div>
+            <div className="offers-filters__form-block">
+              <label className="offers-filters__checkbox">
+                <input
+                  type="checkbox"
+                  checked={filters.onlyFavorites}
+                  onChange={(e) =>
+                    setFilters({ ...filters, onlyFavorites: e.target.checked })
+                  }
+                />
+                Только избранные
+              </label>
+            </div>
+
             <div className="offers-filters__form-button">
               <button className="offers-filters__form-button-back" >Сбросить</button>
             </div>
