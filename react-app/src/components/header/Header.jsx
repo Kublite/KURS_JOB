@@ -4,8 +4,7 @@ import HeaderAdmin from './HeaderAdmin';
 import HeaderHR from './HeaderHR';
 import HeaderStudent from './HeaderStudent';
 import useAuth from '../../scripts/auth';
-import SimpleNotifications from '../SimpleNotifications';
-
+import HeaderNone from './HeaderNone';
 export default function Header(){
   const [isMobileMenuOpen, setMobileMenuOpen]=useState(false);
   const [isClosing, setIsClosing]=useState(false);
@@ -17,6 +16,7 @@ export default function Header(){
   if(role=='admin'){MenuComponent =HeaderAdmin}
   else if(role=='HR'){MenuComponent =HeaderHR}
   else if(role=='student'){MenuComponent =HeaderStudent}
+  else{MenuComponent =HeaderNone}
 
   const openMenu=()=>{
     setMobileMenuOpen(true);

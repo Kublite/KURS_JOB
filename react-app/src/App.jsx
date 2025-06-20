@@ -31,10 +31,17 @@ export default function App(){
     if(!authenticated){
       return (
         <Router>
+          <Header />
           <Routes>
+          <Route path="/" element={<ViewingPage/>}/>
             <Route path="/Login" element={<Login />} />
+            <Route path="/CareerCenter" element={<ViewingPage />} />
+              <Route path="/News" element={<ViewingPage />} />
+              <Route path="/Praktika" element={<ViewingPage />} />
+              <Route path="/Rabotodatelyam" element={<ViewingPage />} />
             <Route path="*" element={<Navigate to="/login" replace />} />
           </Routes>
+          <Footer />
         </Router>
       );
     }

@@ -66,7 +66,7 @@ export default function EditOffers(){
             <div className="createOffers__inner">
             {offer &&(
                 <form action="" className="createOffers__form" method="post" id="register-form" onSubmit={UpdateOffers}>
-                    <h1 className="createOffers__form-name">Создать вакансию</h1>
+                    <h1 className="createOffers__form-name">Редактор вакансии</h1>
                     <div className="createOffers__form-block">
                         <input
                         className="createOffers__form-block-input"
@@ -95,12 +95,6 @@ export default function EditOffers(){
                         </select>
                     </div>
                     <div className="createOffers__form-block">
-                        <textarea
-                        className="createOffers__form-block-input"
-                        placeholder="Описание"
-                        name="description"
-                        defaultValue={offer.description}
-                        />
                         <label htmlFor="description">Описание</label>
                         <div data-color-mode="light">
                             <MDEditor value={offer.description} onChange={(value)=>setOffer({...offer, description: value})}/>

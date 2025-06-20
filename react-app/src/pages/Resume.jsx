@@ -18,9 +18,18 @@ export default function Resume(){
         }
     };
 
-    const generatePDF = () => {
-        window.open(`/generate-resume-pdf/${dataResume.user_id}`, '_blank');
-      };
+  const generatePDF = () => {
+    // Добавляем проверку на Chrome
+    const isChrome = /chrome/i.test(navigator.userAgent);
+    
+    if (isChrome) {
+      // Для Chrome открываем в той же вкладке с параметром
+      window.location.href = `/generate-resume-pdf/${dataResume.user_id}?chrome=1`;
+    } else {
+      // Для других браузеров стандартное поведение
+      window.open(`/generate-resume-pdf/${dataResume.user_id}`, '_blank');
+    }
+  };
 
     useEffect(() => {
         fetch('/api/getResume.php', {

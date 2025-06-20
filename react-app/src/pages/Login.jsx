@@ -1,6 +1,8 @@
 import React, {useState} from "react";
+import Toast from "../components/Toast";
 
 export default function Login(){
+  const [toast, setToast] = useState(null);
   const[role, setRole]=useState('');
   const [error, setError] = useState('');
 
@@ -18,10 +20,10 @@ export default function Login(){
       .then(response=>response.json())
       .then(data=>{
         if(data.role){setRole(data.role);  window.location.href = '/';}
-        else{setError('Неверный логин или пароль')}
+        else{setToast({ message: 'Неверный логин или пароль', type: "error" });}
       })
       .catch(error=>{console.error(error);
-        setError('Ошибка')
+        setToast({ message: 'Ошибка', type: "error" });
       })
   }
     return(
@@ -60,6 +62,13 @@ export default function Login(){
       </div>
     </form>
   </div>
+  {toast && (
+                <Toast
+                  message={toast.message}
+                  type={toast.type}
+                  onClose={() => setToast(null)}
+                />
+              )}
 </main>
 
     )

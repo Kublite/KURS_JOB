@@ -5,7 +5,7 @@ body {
   font-size: 18px;
   line-height: 1.28;
   color: var(--color-dark);
-  background-color: var(--color-light);
+  /* background-color: var(--color-light); */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -72,4 +72,8 @@ div,
 section {
   break-inside: avoid;
   page-break-inside: avoid;
+}
+textarea {
+  min-width: 100%;
+  max-width: 100%;
 }
