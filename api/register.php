@@ -19,6 +19,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     }
 
+    $check_sql = "SELECT * FROM `users` WHERE UserName = '$UserName' OR email = '$email'";
+    $result = $conn->query($check_sql);
+
+    if ($result->num_rows > 0) {
+        echo json_encode(['status' => 'error', 'message' => 'Пользователь с таким именем или email уже существует']);
+        exit;
+    }
+
     $sql = "INSERT INTO `users` (UserName, pass, email, role) VALUES ('$UserName', '$password', '$email', '$role')";
     if ($conn->query($sql) === TRUE) {
         logAction($conn, $_SESSION['user_id'] ?? null, 'register', "Зарегистрирован пользователь: $UserName");

@@ -810,7 +810,9 @@ textarea {
 }
 
 .OllUsers-form {
+  display: flex;
   margin: 2rem;
+  gap: 12px;
 }
 
 .offer-card__item {
