@@ -55,3 +55,30 @@
     }
   }
 }
+
+.ollUsser__form-button {
+  display: flex;
+  margin-top: 2rem;
+  justify-content: center;
+}
+.OllUsers__form-block-input {
+  @include mobile {
+    display: block;
+    width: 100%;
+  }
+  @include standart-register-input;
+  width: 20%;
+  &--email {
+    @include standart-register-input;
+    width: 30%;
+  }
+}
+.OllUsers__form-block-button {
+  @include red-button;
+}
+.OllUsers-ul {
+  padding: 0;
+}
+.OllUsers-form {
+  margin: 2rem;
+}

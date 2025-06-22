@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Toast from "../components/Toast";
+import { Link } from 'react-router-dom';
 
 export default function Registration(){
   const [toast, setToast] = useState(null);
@@ -35,6 +36,7 @@ export default function Registration(){
 
     return(
         <main className="registration">
+          <div className="container-flex">
   <div className="registration__inner">
     <form action="" className="registration__form" method="post" id="register-form" onSubmit={registerForm}>
       <div className="registration__form-title">Зарегистрировать пользователя</div>
@@ -76,6 +78,7 @@ export default function Registration(){
         </button>
       </div>
     </form>
+    
     {toast && (
         <Toast
           message={toast.message}
@@ -83,6 +86,10 @@ export default function Registration(){
           onClose={() => setToast(null)}
         />
       )}
+  </div>
+  <div className="ollUsser__form-button">
+    <Link to='/Registration/СontrolUsers' className="ollUsser__form-button-submit">Все пользователи</Link>
+  </div>
   </div>
 </main>
     )

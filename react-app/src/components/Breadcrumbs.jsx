@@ -20,7 +20,8 @@ const breadcrumbNameMap = {
   "generate-resume-pdf": "PDF резюме",
   "Rabotodatelyam": "Работодателям",
   "News": "Новости", 
-  "Praktika": "О практике"
+  "Praktika": "О практике",
+  "СontrolUsers": "Управление польщователями"
 };
 
 export default function Breadcrumbs() {

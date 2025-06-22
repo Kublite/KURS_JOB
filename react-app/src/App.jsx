@@ -23,6 +23,7 @@ import Breadcrumbs from "./components/Breadcrumbs";
 import SelectPage from "./pages/SelectPage";
 import EditPage from "./pages/EditPage";
 import ViewingPage from "./pages/ViewingPage";
+import СontrolUsers from "./pages/СontrolUsers";
 
 export default function App(){
   const { loading, authenticated, role } = useAuth();
@@ -64,6 +65,7 @@ export default function App(){
               <Route path="/News" element={<EditPage />} />
               <Route path="/Praktika" element={<EditPage />} />
               <Route path="/Rabotodatelyam" element={<EditPage />} />
+              <Route path="/Registration/СontrolUsers" element={<СontrolUsers />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           <Footer />

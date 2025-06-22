@@ -724,6 +724,95 @@ textarea {
   }
 }
 
+.ollUsser__form-button {
+  display: flex;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+.OllUsers__form-block-input {
+  color: inherit;
+  border: var(--border);
+  border-radius: var(--border-radus);
+  padding: 6px 12px;
+  outline: none;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  width: 20%;
+}
+@media (max-width: 769px) {
+  .OllUsers__form-block-input {
+    display: block;
+    width: 100%;
+  }
+}
+.OllUsers__form-block-input, .OllUsers__form-block-input:hover {
+  text-decoration: none;
+}
+@media (hover: hover) {
+  .OllUsers__form-block-input:hover {
+    border-color: #ac0000;
+  }
+}
+@media (hover: none) {
+  .OllUsers__form-block-input:active {
+    border-color: #ac0000;
+  }
+}
+.OllUsers__form-block-input--email {
+  color: inherit;
+  border: var(--border);
+  border-radius: var(--border-radus);
+  padding: 6px 12px;
+  outline: none;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  width: 30%;
+}
+.OllUsers__form-block-input--email, .OllUsers__form-block-input--email:hover {
+  text-decoration: none;
+}
+@media (hover: hover) {
+  .OllUsers__form-block-input--email:hover {
+    border-color: #ac0000;
+  }
+}
+@media (hover: none) {
+  .OllUsers__form-block-input--email:active {
+    border-color: #ac0000;
+  }
+}
+
+.OllUsers__form-block-button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  background-color: var(--color-accent);
+  color: #fff;
+  border-radius: var(--border-radus);
+  padding: 6px 12px;
+}
+@media (hover: hover) {
+  .OllUsers__form-block-button:hover {
+    background-color: #ac0000;
+  }
+}
+@media (hover: none) {
+  .OllUsers__form-block-button:active {
+    background-color: #ac0000;
+  }
+}
+
+.OllUsers-ul {
+  padding: 0;
+}
+
+.OllUsers-form {
+  margin: 2rem;
+}
+
 .offer-card__item {
   padding: 24px 16px;
   border: solid var(--color-accent) 1px;

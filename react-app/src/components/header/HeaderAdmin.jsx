@@ -9,7 +9,7 @@ export default function HeaderAdmin(){
             <ul className="header__menu-list">
             <SimpleNotifications />
                 <li className="header__menu-item">
-                    <Link to='/' className="header__menu-link">Редактировать</Link>
+                    <Link to='/' className="header__menu-link">Контент</Link>
                 </li>
 
                 <li className="header__menu-item">
@@ -25,7 +25,7 @@ export default function HeaderAdmin(){
             <ul className="mobile-overlay__list">
             <SimpleNotifications />
                 <li className="mobile-overlay__item">
-                    <Link to='/' className="header__menu-link">Редактировать</Link>
+                    <Link to='/' className="header__menu-link">Контент</Link>
                 </li>
                 <li className="mobile-overlay__item">
                     <Link to='/TableMessage' className="header__menu-link">Письма</Link>
