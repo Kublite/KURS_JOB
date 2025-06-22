@@ -36,6 +36,7 @@ export default function EditOffers(){
     const form = event.target.closest('form'); // получаем форму
     const offerData = new FormData(form);
     offerData.append('id', id);
+    offerData.append("description", offer.description || "");
 
     fetch("/api/updateOffer.php", {
       method: "POST",
@@ -63,7 +64,7 @@ export default function EditOffers(){
   }
     return(
         <main className="createOffers">
-            <div className="createOffers__inner">
+            <div className="createOffers__inner container">
             {offer &&(
                 <form action="" className="createOffers__form" method="post" id="register-form" onSubmit={UpdateOffers}>
                     <h1 className="createOffers__form-name">Редактор вакансии</h1>
@@ -77,7 +78,12 @@ export default function EditOffers(){
                         />
                     </div>
                     <div className="createOffers__form-block">
-                        <select name="employment" className="createOffers__form-block-input" defaultValue={offer.employment}>
+                        <select
+                        className="createOffers__form-block-input"
+                        name="employment"
+                        value={offer.employment || ""}
+                        onChange={(e) => setOffer((prev) => ({ ...prev, employment: e.target.value }))}
+                        >
                             <option value="">--Тип работы--</option>
                             <option value="Стажировка">Стажировка</option>
                             <option value="Практика">Практика</option>
@@ -86,7 +92,12 @@ export default function EditOffers(){
                         </select>
                     </div>
                     <div className="createOffers__form-block">
-                        <select name="format" className="createOffers__form-block-input" defaultValue={offer.format}>
+                        <select
+                        className="createOffers__form-block-input"
+                        name="format"
+                        value={offer.format || ""}
+                        onChange={(e) => setOffer((prev) => ({ ...prev, format: e.target.value }))}
+                        >
                             <option value="">--Формат работы--</option>
                             <option value="В офисе">В офисе</option>
                             <option value="Удаленный">Удаленный</option>
@@ -109,7 +120,12 @@ export default function EditOffers(){
                         />
                     </div>
                     <div className="createOffers__form-block">
-                        <select name="speciality" className="createOffers__form-block-input" defaultValue={offer.speciality}>
+                        <select
+                        className="createOffers__form-block-input"
+                        name="speciality"
+                        value={offer.speciality || ""}
+                        onChange={(e) => setOffer((prev) => ({ ...prev, speciality: e.target.value }))}
+                        >
                             <option value="">--Специальность студента --</option>
                             <option value="ИТ">ИТ</option>
                             <option value="Экономика">Экономика</option>
@@ -118,7 +134,12 @@ export default function EditOffers(){
                         </select>
                     </div>
                     <div className="createOffers__form-block">
-                        <select name="city" className="createOffers__form-block-input" defaultValue={offer.city}>
+                        <select
+                            className="createOffers__form-block-input"
+                            name="city"
+                            value={offer.city || ""}
+                            onChange={(e) => setOffer((prev) => ({ ...prev, city: e.target.value }))}
+                        >
                             <option value="">--Город--</option>
                             <option value="Москва">Москва</option>
                             <option value="Пенза">Пенза</option>

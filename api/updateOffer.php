@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Проверяем, заполнены ли поля
     if (empty($title) || empty($employment) || empty($format) || empty($description) || empty($requirements) || empty($speciality) || empty($city)) {
-        echo json_encode(['status' => 'error', 'message' => 'Fields are not filled']);
+        echo json_encode(['status' => 'error', 'message' => 'Не все поля заполнены']);
     } else {
         // Выполняем SQL-запрос
         $sql = "UPDATE `offers` SET 
