@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $city = $_POST['city'] ?? null;
 
     if (empty($title) || empty($employment) || empty($format) || empty($description) || empty($requirements) || empty($speciality) || empty($city)) {
-        echo json_encode(['status' => 'error', 'message' => 'Fields are not filled']);
+        echo json_encode(['status' => 'error', 'message' => 'Не все поля заполнены']);
     } else {
         $sql = "INSERT INTO `offers` (title, description, requirements, speciality, city, user_id, format, employment, salary) VALUES ('$title', '$description', '$requirements', '$speciality', '$city', '$user_id', '$format', '$employment', " . ($salary !== null ? "'$salary'" : "NULL") . ")";
         if ($conn->query($sql) === TRUE) {
