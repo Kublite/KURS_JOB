@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($stmt->execute()) {
             echo json_encode(['status' => 'success', 'message' => 'Сообщение отправлено']);
             logAction($conn, $_SESSION['user_id'], 'sendMessage', "Сообщение отправлено");
-            addNotification($conn, 3, "Вам пришло письмо"); 
+            addNotification($conn, 1, "Вам пришло письмо"); 
         } else {
             echo json_encode(['status' => 'error', 'message' => 'Ошибка при отправке сообщения']);
             logAction($conn, $_SESSION['user_id'], 'sendMessage', "Ошибка при отправке сообщения");
